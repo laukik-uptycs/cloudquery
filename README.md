@@ -25,8 +25,8 @@ one can add support for new tables easily, and configurable so that one can chan
   `osqueryi --nodisable_extensions`
 - Note down the socket path  
   `.socket`
-- `cp ${CLOUDQUERY_EXT_HOME}/extension_config.json.sample ${CLOUDQUERY_EXT_HOME}/extension_config.json`
-- Edit `${CLOUDQUERY_EXT_HOME}/extension_config.json` with your cloud accounts. You can add multiple accounts for each cloud provider
+- `cp ${CLOUDQUERY_EXT_HOME}/extension_config.json.sample ${CLOUDQUERY_EXT_HOME}/config/extension_config.json`
+- Edit `${CLOUDQUERY_EXT_HOME}/config/extension_config.json` with your cloud accounts. You can add multiple accounts for each cloud provider
 - Start extension  
   `./bin/extension --socket /path/to/socket --home-directory ${CLOUDQUERY_EXT_HOME}`
 - Query data  
@@ -43,9 +43,9 @@ one can add support for new tables easily, and configurable so that one can chan
   `--extensions_timeout=3`  
   `--extensions_interval=3`
 - Copy extension config file to `/etc/osquery/cloudquery`
-  - `sudo cp ${CLOUDQUERY_EXT_HOME}/extension_config.json.sample /etc/osquery/cloudquery/extension_config.json`
-- Edit `/etc/osquery/cloudquery/extension_config.json` with your cloud accounts. You can add multiple accounts for each cloud provider
-  - `sudo vi /etc/osquery/cloudquery/extension_config.json`
+  - `sudo cp ${CLOUDQUERY_EXT_HOME}/extension_config.json.sample /etc/osquery/cloudquery/config/extension_config.json`
+- Edit `/etc/osquery/cloudquery/config/extension_config.json` with your cloud accounts. You can add multiple accounts for each cloud provider
+  - `sudo vi /etc/osquery/cloudquery/config/extension_config.json`
 - Restart osquery service.
   - `sudo service osqueryd restart`
 
