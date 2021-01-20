@@ -94,23 +94,17 @@ Press enter to get osquery prompt
 
 #### AWS
 
-- aws_ec2_image
-- aws_ec2_instance
-- aws_ec2_subnet
-- aws_ec2_vpc
-- aws_s3_bucket
+- [EC2](extension/aws/ec2/tables.md)
+- [Storage](extension/aws/s3/tables.md)
 
 #### GCP
 
-- gcp_compute_disk
-- gcp_compute_instance
-- gcp_compute_network
-- gcp_storage_bucket
+- [Compute](extension/gcp/compute/tables.md)
+- [Storage](extension/gcp/storage/tables.md)
 
 #### Azure
 
-- azure_compute_networkinterface
-- azure_compute_vm
+- [Compute](extension/azure/compute/tables.md)
 
 ### Re-configuring a table
 
