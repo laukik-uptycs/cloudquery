@@ -11,11 +11,6 @@
         "id": "987654321012",
         "credentialFile": "/home/xyz/.aws/credentials",
         "profileName": "dev-profile"
-      },
-      {
-        "id": "123456789012",
-        "credentialFile": "/home/abc/.aws/credentials",
-        "profileName": "qa-profile"
       }
     ]
   },
@@ -32,11 +27,6 @@
         "subscriptionId": "your-subscription-id1",
         "tenantId": "your-tenant-id1",
         "authFile": "/your/authfile/location/yourfile1.json"
-      },
-      {
-        "subscriptionId": "your-subscription-id2",
-        "tenantId": "your-tenant-id2",
-        "authFile": "/your/authfile/location/yourfile2.json"
       }
     ]
   }
