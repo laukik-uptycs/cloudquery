@@ -1,4 +1,56 @@
 {
+  "aws_ec2_egress_only_internet_gateway": {
+    "aws": {
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "EgressOnlyInternetGateways_Attachments",
+        "targetName": "attachments",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "EgressOnlyInternetGateways_Attachments_State",
+        "targetName": "attachments_state",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "EgressOnlyInternetGateways_Attachments_VpcId",
+        "targetName": "attachments_vpc_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "EgressOnlyInternetGateways_EgressOnlyInternetGatewayId",
+        "targetName": "egress_only_internet_gateway_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "EgressOnlyInternetGateways_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "EgressOnlyInternetGateways_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "EgressOnlyInternetGateways_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      }
+    ]
+  },
   "aws_ec2_image": {
     "aws": {
       "regionCodeAttribute": "region_code",
@@ -1123,6 +1175,1334 @@
       }
     ]
   },
+  "aws_ec2_internet_gateway": {
+    "aws": {
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "InternetGateways_Attachments",
+        "targetName": "attachments",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "InternetGateways_Attachments_State",
+        "targetName": "attachments_state",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "InternetGateways_Attachments_VpcId",
+        "targetName": "attachments_vpc_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "InternetGateways_InternetGatewayId",
+        "targetName": "internet_gateway_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "InternetGateways_OwnerId",
+        "targetName": "owner_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "InternetGateways_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "InternetGateways_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "InternetGateways_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      }
+    ]
+  },
+  "aws_ec2_nat_gateway": {
+    "aws": {
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "NatGateways_CreateTime",
+        "targetName": "create_time",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_ext",
+        "targetName": "create_time_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc",
+        "targetName": "create_time_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_cacheEnd",
+        "targetName": "create_time_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_cacheStart",
+        "targetName": "create_time_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_cacheZone",
+        "targetName": "create_time_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_cacheZone_isDST",
+        "targetName": "create_time_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_cacheZone_name",
+        "targetName": "create_time_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_cacheZone_offset",
+        "targetName": "create_time_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_name",
+        "targetName": "create_time_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_tx",
+        "targetName": "create_time_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_tx_index",
+        "targetName": "create_time_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_tx_isstd",
+        "targetName": "create_time_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_tx_isutc",
+        "targetName": "create_time_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_tx_when",
+        "targetName": "create_time_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_zone",
+        "targetName": "create_time_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_zone_isDST",
+        "targetName": "create_time_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_zone_name",
+        "targetName": "create_time_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_loc_zone_offset",
+        "targetName": "create_time_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_CreateTime_wall",
+        "targetName": "create_time_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime",
+        "targetName": "delete_time",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_ext",
+        "targetName": "delete_time_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc",
+        "targetName": "delete_time_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_cacheEnd",
+        "targetName": "delete_time_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_cacheStart",
+        "targetName": "delete_time_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_cacheZone",
+        "targetName": "delete_time_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_cacheZone_isDST",
+        "targetName": "delete_time_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_cacheZone_name",
+        "targetName": "delete_time_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_cacheZone_offset",
+        "targetName": "delete_time_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_name",
+        "targetName": "delete_time_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_tx",
+        "targetName": "delete_time_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_tx_index",
+        "targetName": "delete_time_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_tx_isstd",
+        "targetName": "delete_time_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_tx_isutc",
+        "targetName": "delete_time_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_tx_when",
+        "targetName": "delete_time_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_zone",
+        "targetName": "delete_time_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_zone_isDST",
+        "targetName": "delete_time_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_zone_name",
+        "targetName": "delete_time_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_loc_zone_offset",
+        "targetName": "delete_time_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_DeleteTime_wall",
+        "targetName": "delete_time_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_FailureCode",
+        "targetName": "failure_code",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_FailureMessage",
+        "targetName": "failure_message",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_NatGatewayAddresses",
+        "targetName": "nat_gateway_addresses",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_NatGatewayAddresses_AllocationId",
+        "targetName": "nat_gateway_addresses_allocation_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_NatGatewayAddresses_NetworkInterfaceId",
+        "targetName": "nat_gateway_addresses_network_interface_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_NatGatewayAddresses_PrivateIp",
+        "targetName": "nat_gateway_addresses_private_ip",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_NatGatewayAddresses_PublicIp",
+        "targetName": "nat_gateway_addresses_public_ip",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_NatGatewayId",
+        "targetName": "nat_gateway_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth",
+        "targetName": "provisioned_bandwidth",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime",
+        "targetName": "provisioned_bandwidth_provision_time",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_ext",
+        "targetName": "provisioned_bandwidth_provision_time_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc",
+        "targetName": "provisioned_bandwidth_provision_time_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_cacheEnd",
+        "targetName": "provisioned_bandwidth_provision_time_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_cacheStart",
+        "targetName": "provisioned_bandwidth_provision_time_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_cacheZone",
+        "targetName": "provisioned_bandwidth_provision_time_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_cacheZone_isDST",
+        "targetName": "provisioned_bandwidth_provision_time_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_cacheZone_name",
+        "targetName": "provisioned_bandwidth_provision_time_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_cacheZone_offset",
+        "targetName": "provisioned_bandwidth_provision_time_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_name",
+        "targetName": "provisioned_bandwidth_provision_time_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_tx",
+        "targetName": "provisioned_bandwidth_provision_time_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_tx_index",
+        "targetName": "provisioned_bandwidth_provision_time_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_tx_isstd",
+        "targetName": "provisioned_bandwidth_provision_time_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_tx_isutc",
+        "targetName": "provisioned_bandwidth_provision_time_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_tx_when",
+        "targetName": "provisioned_bandwidth_provision_time_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_zone",
+        "targetName": "provisioned_bandwidth_provision_time_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_zone_isDST",
+        "targetName": "provisioned_bandwidth_provision_time_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_zone_name",
+        "targetName": "provisioned_bandwidth_provision_time_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_loc_zone_offset",
+        "targetName": "provisioned_bandwidth_provision_time_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_ProvisionTime_wall",
+        "targetName": "provisioned_bandwidth_provision_time_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_Provisioned",
+        "targetName": "provisioned_bandwidth_provisioned",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime",
+        "targetName": "provisioned_bandwidth_request_time",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_ext",
+        "targetName": "provisioned_bandwidth_request_time_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc",
+        "targetName": "provisioned_bandwidth_request_time_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_cacheEnd",
+        "targetName": "provisioned_bandwidth_request_time_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_cacheStart",
+        "targetName": "provisioned_bandwidth_request_time_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_cacheZone",
+        "targetName": "provisioned_bandwidth_request_time_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_cacheZone_isDST",
+        "targetName": "provisioned_bandwidth_request_time_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_cacheZone_name",
+        "targetName": "provisioned_bandwidth_request_time_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_cacheZone_offset",
+        "targetName": "provisioned_bandwidth_request_time_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_name",
+        "targetName": "provisioned_bandwidth_request_time_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_tx",
+        "targetName": "provisioned_bandwidth_request_time_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_tx_index",
+        "targetName": "provisioned_bandwidth_request_time_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_tx_isstd",
+        "targetName": "provisioned_bandwidth_request_time_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_tx_isutc",
+        "targetName": "provisioned_bandwidth_request_time_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_tx_when",
+        "targetName": "provisioned_bandwidth_request_time_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_zone",
+        "targetName": "provisioned_bandwidth_request_time_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_zone_isDST",
+        "targetName": "provisioned_bandwidth_request_time_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_zone_name",
+        "targetName": "provisioned_bandwidth_request_time_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_loc_zone_offset",
+        "targetName": "provisioned_bandwidth_request_time_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_RequestTime_wall",
+        "targetName": "provisioned_bandwidth_request_time_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_Requested",
+        "targetName": "provisioned_bandwidth_requested",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_ProvisionedBandwidth_Status",
+        "targetName": "provisioned_bandwidth_status",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_State",
+        "targetName": "state",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_SubnetId",
+        "targetName": "subnet_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NatGateways_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NatGateways_VpcId",
+        "targetName": "vpc_id",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  },
+  "aws_ec2_network_acl": {
+    "aws": {
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "NetworkAcls_Associations",
+        "targetName": "associations",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NetworkAcls_Associations_NetworkAclAssociationId",
+        "targetName": "associations_network_acl_association_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Associations_NetworkAclId",
+        "targetName": "associations_network_acl_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Associations_SubnetId",
+        "targetName": "associations_subnet_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries",
+        "targetName": "entries",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_CidrBlock",
+        "targetName": "entries_cidr_block",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_Egress",
+        "targetName": "entries_egress",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_IcmpTypeCode",
+        "targetName": "entries_icmp_type_code",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_IcmpTypeCode_Code",
+        "targetName": "entries_icmp_type_code_code",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_IcmpTypeCode_Type",
+        "targetName": "entries_icmp_type_code_type",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_Ipv6CidrBlock",
+        "targetName": "entries_ipv6_cidr_block",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_PortRange",
+        "targetName": "entries_port_range",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_PortRange_From",
+        "targetName": "entries_port_range_from",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_PortRange_To",
+        "targetName": "entries_port_range_to",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_Protocol",
+        "targetName": "entries_protocol",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_RuleAction",
+        "targetName": "entries_rule_action",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Entries_RuleNumber",
+        "targetName": "entries_rule_number",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_IsDefault",
+        "targetName": "is_default",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NetworkAcls_NetworkAclId",
+        "targetName": "network_acl_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NetworkAcls_OwnerId",
+        "targetName": "owner_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NetworkAcls_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NetworkAcls_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "NetworkAcls_VpcId",
+        "targetName": "vpc_id",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  },
+  "aws_ec2_route_table": {
+    "aws": {
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "RouteTables_Associations",
+        "targetName": "associations",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "RouteTables_Associations_AssociationState",
+        "targetName": "associations_association_state",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Associations_AssociationState_State",
+        "targetName": "associations_association_state_state",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Associations_AssociationState_StatusMessage",
+        "targetName": "associations_association_state_status_message",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Associations_GatewayId",
+        "targetName": "associations_gateway_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Associations_Main",
+        "targetName": "associations_main",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Associations_RouteTableAssociationId",
+        "targetName": "associations_route_table_association_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Associations_RouteTableId",
+        "targetName": "associations_route_table_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Associations_SubnetId",
+        "targetName": "associations_subnet_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_OwnerId",
+        "targetName": "owner_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "RouteTables_PropagatingVgws",
+        "targetName": "propagating_vgws",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "RouteTables_PropagatingVgws_GatewayId",
+        "targetName": "propagating_vgws_gateway_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_RouteTableId",
+        "targetName": "route_table_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "RouteTables_Routes",
+        "targetName": "routes",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "RouteTables_Routes_CarrierGatewayId",
+        "targetName": "routes_carrier_gateway_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_DestinationCidrBlock",
+        "targetName": "routes_destination_cidr_block",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_DestinationIpv6CidrBlock",
+        "targetName": "routes_destination_ipv6_cidr_block",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_DestinationPrefixListId",
+        "targetName": "routes_destination_prefix_list_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_EgressOnlyInternetGatewayId",
+        "targetName": "routes_egress_only_internet_gateway_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_GatewayId",
+        "targetName": "routes_gateway_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_InstanceId",
+        "targetName": "routes_instance_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_InstanceOwnerId",
+        "targetName": "routes_instance_owner_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_LocalGatewayId",
+        "targetName": "routes_local_gateway_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_NatGatewayId",
+        "targetName": "routes_nat_gateway_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_NetworkInterfaceId",
+        "targetName": "routes_network_interface_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_Origin",
+        "targetName": "routes_origin",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_State",
+        "targetName": "routes_state",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_TransitGatewayId",
+        "targetName": "routes_transit_gateway_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Routes_VpcPeeringConnectionId",
+        "targetName": "routes_vpc_peering_connection_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "RouteTables_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "RouteTables_VpcId",
+        "targetName": "vpc_id",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  },
+  "aws_ec2_security_group": {
+    "aws": {
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "SecurityGroups_Description",
+        "targetName": "description",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "SecurityGroups_GroupId",
+        "targetName": "group_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "SecurityGroups_GroupName",
+        "targetName": "group_name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions",
+        "targetName": "ip_permissions",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress",
+        "targetName": "ip_permissions_egress",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_FromPort",
+        "targetName": "ip_permissions_egress_from_port",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_IpProtocol",
+        "targetName": "ip_permissions_egress_ip_protocol",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_IpRanges",
+        "targetName": "ip_permissions_egress_ip_ranges",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_IpRanges_CidrIp",
+        "targetName": "ip_permissions_egress_ip_ranges_cidr_ip",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_IpRanges_Description",
+        "targetName": "ip_permissions_egress_ip_ranges_description",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_Ipv6Ranges",
+        "targetName": "ip_permissions_egress_ipv6_ranges",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_Ipv6Ranges_CidrIpv6",
+        "targetName": "ip_permissions_egress_ipv6_ranges_cidr_ipv6",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_Ipv6Ranges_Description",
+        "targetName": "ip_permissions_egress_ipv6_ranges_description",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_PrefixListIds",
+        "targetName": "ip_permissions_egress_prefix_list_ids",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_PrefixListIds_Description",
+        "targetName": "ip_permissions_egress_prefix_list_ids_description",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_PrefixListIds_PrefixListId",
+        "targetName": "ip_permissions_egress_prefix_list_ids_prefix_list_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_ToPort",
+        "targetName": "ip_permissions_egress_to_port",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_UserIdGroupPairs",
+        "targetName": "ip_permissions_egress_user_id_group_pairs",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_UserIdGroupPairs_Description",
+        "targetName": "ip_permissions_egress_user_id_group_pairs_description",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_UserIdGroupPairs_GroupId",
+        "targetName": "ip_permissions_egress_user_id_group_pairs_group_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_UserIdGroupPairs_GroupName",
+        "targetName": "ip_permissions_egress_user_id_group_pairs_group_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_UserIdGroupPairs_PeeringStatus",
+        "targetName": "ip_permissions_egress_user_id_group_pairs_peering_status",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_UserIdGroupPairs_UserId",
+        "targetName": "ip_permissions_egress_user_id_group_pairs_user_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_UserIdGroupPairs_VpcId",
+        "targetName": "ip_permissions_egress_user_id_group_pairs_vpc_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissionsEgress_UserIdGroupPairs_VpcPeeringConnectionId",
+        "targetName": "ip_permissions_egress_user_id_group_pairs_vpc_peering_connection_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_FromPort",
+        "targetName": "ip_permissions_from_port",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_IpProtocol",
+        "targetName": "ip_permissions_ip_protocol",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_IpRanges",
+        "targetName": "ip_permissions_ip_ranges",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_IpRanges_CidrIp",
+        "targetName": "ip_permissions_ip_ranges_cidr_ip",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_IpRanges_Description",
+        "targetName": "ip_permissions_ip_ranges_description",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_Ipv6Ranges",
+        "targetName": "ip_permissions_ipv6_ranges",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_Ipv6Ranges_CidrIpv6",
+        "targetName": "ip_permissions_ipv6_ranges_cidr_ipv6",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_Ipv6Ranges_Description",
+        "targetName": "ip_permissions_ipv6_ranges_description",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_PrefixListIds",
+        "targetName": "ip_permissions_prefix_list_ids",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_PrefixListIds_Description",
+        "targetName": "ip_permissions_prefix_list_ids_description",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_PrefixListIds_PrefixListId",
+        "targetName": "ip_permissions_prefix_list_ids_prefix_list_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_ToPort",
+        "targetName": "ip_permissions_to_port",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_UserIdGroupPairs",
+        "targetName": "ip_permissions_user_id_group_pairs",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_UserIdGroupPairs_Description",
+        "targetName": "ip_permissions_user_id_group_pairs_description",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_UserIdGroupPairs_GroupId",
+        "targetName": "ip_permissions_user_id_group_pairs_group_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_UserIdGroupPairs_GroupName",
+        "targetName": "ip_permissions_user_id_group_pairs_group_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_UserIdGroupPairs_PeeringStatus",
+        "targetName": "ip_permissions_user_id_group_pairs_peering_status",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_UserIdGroupPairs_UserId",
+        "targetName": "ip_permissions_user_id_group_pairs_user_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_UserIdGroupPairs_VpcId",
+        "targetName": "ip_permissions_user_id_group_pairs_vpc_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_IpPermissions_UserIdGroupPairs_VpcPeeringConnectionId",
+        "targetName": "ip_permissions_user_id_group_pairs_vpc_peering_connection_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_OwnerId",
+        "targetName": "owner_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "SecurityGroups_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "SecurityGroups_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "SecurityGroups_VpcId",
+        "targetName": "vpc_id",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  },
   "aws_ec2_subnet": {
     "aws": {
       "regionCodeAttribute": "region_code",
@@ -1272,6 +2652,40 @@
       {
         "sourceName": "Subnets_VpcId",
         "targetName": "vpc_id",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  },
+  "aws_ec2_tag": {
+    "aws": {
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "Tags_Key",
+        "targetName": "key",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Tags_ResourceId",
+        "targetName": "resource_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Tags_ResourceType",
+        "targetName": "resource_type",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Tags_Value",
+        "targetName": "value",
         "targetType": "TEXT",
         "enabled": true
       }

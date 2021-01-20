@@ -134,15 +134,27 @@ var gcpComputeHandler = compute.NewGcpComputeHandler(compute.NewGcpComputeImpl()
 var gcpStorageHandler = storage.NewGcpStorageHandler(storage.NewGcpStorageImpl())
 
 func registerPlugins(server *osquery.ExtensionManagerServer) {
+	// AWS EC2
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_instance", ec2.DescribeInstancesColumns(), ec2.DescribeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_vpc", ec2.DescribeVpcsColumns(), ec2.DescribeVpcsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_subnet", ec2.DescribeSubnetsColumns(), ec2.DescribeSubnetsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_image", ec2.DescribeImagesColumns(), ec2.DescribeImagesGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ec2_egress_only_internet_gateway", ec2.DescribeEgressOnlyInternetGatewaysColumns(), ec2.DescribeEgressOnlyInternetGatewaysGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ec2_internet_gateway", ec2.DescribeInternetGatewaysColumns(), ec2.DescribeInternetGatewaysGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ec2_nat_gateway", ec2.DescribeNatGatewaysColumns(), ec2.DescribeNatGatewaysGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ec2_network_acl", ec2.DescribeNetworkAclsColumns(), ec2.DescribeNetworkAclsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ec2_route_table", ec2.DescribeRouteTablesColumns(), ec2.DescribeRouteTablesGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ec2_security_group", ec2.DescribeSecurityGroupsColumns(), ec2.DescribeSecurityGroupsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ec2_tag", ec2.DescribeTagsColumns(), ec2.DescribeTagsGenerate))
+	// AWS S3
 	server.RegisterPlugin(table.NewPlugin("aws_s3_bucket", s3.ListBucketsColumns(), s3.ListBucketsGenerate))
+	// GCP Compute
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_instance", gcpComputeHandler.GcpComputeInstancesColumns(), gcpComputeHandler.GcpComputeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_network", gcpComputeHandler.GcpComputeNetworksColumns(), gcpComputeHandler.GcpComputeNetworksGenerate))
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_disk", gcpComputeHandler.GcpComputeDisksColumns(), gcpComputeHandler.GcpComputeDisksGenerate))
+	// GCP Storage
 	server.RegisterPlugin(table.NewPlugin("gcp_storage_bucket", gcpStorageHandler.GcpStorageBucketColumns(), gcpStorageHandler.GcpStorageBucketGenerate))
+	// Azure Compute
 	server.RegisterPlugin(table.NewPlugin("azure_compute_vm", azurecompute.VirtualMachinesColumns(), azurecompute.VirtualMachinesGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_compute_networkinterface", azurecompute.InterfacesColumns(), azurecompute.InterfacesGenerate))
 }
