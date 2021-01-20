@@ -9,7 +9,7 @@ one can add support for new tables easily, and configurable so that one can chan
 
 - Checkout the code
 - Install prerequisites
-  - `go 1.13`
+  - [go](https://golang.org/doc/install#install)
 - Set environment varibale for extension home (it shoud be path-to-repo/cloudquery/extension)  
   `export CLOUDQUERY_EXT_HOME=/home/user/work/code/cloudquery/extension`
 - Build extension binary.  
@@ -27,8 +27,10 @@ one can add support for new tables easily, and configurable so that one can chan
   `.socket`
 - `cp ${CLOUDQUERY_EXT_HOME}/extension_config.json.sample ${CLOUDQUERY_EXT_HOME}/config/extension_config.json`
 - Edit `${CLOUDQUERY_EXT_HOME}/config/extension_config.json` with your cloud accounts. You can add multiple accounts for each cloud provider
-- Start extension  
+- Change fileName value from `"fileName": "/var/log/cloudquery.log"` to something else if you want (like `"fileName": "~/cloudquery.log"`)
+- In another terminal, start extension  
   `./bin/extension --socket /path/to/socket --home-directory ${CLOUDQUERY_EXT_HOME}`
+- Note that extention may fail if it cannot create the log file. So make sure that log file path exists and it can access the path. Path like `/var/log/` is accessible only to root user and hence in that case either you need to run extension as root/sudo, or change th path.
 - Query data  
   `select account_id, region_code,image_id,image_type from aws_ec2_image;`
 
@@ -59,39 +61,9 @@ one can add support for new tables easily, and configurable so that one can chan
   - `mkdir ~/config` on the machine where docker container is started
   - ~/config from the host would be mounted to /cloudquery/extension/config inside container 
 - Copy `extension_config.json.sample` to your new config directory on your host:
+  - Sample config file is here: [extension_config.json.sample](extension/extension_config.json.sample)
   - `cp extension/extension_config.json.sample ~/config/extension_config.json`
-  -  Sample `extension_config.json` is given below.
-
-```json
-{
-  "aws": {
-    "accounts": [
-      {
-        "id": "12712753535",
-        "credentialFile": "/cloudquery/extension/config/credentials",
-        "profileName": "default"
-      }
-    ]
-  },
-  "gcp": {
-    "accounts": [
-      {
-        "keyFile": "/cloudquery/extension/config/your-serviceAccount.json"
-      }
-    ]
-  },
-  "azure": {
-    "accounts": [
-      {
-        "subscriptionId": "3636-3322-dddd-sss-2343444",
-        "tenantId": "2377-456-123-266-128635",
-        "authFile": "/cloudquery/extension/config/my.auth"
-      }
-    ]
-  }
-}
-
-```
+  -  Edit `~/config/extension_config.json` to reflect your credentials
 
 - If using aws, copy your aws credentials:
   - `cp ~/.aws/credentials ~/config`
@@ -110,43 +82,6 @@ one can add support for new tables easily, and configurable so that one can chan
   - Edit authFile  field under azure section inside ~/config/extension_config.json and set to /cloudquery/extension/config/my.auth
   - Edit subscriptionId and tenantId fields under azure section inside ~/config/extension_config.json and set to actual values
   - Guide to create Azure credentials: https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
-
-
-- After  editing, your  ~/config/extension_config.json  would be looking like as following
-
-```json
-
-{
-  "aws": {
-    "accounts": [
-      {
-        "id": "xxxxxxxxxxxx",
-        "credentialFile": "/cloudquery/extension/config/credentials",
-        "profileName": "default"
-      }
-    ]
-  },
-  "gcp": {
-    "accounts": [
-      {
-        "keyFile": "/cloudquery/extension/config/your-serviceAccount.json"
-      }
-    ]
-  },
-  "azure": {
-    "accounts": [
-      {
-        "subscriptionId": "dfffe-3322-dddd-sss-2343444",
-        "tenantId": "3333-dfs-333-sfe-121124",
-        "authFile": "/cloudquery/extension/config/my.auth"
-      }
-    ]
-  }
-}
-
-```
-
-
 
 
 #### Run container with osqueryi
