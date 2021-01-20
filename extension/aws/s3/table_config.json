@@ -1,0 +1,121 @@
+{
+  "aws_s3_bucket": {
+    "aws": {
+      "regionAttribute": "region",
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "Name",
+        "targetName": "name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "CreationTime",
+        "targetName": "creation_time",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "ServerSideEncryptionConfiguration",
+        "targetName": "server_side_encryption_configuration",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "MfaDelete",
+        "targetName": "mfa_delete",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "VersioningStatus",
+        "targetName": "versioning_status",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "AclOwner",
+        "targetName": "acl_owner",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "AclGrants",
+        "targetName": "acl_grants",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "WebsiteEnabled",
+        "targetName": "website_enabled",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "WebsiteRedirection",
+        "targetName": "website_redirection",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "PublicAccessBlockConfig",
+        "targetName": "public_access_block_config",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "PolicyStatus",
+        "targetName": "policy_status",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "AccelerateConfigurationStatus",
+        "targetName": "accelerate_configuration_status",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "ObjectLockConfigurationEnabled",
+        "targetName": "object_lock_configuration_enabled",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "LifecycleConfigurationEnabled",
+        "targetName": "lifecycle_configuration_enabled",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "NotificationEnabled",
+        "targetName": "notification_enabled",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "CorsEnabled",
+        "targetName": "cors_enabled",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policy",
+        "targetName": "policy",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  }
+}

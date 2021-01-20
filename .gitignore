@@ -1,0 +1,6 @@
+.idea
+.vscode
+bin/
+node_modules/
+extension/extension_config.json
+go
