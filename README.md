@@ -90,27 +90,6 @@ one can add support for new tables easily, and configurable so that one can chan
 
 Press enter to get osquery prompt
 
-### Supported tables
-
-#### AWS
-
-- [EC2](extension/aws/ec2/tables.md)
-- [Storage](extension/aws/s3/tables.md)
-- [IAM](extension/aws/iam/tables.md)
-
-#### GCP
-
-- [Compute](extension/gcp/compute/tables.md)
-- [Storage](extension/gcp/storage/tables.md)
-
-#### Azure
-
-- [Compute](extension/azure/compute/tables.md)
-
-### Re-configuring a table
-
-TODO
-
 ### Clodquery with osqueryd Docker Container
 
 #### Repeat Configuration under `"Create cloud configurations directory"`
@@ -144,3 +123,24 @@ Once all all the required files under config, run the following commands.
 `sudo docker run -d --rm -v ~/config:/cloudquery/extension/config -v ~/query-results:/var/log/osquery --name cloudquery uptycsdev/cloudconnector:t8 osqueryd`
 
 Now query results can be seen in ~/query-results
+
+### Supported tables
+
+#### AWS
+
+- [EC2](extension/aws/ec2/tables.md)
+- [Storage](extension/aws/s3/tables.md)
+- [IAM](extension/aws/iam/tables.md)
+
+#### GCP
+
+- [Compute](extension/gcp/compute/tables.md)
+- [Storage](extension/gcp/storage/tables.md)
+
+#### Azure
+
+- [Compute](extension/azure/compute/tables.md)
+
+### Re-configuring a table
+
+TODO
