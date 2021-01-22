@@ -96,6 +96,7 @@ Press enter to get osquery prompt
 
 - [EC2](extension/aws/ec2/tables.md)
 - [Storage](extension/aws/s3/tables.md)
+- [IAM](extension/aws/iam/tables.md)
 
 #### GCP
 
