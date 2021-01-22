@@ -1,3 +1,4 @@
+- aws_ec2_address
 - aws_ec2_egress_only_internet_gateway
 - aws_ec2_image
 - aws_ec2_instance
