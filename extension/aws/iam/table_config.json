@@ -1,0 +1,1106 @@
+{
+  "aws_iam_group": {
+    "aws": {
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "Groups_Arn",
+        "targetName": "arn",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Groups_CreateDate",
+        "targetName": "create_date",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Groups_CreateDate_ext",
+        "targetName": "create_date_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc",
+        "targetName": "create_date_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_cacheEnd",
+        "targetName": "create_date_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_cacheStart",
+        "targetName": "create_date_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_cacheZone",
+        "targetName": "create_date_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_cacheZone_isDST",
+        "targetName": "create_date_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_cacheZone_name",
+        "targetName": "create_date_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_cacheZone_offset",
+        "targetName": "create_date_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_name",
+        "targetName": "create_date_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_tx",
+        "targetName": "create_date_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_tx_index",
+        "targetName": "create_date_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_tx_isstd",
+        "targetName": "create_date_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_tx_isutc",
+        "targetName": "create_date_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_tx_when",
+        "targetName": "create_date_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_zone",
+        "targetName": "create_date_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_zone_isDST",
+        "targetName": "create_date_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_zone_name",
+        "targetName": "create_date_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_loc_zone_offset",
+        "targetName": "create_date_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_CreateDate_wall",
+        "targetName": "create_date_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Groups_GroupId",
+        "targetName": "group_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Groups_GroupName",
+        "targetName": "group_name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Groups_Path",
+        "targetName": "path",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  },
+  "aws_iam_policy": {
+    "aws": {
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "Policies_Arn",
+        "targetName": "arn",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_AttachmentCount",
+        "targetName": "attachment_count",
+        "targetType": "BIGINT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_CreateDate",
+        "targetName": "create_date",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_CreateDate_ext",
+        "targetName": "create_date_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc",
+        "targetName": "create_date_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_cacheEnd",
+        "targetName": "create_date_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_cacheStart",
+        "targetName": "create_date_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_cacheZone",
+        "targetName": "create_date_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_cacheZone_isDST",
+        "targetName": "create_date_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_cacheZone_name",
+        "targetName": "create_date_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_cacheZone_offset",
+        "targetName": "create_date_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_name",
+        "targetName": "create_date_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_tx",
+        "targetName": "create_date_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_tx_index",
+        "targetName": "create_date_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_tx_isstd",
+        "targetName": "create_date_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_tx_isutc",
+        "targetName": "create_date_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_tx_when",
+        "targetName": "create_date_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_zone",
+        "targetName": "create_date_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_zone_isDST",
+        "targetName": "create_date_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_zone_name",
+        "targetName": "create_date_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_loc_zone_offset",
+        "targetName": "create_date_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_CreateDate_wall",
+        "targetName": "create_date_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_DefaultVersionId",
+        "targetName": "default_version_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_Description",
+        "targetName": "description",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_IsAttachable",
+        "targetName": "is_attachable",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_Path",
+        "targetName": "path",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_PermissionsBoundaryUsageCount",
+        "targetName": "permissions_boundary_usage_count",
+        "targetType": "BIGINT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_PolicyId",
+        "targetName": "policy_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_PolicyName",
+        "targetName": "policy_name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_UpdateDate",
+        "targetName": "update_date",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Policies_UpdateDate_ext",
+        "targetName": "update_date_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc",
+        "targetName": "update_date_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_cacheEnd",
+        "targetName": "update_date_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_cacheStart",
+        "targetName": "update_date_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_cacheZone",
+        "targetName": "update_date_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_cacheZone_isDST",
+        "targetName": "update_date_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_cacheZone_name",
+        "targetName": "update_date_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_cacheZone_offset",
+        "targetName": "update_date_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_name",
+        "targetName": "update_date_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_tx",
+        "targetName": "update_date_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_tx_index",
+        "targetName": "update_date_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_tx_isstd",
+        "targetName": "update_date_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_tx_isutc",
+        "targetName": "update_date_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_tx_when",
+        "targetName": "update_date_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_zone",
+        "targetName": "update_date_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_zone_isDST",
+        "targetName": "update_date_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_zone_name",
+        "targetName": "update_date_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_loc_zone_offset",
+        "targetName": "update_date_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Policies_UpdateDate_wall",
+        "targetName": "update_date_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      }
+    ]
+  },
+  "aws_iam_role": {
+    "aws": {
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "Roles_Arn",
+        "targetName": "arn",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_AssumeRolePolicyDocument",
+        "targetName": "assume_role_policy_document",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_CreateDate",
+        "targetName": "create_date",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_CreateDate_ext",
+        "targetName": "create_date_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc",
+        "targetName": "create_date_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_cacheEnd",
+        "targetName": "create_date_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_cacheStart",
+        "targetName": "create_date_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_cacheZone",
+        "targetName": "create_date_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_cacheZone_isDST",
+        "targetName": "create_date_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_cacheZone_name",
+        "targetName": "create_date_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_cacheZone_offset",
+        "targetName": "create_date_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_name",
+        "targetName": "create_date_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_tx",
+        "targetName": "create_date_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_tx_index",
+        "targetName": "create_date_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_tx_isstd",
+        "targetName": "create_date_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_tx_isutc",
+        "targetName": "create_date_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_tx_when",
+        "targetName": "create_date_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_zone",
+        "targetName": "create_date_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_zone_isDST",
+        "targetName": "create_date_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_zone_name",
+        "targetName": "create_date_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_loc_zone_offset",
+        "targetName": "create_date_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_CreateDate_wall",
+        "targetName": "create_date_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_Description",
+        "targetName": "description",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_MaxSessionDuration",
+        "targetName": "max_session_duration",
+        "targetType": "BIGINT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_Path",
+        "targetName": "path",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_PermissionsBoundary",
+        "targetName": "permissions_boundary",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_PermissionsBoundary_PermissionsBoundaryArn",
+        "targetName": "permissions_boundary_permissions_boundary_arn",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_PermissionsBoundary_PermissionsBoundaryType",
+        "targetName": "permissions_boundary_permissions_boundary_type",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleId",
+        "targetName": "role_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed",
+        "targetName": "role_last_used",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate",
+        "targetName": "role_last_used_last_used_date",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_ext",
+        "targetName": "role_last_used_last_used_date_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc",
+        "targetName": "role_last_used_last_used_date_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_cacheEnd",
+        "targetName": "role_last_used_last_used_date_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_cacheStart",
+        "targetName": "role_last_used_last_used_date_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_cacheZone",
+        "targetName": "role_last_used_last_used_date_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_cacheZone_isDST",
+        "targetName": "role_last_used_last_used_date_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_cacheZone_name",
+        "targetName": "role_last_used_last_used_date_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_cacheZone_offset",
+        "targetName": "role_last_used_last_used_date_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_name",
+        "targetName": "role_last_used_last_used_date_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_tx",
+        "targetName": "role_last_used_last_used_date_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_tx_index",
+        "targetName": "role_last_used_last_used_date_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_tx_isstd",
+        "targetName": "role_last_used_last_used_date_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_tx_isutc",
+        "targetName": "role_last_used_last_used_date_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_tx_when",
+        "targetName": "role_last_used_last_used_date_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_zone",
+        "targetName": "role_last_used_last_used_date_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_zone_isDST",
+        "targetName": "role_last_used_last_used_date_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_zone_name",
+        "targetName": "role_last_used_last_used_date_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_loc_zone_offset",
+        "targetName": "role_last_used_last_used_date_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_LastUsedDate_wall",
+        "targetName": "role_last_used_last_used_date_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleLastUsed_Region",
+        "targetName": "role_last_used_region",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_RoleName",
+        "targetName": "role_name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Roles_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Roles_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      }
+    ]
+  },
+  "aws_iam_user": {
+    "aws": {
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "Users_Arn",
+        "targetName": "arn",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Users_CreateDate",
+        "targetName": "create_date",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Users_CreateDate_ext",
+        "targetName": "create_date_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc",
+        "targetName": "create_date_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_cacheEnd",
+        "targetName": "create_date_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_cacheStart",
+        "targetName": "create_date_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_cacheZone",
+        "targetName": "create_date_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_cacheZone_isDST",
+        "targetName": "create_date_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_cacheZone_name",
+        "targetName": "create_date_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_cacheZone_offset",
+        "targetName": "create_date_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_name",
+        "targetName": "create_date_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_tx",
+        "targetName": "create_date_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_tx_index",
+        "targetName": "create_date_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_tx_isstd",
+        "targetName": "create_date_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_tx_isutc",
+        "targetName": "create_date_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_tx_when",
+        "targetName": "create_date_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_zone",
+        "targetName": "create_date_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_zone_isDST",
+        "targetName": "create_date_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_zone_name",
+        "targetName": "create_date_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_loc_zone_offset",
+        "targetName": "create_date_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_CreateDate_wall",
+        "targetName": "create_date_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed",
+        "targetName": "password_last_used",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_ext",
+        "targetName": "password_last_used_ext",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc",
+        "targetName": "password_last_used_loc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_cacheEnd",
+        "targetName": "password_last_used_loc_cache_end",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_cacheStart",
+        "targetName": "password_last_used_loc_cache_start",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_cacheZone",
+        "targetName": "password_last_used_loc_cache_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_cacheZone_isDST",
+        "targetName": "password_last_used_loc_cache_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_cacheZone_name",
+        "targetName": "password_last_used_loc_cache_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_cacheZone_offset",
+        "targetName": "password_last_used_loc_cache_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_name",
+        "targetName": "password_last_used_loc_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_tx",
+        "targetName": "password_last_used_loc_tx",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_tx_index",
+        "targetName": "password_last_used_loc_tx_index",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_tx_isstd",
+        "targetName": "password_last_used_loc_tx_isstd",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_tx_isutc",
+        "targetName": "password_last_used_loc_tx_isutc",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_tx_when",
+        "targetName": "password_last_used_loc_tx_when",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_zone",
+        "targetName": "password_last_used_loc_zone",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_zone_isDST",
+        "targetName": "password_last_used_loc_zone_is_dst",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_zone_name",
+        "targetName": "password_last_used_loc_zone_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_loc_zone_offset",
+        "targetName": "password_last_used_loc_zone_offset",
+        "targetType": "INTEGER",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PasswordLastUsed_wall",
+        "targetName": "password_last_used_wall",
+        "targetType": "BIGINT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_Path",
+        "targetName": "path",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Users_PermissionsBoundary",
+        "targetName": "permissions_boundary",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Users_PermissionsBoundary_PermissionsBoundaryArn",
+        "targetName": "permissions_boundary_permissions_boundary_arn",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_PermissionsBoundary_PermissionsBoundaryType",
+        "targetName": "permissions_boundary_permissions_boundary_type",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Users_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Users_UserId",
+        "targetName": "user_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Users_UserName",
+        "targetName": "user_name",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  }
+}

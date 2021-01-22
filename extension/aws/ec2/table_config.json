@@ -1,4 +1,110 @@
 {
+  "aws_ec2_address": {
+    "aws": {
+      "regionCodeAttribute": "region_code",
+      "accountIdAttribute": "account_id"
+    },
+    "gcp": {},
+    "azure": {},
+    "parsedAttributes": [
+      {
+        "sourceName": "Addresses_AllocationId",
+        "targetName": "allocation_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_AssociationId",
+        "targetName": "association_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_CarrierIp",
+        "targetName": "carrier_ip",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_CustomerOwnedIp",
+        "targetName": "customer_owned_ip",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_CustomerOwnedIpv4Pool",
+        "targetName": "customer_owned_ipv4_pool",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_Domain",
+        "targetName": "domain",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_InstanceId",
+        "targetName": "instance_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_NetworkBorderGroup",
+        "targetName": "network_border_group",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_NetworkInterfaceId",
+        "targetName": "network_interface_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_NetworkInterfaceOwnerId",
+        "targetName": "network_interface_owner_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_PrivateIpAddress",
+        "targetName": "private_ip_address",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_PublicIp",
+        "targetName": "public_ip",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_PublicIpv4Pool",
+        "targetName": "public_ipv4_pool",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_Tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "Addresses_Tags_Key",
+        "targetName": "tags_key",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "Addresses_Tags_Value",
+        "targetName": "tags_value",
+        "targetType": "TEXT",
+        "enabled": false
+      }
+    ]
+  },
   "aws_ec2_egress_only_internet_gateway": {
     "aws": {
       "regionCodeAttribute": "region_code",

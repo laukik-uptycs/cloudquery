@@ -1,0 +1,4 @@
+- aws_iam_group
+- aws_iam_policy
+- aws_iam_role
+- aws_iam_user

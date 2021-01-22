@@ -11,6 +11,7 @@ import (
 	"github.com/Uptycs/cloudquery/utilities"
 
 	"github.com/Uptycs/cloudquery/extension/aws/ec2"
+	"github.com/Uptycs/cloudquery/extension/aws/iam"
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
 	"github.com/Uptycs/cloudquery/extension/gcp/compute"
 	gcpiam "github.com/Uptycs/cloudquery/extension/gcp/iam"
@@ -98,7 +99,7 @@ func readExtensionConfigurations(filePath string) error {
 }
 
 func readTableConfigurations(homeDir string) {
-	var awsConfigFileList = []string{"aws/ec2/table_config.json", "aws/s3/table_config.json"}
+	var awsConfigFileList = []string{"aws/ec2/table_config.json", "aws/s3/table_config.json", "aws/iam/table_config.json"}
 	var gcpConfigFileList = []string{"gcp/compute/table_config.json", "gcp/storage/table_config.json", "gcp/iam/table_config.json"}
 	var azureConfigFileList = []string{"azure/compute/table_config.json"}
 	var configFileList = append(awsConfigFileList, gcpConfigFileList...)
@@ -147,8 +148,14 @@ func registerPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_route_table", ec2.DescribeRouteTablesColumns(), ec2.DescribeRouteTablesGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_security_group", ec2.DescribeSecurityGroupsColumns(), ec2.DescribeSecurityGroupsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_tag", ec2.DescribeTagsColumns(), ec2.DescribeTagsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ec2_address", ec2.DescribeAddressesColumns(), ec2.DescribeAddressesGenerate))
 	// AWS S3
 	server.RegisterPlugin(table.NewPlugin("aws_s3_bucket", s3.ListBucketsColumns(), s3.ListBucketsGenerate))
+	// AWS IAM
+	server.RegisterPlugin(table.NewPlugin("aws_iam_user", iam.ListUsersColumns(), iam.ListUsersGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_iam_role", iam.ListRolesColumns(), iam.ListRolesGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_iam_group", iam.ListGroupsColumns(), iam.ListGroupsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_iam_policy", iam.ListPoliciesColumns(), iam.ListPoliciesGenerate))
 	// GCP Compute
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_instance", gcpComputeHandler.GcpComputeInstancesColumns(), gcpComputeHandler.GcpComputeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_network", gcpComputeHandler.GcpComputeNetworksColumns(), gcpComputeHandler.GcpComputeNetworksGenerate))
