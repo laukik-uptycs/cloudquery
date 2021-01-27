@@ -51,7 +51,7 @@ one can add support for new tables easily, and configurable so that one can chan
 - Restart osquery service.
   - `sudo service osqueryd restart`
 
-### Clodquery with osqueryi Docker Container
+### clodquery with osqueryi Docker Container
 
 #### Create cloud configurations directory
 
@@ -86,7 +86,7 @@ one can add support for new tables easily, and configurable so that one can chan
 
 #### Run container with osqueryi
 
-`sudo docker run -it --rm -v ~/config:/cloudquery/extension/config --name cloudquery uptycsdev/cloudconnector:t8`
+`sudo docker run -it --rm -v ~/config:/cloudquery/extension/config --name cloudquery uptycs/cloudquery:latest`
 
 Press enter to get osquery prompt
 
@@ -99,15 +99,15 @@ And identify list of scheduled queries and their intervals and place them in `os
 ```json
 {
   "schedule": {
-    "GCP_COMP_NET": {
+    "gcp_compute_network": {
       "query": "SELECT * FROM  gcp_compute_network;",
       "interval": 120
     },
-    "AWS_S3_BUCK": {
+    "aws_s3_bucket": {
       "query": "SELECT * FROM aws_s3_bucket;",
       "interval": 120
     },
-    "AZURE_COMPUTE_VM": {
+    "azure_compute_vm": {
       "query": "SELECT * FROM azure_compute_vm;",
       "interval": 120
     }
@@ -120,7 +120,7 @@ Once all all the required files under config, run the following commands.
 
 `mkdir ~/query-results` on your host
 
-`sudo docker run -d --rm -v ~/config:/cloudquery/extension/config -v ~/query-results:/var/log/osquery --name cloudquery uptycsdev/cloudconnector:t8 osqueryd`
+`sudo docker run -d --rm -v ~/config:/cloudquery/extension/config -v ~/query-results:/var/log/osquery --name cloudquery uptycs/cloudquery:latest osqueryd`
 
 Now query results can be seen in ~/query-results
 
@@ -140,7 +140,3 @@ Now query results can be seen in ~/query-results
 #### Azure
 
 - [Compute](extension/azure/compute/tables.md)
-
-### Re-configuring a table
-
-TODO
