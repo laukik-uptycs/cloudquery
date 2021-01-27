@@ -3,11 +3,26 @@
 cloudquery is Osquery extension to fetch cloud telemetry from AWS, GCP, and Azure. It is extensible so that  
 one can add support for new tables easily, and configurable so that one can change the table schema as well.
 
-## Getting started
+## Contents
+
+- [Working with Extension Binary](#build-and-test-with-extension-binary)
+  * [Build](#build)
+  * [Test](#test)
+    + [Test with osqueryi](#with-osqueryi)  
+    + [Test with osqueryd](#with-osqueryd)  
+
+- [Working with Docker Setup](#test-with-docker)
+  * [Setup](#setup-credentials)
+  * [Test with osqueryi](#run-osqueryi-from-cloudquery-container)
+  * [Test with osqueryd](#run-osqueryd-from-cloudquery-container)
+
+- [Supported Tables](#supported-tables)
+
+## Build and Test with Extension Binary
 
 ### Build
 
-- Checkout the code
+- Clone
 - Install prerequisites
   - [go](https://golang.org/doc/install#install)
 - Set environment varibale for extension home (it shoud be path-to-repo/cloudquery/extension)  
@@ -34,7 +49,7 @@ one can add support for new tables easily, and configurable so that one can chan
 - Query data  
   `select account_id, region_code,image_id,image_type from aws_ec2_image;`
 
-#### With osquery
+#### With osqueryd
 
 - Build and install cloudquery
 - Edit (or create if does't exist) file `/etc/osquery/extensions.load` and add the following line:
@@ -51,9 +66,11 @@ one can add support for new tables easily, and configurable so that one can chan
 - Restart osquery service.
   - `sudo service osqueryd restart`
 
-### clodquery with osqueryi Docker Container
+## Test with Docker
 
-#### Create cloud configurations directory
+### Setup Credentials
+
+> Credentials setup is same for testing with osqueryi or osqueryd
 
 - Create a config directory on host to hold the credentials for your cloud accounts (~/config is an example, but this could be any directory):
 
@@ -83,18 +100,17 @@ one can add support for new tables easily, and configurable so that one can chan
   - Edit subscriptionId and tenantId fields under azure section inside ~/config/extension_config.json and set to actual values
   - Guide to create Azure credentials: https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
 
-
-#### Run container with osqueryi
+### Run osqueryi from cloudquery container
 
 `sudo docker run -it --rm -v ~/config:/cloudquery/extension/config --name cloudquery uptycs/cloudquery:latest`
 
 Press enter to get osquery prompt
 
-### Clodquery with osqueryd Docker Container
+### Run osqueryd from cloudqeury container
 
-#### Repeat Configuration under `"Create cloud configurations directory"`
-
-And identify list of scheduled queries and their intervals and place them in `osqyery.conf` inside ~/config on the host. Example osquery.conf is given below.
+#### Schedule queries
+Identify list of scheduled queries and their intervals and place them in `osqyery.conf` inside ~/config on the host.  
+Example `osquery.conf` is given below.
 
 ```json
 {
@@ -114,7 +130,6 @@ And identify list of scheduled queries and their intervals and place them in `os
   }
 }
 ```
-
 
 Once all all the required files under config, run the following commands.
 
