@@ -70,10 +70,9 @@ one can add support for new tables easily, and configurable so that one can chan
 
 ### Setup Credentials
 
-> Credentials setup is same for testing with osqueryi or osqueryd
+> Setup credentials before proceeding to testing with `osqueryi` or `osqueryd`
 
 - Create a config directory on host to hold the credentials for your cloud accounts (~/config is an example, but this could be any directory):
-
 
   - `mkdir ~/config` on the machine where docker container is started
   - ~/config from the host would be mounted to /cloudquery/extension/config inside container 
