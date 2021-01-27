@@ -139,18 +139,6 @@ Once all all the required files under config, run the following commands.
 Now query results can be seen in ~/query-results
 
 ### Supported tables
-
-#### AWS
-
-- [EC2](extension/aws/ec2/tables.md)
-- [Storage](extension/aws/s3/tables.md)
-- [IAM](extension/aws/iam/tables.md)
-
-#### GCP
-
-- [Compute](extension/gcp/compute/tables.md)
-- [Storage](extension/gcp/storage/tables.md)
-
-#### Azure
-
-- [Compute](extension/azure/compute/tables.md)
+- [AWS](extension/aws/tables.md)
+- [GCP](extension/gcp/tables.md)
+- [Azure](extension/azure/tables.md)
