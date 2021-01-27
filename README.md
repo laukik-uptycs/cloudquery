@@ -1,7 +1,12 @@
+[![Build](https://github.com/Uptycs/cloudquery/workflows/Build/badge.svg?branch=master)](https://github.com/Uptycs/cloudquery/actions?query=workflow%3ABuild)
+
+---
+
 # cloudquery powered by Osquery
 
 cloudquery is Osquery extension to fetch cloud telemetry from AWS, GCP, and Azure. It is extensible so that  
 one can add support for new tables easily, and configurable so that one can change the table schema as well.
+
 
 ## Contents
 
@@ -17,6 +22,8 @@ one can add support for new tables easily, and configurable so that one can chan
   * [Test with osqueryd](#run-osqueryd-from-cloudquery-container)
 
 - [Supported Tables](#supported-tables)
+
+---
 
 ## Build and Test with Extension Binary
 
@@ -65,6 +72,8 @@ one can add support for new tables easily, and configurable so that one can chan
   - `sudo vi /etc/osquery/cloudquery/config/extension_config.json`
 - Restart osquery service.
   - `sudo service osqueryd restart`
+
+---
 
 ## Test with Docker
 
@@ -137,6 +146,8 @@ Once all all the required files under config, run the following commands.
 `sudo docker run -d --rm -v ~/config:/cloudquery/extension/config -v ~/query-results:/var/log/osquery --name cloudquery uptycs/cloudquery:latest osqueryd`
 
 Now query results can be seen in ~/query-results
+
+---
 
 ### Supported tables
 - [AWS](extension/aws/tables.md)
