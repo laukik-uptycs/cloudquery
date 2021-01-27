@@ -51,5 +51,5 @@ jobs:
     - name: Build and push image
       if: steps.vars.outputs.tag != ''
       run: |
-        docker build --build-arg CLOUDQUERY_VERSION=${{ steps.vars.outputs.tag }} --tag uptycs/cloudquery:${{ steps.vars.outputs.tag }} .
+        docker build --tag uptycs/cloudquery:${{ steps.vars.outputs.tag }} .
         docker push uptycs/cloudquery:${{ steps.vars.outputs.tag }}
