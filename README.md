@@ -1,4 +1,5 @@
 [![Build](https://github.com/Uptycs/cloudquery/workflows/Build/badge.svg?branch=master)](https://github.com/Uptycs/cloudquery/actions?query=workflow%3ABuild)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 ---
 
