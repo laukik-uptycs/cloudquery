@@ -19,7 +19,7 @@ By participating and contributing to this project, you agree to uphold our [Code
 
 Contributions are made to this repo via Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
-- To report security vulnerabilities, please email [cloudquery@uptycs.com](mailto:kubequery@uptycs.com).
+- To report security vulnerabilities, please email [cloudquery@uptycs.com](mailto:cloudquery@uptycs.com).
 - Search for existing Issues and PRs before creating your own.
 
 ### Issues
