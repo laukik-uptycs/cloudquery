@@ -51,6 +51,8 @@ one can add support for new tables easily, and configurable so that one can chan
 - Start osqueryi
   ```sh
   osqueryi --extension ${CLOUDQUERY_EXT_HOME}/../cloudquery
+  OR
+  osqueryi  --nodisable_extensions
   ```
 - Query data:
   ```sql
@@ -66,6 +68,11 @@ one can add support for new tables easily, and configurable so that one can chan
   ```
 - Edit (or create) `/etc/osquery/extensions.load` file and append the following line: `/usr/bin/cloudquery.ext`
 - Edit `/etc/osquery/cloudquery/config/extension_config.json` with your cloud accounts. You can add multiple accounts for each cloud provider. Change logging path and other parameters to suit your needs.
+- Add following flags to /etc/osquery/osquery.flags
+```
+--extensions_autoload=/etc/osquery/extensions.load
+--disable_extensions=false
+```
 - Restart osquery service:
   ```sh
   sudo service osqueryd restart
