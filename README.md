@@ -50,9 +50,7 @@ one can add support for new tables easily, and configurable so that one can chan
 - Edit `${CLOUDQUERY_EXT_HOME}/config/extension_config.json` with your cloud accounts. You can add multiple accounts for each cloud provider. Change logging path and other parameters to suit your needs. Make sure log path is writable.
 - Start osqueryi
   ```sh
-  osqueryi --extension ${CLOUDQUERY_EXT_HOME}/../cloudquery
-  OR
-  osqueryi  --nodisable_extensions
+  osqueryi --nodisable_extensions --extension ${CLOUDQUERY_EXT_HOME}/../cloudquery
   ```
 - Query data:
   ```sql
