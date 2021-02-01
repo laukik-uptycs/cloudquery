@@ -1,5 +1,6 @@
 [![Build](https://github.com/Uptycs/cloudquery/workflows/Build/badge.svg?branch=master)](https://github.com/Uptycs/cloudquery/actions?query=workflow%3ABuild)
 [![Go Report Card](https://goreportcard.com/badge/github.com/Uptycs/cloudquery)](https://goreportcard.com/report/github.com/Uptycs/cloudquery)
+[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B22616%2Fgit%40github.com%3AUptycs%2Fcloudquery.git.svg?type=shield)](https://app.fossa.com/projects/custom%2B22616%2Fgit%40github.com%3AUptycs%2Fcloudquery.git?ref=badge_shield)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 ---
 
