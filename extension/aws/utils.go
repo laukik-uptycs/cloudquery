@@ -10,77 +10,115 @@
 package aws
 
 import (
-	"fmt"
-
-	"github.com/aws/aws-sdk-go/aws/credentials"
+	"context"
+	"time"
 
 	"github.com/Uptycs/cloudquery/utilities"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/ec2"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/credentials/stscreds"
+	"github.com/aws/aws-sdk-go-v2/service/ec2"
+	"github.com/aws/aws-sdk-go-v2/service/ec2/types"
+	"github.com/aws/aws-sdk-go-v2/service/sts"
 	log "github.com/sirupsen/logrus"
 )
 
-// GetAwsSession creates an AWS session for given account.
-// If account is nil, it creates a default session
-func GetAwsSession(account *utilities.ExtensionConfigurationAwsAccount, regionCode string) (*session.Session, error) {
+// GetAwsConfig creates an AWS Config for given account.
+// If account is nil, it creates a default config
+func GetAwsConfig(account *utilities.ExtensionConfigurationAwsAccount, regionCode string) (*aws.Config, error) {
 	if account == nil {
 		utilities.GetLogger().Debug("creating default session")
-		return getDefaultAwsSession(regionCode)
+		return getDefaultAwsConfig(regionCode)
 	}
 
-	if len(account.ProfileName) != 0 {
-		utilities.GetLogger().WithFields(log.Fields{
-			"account": account.ID,
-			"region":  regionCode,
-			"profile": account.ProfileName,
-		}).Debug("creating session")
-		var enable bool = true
-		sess, err := session.NewSession(&aws.Config{
-			EnableEndpointDiscovery: &enable,
-			Region:                  aws.String(regionCode),
-			Credentials:             credentials.NewSharedCredentials(account.CredentialFile, account.ProfileName),
-		})
-		if err != nil {
-			utilities.GetLogger().WithFields(log.Fields{
-				"account":   account.ID,
-				"profile":   account.ProfileName,
-				"errString": err.Error(),
-			}).Error("failed to create session")
-			return nil, err
-		}
-		return sess, nil
+	if len(account.ProfileName) != 0 && len(account.RoleArn) == 0 {
+		utilities.GetLogger().Debug("creating session using profile")
+		return getAwsConfigForProfile(account, regionCode)
 	} else if len(account.RoleArn) != 0 {
-		// TODO: Get token from STS
+		utilities.GetLogger().Debug("creating session using roleArn")
+		return getAwsConfigForRole(account, regionCode)
+	} else {
+		utilities.GetLogger().Debug("creating default session")
+		return getDefaultAwsConfig(regionCode)
+	}
+}
+
+func getAwsConfigForProfile(account *utilities.ExtensionConfigurationAwsAccount, regionCode string) (*aws.Config, error) {
+	utilities.GetLogger().WithFields(log.Fields{
+		"account": account.ID,
+		"region":  regionCode,
+		"profile": account.ProfileName,
+	}).Debug("creating config")
+	credentialFiles := make([]string, 0)
+	credentialFiles = append(credentialFiles, account.CredentialFile)
+	cfg, err := config.LoadDefaultConfig(context.TODO(),
+		config.WithRegion(regionCode),
+		config.WithSharedCredentialsFiles(credentialFiles),
+		config.WithSharedConfigProfile(account.ProfileName),
+	)
+	if err != nil {
 		utilities.GetLogger().WithFields(log.Fields{
 			"account":   account.ID,
 			"profile":   account.ProfileName,
-			"errString": "role arn is not yet supported",
-		}).Error("failed to create session")
-		return nil, fmt.Errorf("role arn is not yet supported")
+			"errString": err.Error(),
+		}).Error("failed to create config")
+		return nil, err
 	}
-	return nil, nil
+	return &cfg, nil
 }
 
-func getDefaultAwsSession(regionCode string) (*session.Session, error) {
-	sess, err := session.NewSession(&aws.Config{
-		Region: aws.String(regionCode),
+func getAwsConfigForRole(account *utilities.ExtensionConfigurationAwsAccount, regionCode string) (*aws.Config, error) {
+	utilities.GetLogger().WithFields(log.Fields{
+		"account": account.ID,
+		"region":  regionCode,
+		"profile": account.ProfileName,
+		"role":    account.RoleArn,
+	}).Debug("creating config")
+	credentialFiles := make([]string, 0)
+	credentialFiles = append(credentialFiles, account.CredentialFile)
+	cfg, err := config.LoadDefaultConfig(context.TODO(),
+		config.WithRegion(regionCode),
+		config.WithSharedCredentialsFiles(credentialFiles),
+		config.WithSharedConfigProfile(account.ProfileName),
+	)
+	if err != nil {
+		utilities.GetLogger().WithFields(log.Fields{
+			"account":   account.ID,
+			"role":      account.RoleArn,
+			"errString": err.Error(),
+		}).Error("failed to create config")
+		return nil, err
+	}
+	// Create the credentials from AssumeRoleProvider to assume the role
+	// referenced by the role ARN.
+	stsSvc := sts.NewFromConfig(cfg)
+	creds := stscreds.NewAssumeRoleProvider(stsSvc, account.RoleArn, func(options *stscreds.AssumeRoleOptions) {
+		options.Duration = time.Duration(60) * time.Minute
+		options.ExternalID = &account.ExternalID
 	})
+	cfg.Credentials = aws.NewCredentialsCache(creds)
+	return &cfg, nil
+}
+
+func getDefaultAwsConfig(regionCode string) (*aws.Config, error) {
+	cfg, err := config.LoadDefaultConfig(context.TODO(),
+		config.WithRegion(regionCode),
+	)
 	if err != nil {
 		utilities.GetLogger().WithFields(log.Fields{
 			"account":   "default",
 			"region":    regionCode,
 			"errString": err.Error(),
-		}).Error("failed to create session")
+		}).Error("failed to create config")
 		return nil, err
 	}
-	return sess, nil
+	return &cfg, nil
 }
 
-// FetchRegions returns the list of regions for given AWS session
-func FetchRegions(awsSession *session.Session) ([]*ec2.Region, error) {
-	svc := ec2.New(awsSession)
-	awsRegions, err := svc.DescribeRegions(&ec2.DescribeRegionsInput{})
+// FetchRegions returns the list of regions for given AWS config
+func FetchRegions(ctx context.Context, awsConfig *aws.Config) ([]types.Region, error) {
+	svc := ec2.NewFromConfig(*awsConfig)
+	awsRegions, err := svc.DescribeRegions(ctx, &ec2.DescribeRegionsInput{})
 	if err != nil {
 		utilities.GetLogger().WithFields(log.Fields{
 			"errString": err.Error(),
