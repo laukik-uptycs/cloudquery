@@ -7,7 +7,7 @@
 
 FROM ubuntu:20.04
 
-ARG OSQUERY_VERSION=4.6.0
+ARG BASEQUERY_VERSION=4.6.0
 ARG CLOUDQUERY_VERSION
 
 LABEL \
@@ -16,14 +16,14 @@ LABEL \
   version="${CLOUDQUERY_VERSION}" \
   url="https://github.com/Uptycs/cloudquery"
 
-ADD https://pkg.osquery.io/deb/osquery_${OSQUERY_VERSION}-1.linux_amd64.deb /tmp/osquery.deb
+ADD https://uptycs-basequery.s3.amazonaws.com/${BASEQUERY_VERSION}/basequery_${BASEQUERY_VERSION}-1.linux_amd64.deb /tmp/basequery.deb
 COPY cloudquery /usr/local/bin/cloudquery.ext
 
 RUN set -ex; \
     DEBIAN_FRONTEND=noninteractive apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates && \
-    dpkg -i /tmp/osquery.deb && \
+    dpkg -i /tmp/basequery.deb && \
     /etc/init.d/osqueryd stop && \
     rm -rf /var/osquery/* /var/log/osquery/* /var/lib/apt/lists/* /var/cache/apt/* /tmp/* && \
     groupadd -g 1000 cloudquery && \
