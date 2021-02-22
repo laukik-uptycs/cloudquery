@@ -124,9 +124,9 @@ func ReadExtensionConfigurations(filePath string, verbose bool) error {
 
 // ReadTableConfigurations TODO
 func ReadTableConfigurations(homeDir string) {
-	var awsConfigFileList = []string{"aws/acm/table_config.json", "aws/apigateway/table_config.json", "aws/ec2/table_config.json", "aws/s3/table_config.json", "aws/iam/table_config.json", "aws/cloudwatch/table_config.json", "aws/config/table_config.json"}
 	var gcpConfigFileList = []string{
 		"gcp/compute/table_config.json",
+		"aws/apigateway/table_config.json",
 		"gcp/storage/table_config.json",
 		"gcp/iam/table_config.json",
 		"gcp/sql/table_config.json",

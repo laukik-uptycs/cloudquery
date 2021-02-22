@@ -1,5 +1,5 @@
 {
-  "aws_api_gw_rest_api": {
+  "aws_apigateway_rest_api": {
     "aws": {
       "regionCodeAttribute": "region_code",
       "accountIdAttribute": "account_id"
@@ -167,13 +167,13 @@
         "sourceName": "Items_EndpointConfiguration_Types",
         "targetName": "endpoint_configuration_types",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "Items_EndpointConfiguration_VpcEndpointIds",
         "targetName": "endpoint_configuration_vpc_endpoint_ids",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "Items_Id",
