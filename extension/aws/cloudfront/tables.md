@@ -1,1 +1,1 @@
-- aws_cloudfront_distribution
+- aws_cloudfront_list_distributions

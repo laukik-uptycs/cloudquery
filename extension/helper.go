@@ -201,7 +201,7 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	// AWS ACM
 	server.RegisterPlugin(table.NewPlugin("aws_acm_certificate", acm.ListCertificatesColumns(), acm.ListCertificatesGenerate))
 	// AWS CLOUDFRONT
-	server.RegisterPlugin(table.NewPlugin("aws_cloudfront_distribution", cloudfront.ListDistributionsColumns(), cloudfront.ListDistributionsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_cloudfront_list_distributions", cloudfront.ListDistributionsColumns(), cloudfront.ListDistributionsGenerate))
 	// AWS EC2
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_instance", ec2.DescribeInstancesColumns(), ec2.DescribeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_vpc", ec2.DescribeVpcsColumns(), ec2.DescribeVpcsGenerate))
