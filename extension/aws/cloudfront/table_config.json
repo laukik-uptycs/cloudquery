@@ -1,5 +1,5 @@
 {
-  "aws_cloudfront_list_distributions": {
+  "aws_cloudfront_distribution": {
     "aws": {
       "accountIdAttribute": "account_id"
     },

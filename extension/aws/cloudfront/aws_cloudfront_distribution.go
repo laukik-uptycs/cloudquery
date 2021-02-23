@@ -232,7 +232,7 @@ func ListDistributionsGenerate(osqCtx context.Context, queryContext table.QueryC
 	resultMap := make([]map[string]string, 0)
 	if len(utilities.ExtConfiguration.ExtConfAws.Accounts) == 0 {
 		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": "aws_cloudfront_list_distributions",
+			"tableName": "aws_cloudfront_distribution",
 			"account":   "default",
 		}).Info("processing account")
 		results, err := processAccountListDistributions(nil)
@@ -243,7 +243,7 @@ func ListDistributionsGenerate(osqCtx context.Context, queryContext table.QueryC
 	} else {
 		for _, account := range utilities.ExtConfiguration.ExtConfAws.Accounts {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName": "aws_cloudfront_list_distributions",
+				"tableName": "aws_cloudfront_distribution",
 				"account":   account.ID,
 			}).Info("processing account")
 			results, err := processAccountListDistributions(&account)
@@ -270,7 +270,7 @@ func processGlobalListDistributions(tableConfig *utilities.TableConfig, account 
 	}
 
 	utilities.GetLogger().WithFields(log.Fields{
-		"tableName": "aws_cloudfront_list_distributions",
+		"tableName": "aws_cloudfront_distribution",
 		"account":   accountId,
 		"region":    "aws-global",
 	}).Debug("processing region")
@@ -284,7 +284,7 @@ func processGlobalListDistributions(tableConfig *utilities.TableConfig, account 
 		page, err := paginator.NextPage(context.TODO())
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName": "aws_cloudfront_list_distributions",
+				"tableName": "aws_cloudfront_distribution",
 				"account":   accountId,
 				"region":    "aws-global",
 				"task":      "ListDistributions",
@@ -295,7 +295,7 @@ func processGlobalListDistributions(tableConfig *utilities.TableConfig, account 
 		byteArr, err := json.Marshal(page)
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName": "aws_cloudfront_list_distributions",
+				"tableName": "aws_cloudfront_distribution",
 				"account":   accountId,
 				"region":    "aws-global",
 				"task":      "ListDistributions",
@@ -317,10 +317,10 @@ func processGlobalListDistributions(tableConfig *utilities.TableConfig, account 
 
 func processAccountListDistributions(account *utilities.ExtensionConfigurationAwsAccount) ([]map[string]string, error) {
 	resultMap := make([]map[string]string, 0)
-	tableConfig, ok := utilities.TableConfigurationMap["aws_cloudfront_list_distributions"]
+	tableConfig, ok := utilities.TableConfigurationMap["aws_cloudfront_distribution"]
 	if !ok {
 		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": "aws_cloudfront_list_distributions",
+			"tableName": "aws_cloudfront_distribution",
 		}).Error("failed to get table configuration")
 		return resultMap, fmt.Errorf("table configuration not found")
 	}
