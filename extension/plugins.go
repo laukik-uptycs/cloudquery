@@ -13,6 +13,7 @@ import (
 	osquery "github.com/Uptycs/basequery-go"
 	"github.com/Uptycs/basequery-go/plugin/table"
 	"github.com/Uptycs/cloudquery/extension/aws/acm"
+	"github.com/Uptycs/cloudquery/extension/aws/cloudformation"
 	"github.com/Uptycs/cloudquery/extension/aws/cloudfront"
 	"github.com/Uptycs/cloudquery/extension/aws/cloudwatch"
 	"github.com/Uptycs/cloudquery/extension/aws/config"
@@ -41,6 +42,7 @@ import (
 func ReadTableConfigurations(homeDir string) {
 	var awsConfigFileList = []string{
 		"aws/ec2/table_config.json",
+		"aws/cloudformation/table_config.json",
 		"aws/s3/table_config.json",
 		"aws/cloudfront/table_config.json",
 		"aws/iam/table_config.json",
@@ -109,6 +111,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_acm_certificate", acm.ListCertificatesColumns(), acm.ListCertificatesGenerate))
 	// AWS CLOUDFRONT
 	server.RegisterPlugin(table.NewPlugin("aws_cloudfront_distribution", cloudfront.ListDistributionsColumns(), cloudfront.ListDistributionsGenerate))
+	// AWS CLOUDFORMATION
+	server.RegisterPlugin(table.NewPlugin("aws_cloudformation_stack", cloudformation.DescribeStacksColumns(), cloudformation.DescribeStacksGenerate))
 	// AWS EC2
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_instance", ec2.DescribeInstancesColumns(), ec2.DescribeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_vpc", ec2.DescribeVpcsColumns(), ec2.DescribeVpcsGenerate))

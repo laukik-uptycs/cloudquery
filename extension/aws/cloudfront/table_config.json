@@ -16,7 +16,7 @@
         "sourceName": "DistributionList_Items",
         "targetName": "items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_ARN",
@@ -34,13 +34,13 @@
         "sourceName": "DistributionList_Items_AliasICPRecordals_CNAME",
         "targetName": "items_alias_icp_recordals_cname",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_AliasICPRecordals_ICPRecordalStatus",
         "targetName": "items_alias_icp_recordals_icp_recordal_status",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Aliases",
@@ -52,13 +52,13 @@
         "sourceName": "DistributionList_Items_Aliases_Items",
         "targetName": "items_aliases_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Aliases_Quantity",
         "targetName": "items_aliases_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors",
@@ -70,277 +70,277 @@
         "sourceName": "DistributionList_Items_CacheBehaviors_Items",
         "targetName": "items_cache_behaviors_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_AllowedMethods",
         "targetName": "items_cache_behaviors_items_allowed_methods",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_AllowedMethods_CachedMethods",
         "targetName": "items_cache_behaviors_items_allowed_methods_cached_methods",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_AllowedMethods_CachedMethods_Items",
         "targetName": "items_cache_behaviors_items_allowed_methods_cached_methods_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_AllowedMethods_CachedMethods_Quantity",
         "targetName": "items_cache_behaviors_items_allowed_methods_cached_methods_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_AllowedMethods_Items",
         "targetName": "items_cache_behaviors_items_allowed_methods_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_AllowedMethods_Quantity",
         "targetName": "items_cache_behaviors_items_allowed_methods_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_CachePolicyId",
         "targetName": "items_cache_behaviors_items_cache_policy_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_Compress",
         "targetName": "items_cache_behaviors_items_compress",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_DefaultTTL",
         "targetName": "items_cache_behaviors_items_default_ttl",
         "targetType": "BIGINT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_FieldLevelEncryptionId",
         "targetName": "items_cache_behaviors_items_field_level_encryption_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues",
         "targetName": "items_cache_behaviors_items_forwarded_values",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_Cookies",
         "targetName": "items_cache_behaviors_items_forwarded_values_cookies",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_Cookies_Forward",
         "targetName": "items_cache_behaviors_items_forwarded_values_cookies_forward",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_Cookies_WhitelistedNames",
         "targetName": "items_cache_behaviors_items_forwarded_values_cookies_whitelisted_names",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_Cookies_WhitelistedNames_Items",
         "targetName": "items_cache_behaviors_items_forwarded_values_cookies_whitelisted_names_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_Cookies_WhitelistedNames_Quantity",
         "targetName": "items_cache_behaviors_items_forwarded_values_cookies_whitelisted_names_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_Headers",
         "targetName": "items_cache_behaviors_items_forwarded_values_headers",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_Headers_Items",
         "targetName": "items_cache_behaviors_items_forwarded_values_headers_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_Headers_Quantity",
         "targetName": "items_cache_behaviors_items_forwarded_values_headers_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_QueryString",
         "targetName": "items_cache_behaviors_items_forwarded_values_query_string",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_QueryStringCacheKeys",
         "targetName": "items_cache_behaviors_items_forwarded_values_query_string_cache_keys",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_QueryStringCacheKeys_Items",
         "targetName": "items_cache_behaviors_items_forwarded_values_query_string_cache_keys_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ForwardedValues_QueryStringCacheKeys_Quantity",
         "targetName": "items_cache_behaviors_items_forwarded_values_query_string_cache_keys_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_LambdaFunctionAssociations",
         "targetName": "items_cache_behaviors_items_lambda_function_associations",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_LambdaFunctionAssociations_Items",
         "targetName": "items_cache_behaviors_items_lambda_function_associations_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_LambdaFunctionAssociations_Items_EventType",
         "targetName": "items_cache_behaviors_items_lambda_function_associations_items_event_type",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_LambdaFunctionAssociations_Items_IncludeBody",
         "targetName": "items_cache_behaviors_items_lambda_function_associations_items_include_body",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_LambdaFunctionAssociations_Items_LambdaFunctionARN",
         "targetName": "items_cache_behaviors_items_lambda_function_associations_items_lambda_function_arn",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_LambdaFunctionAssociations_Quantity",
         "targetName": "items_cache_behaviors_items_lambda_function_associations_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_MaxTTL",
         "targetName": "items_cache_behaviors_items_max_ttl",
         "targetType": "BIGINT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_MinTTL",
         "targetName": "items_cache_behaviors_items_min_ttl",
         "targetType": "BIGINT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_OriginRequestPolicyId",
         "targetName": "items_cache_behaviors_items_origin_request_policy_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_PathPattern",
         "targetName": "items_cache_behaviors_items_path_pattern",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_RealtimeLogConfigArn",
         "targetName": "items_cache_behaviors_items_realtime_log_config_arn",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_SmoothStreaming",
         "targetName": "items_cache_behaviors_items_smooth_streaming",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TargetOriginId",
         "targetName": "items_cache_behaviors_items_target_origin_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TrustedKeyGroups",
         "targetName": "items_cache_behaviors_items_trusted_key_groups",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TrustedKeyGroups_Enabled",
         "targetName": "items_cache_behaviors_items_trusted_key_groups_enabled",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TrustedKeyGroups_Items",
         "targetName": "items_cache_behaviors_items_trusted_key_groups_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TrustedKeyGroups_Quantity",
         "targetName": "items_cache_behaviors_items_trusted_key_groups_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TrustedSigners",
         "targetName": "items_cache_behaviors_items_trusted_signers",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TrustedSigners_Enabled",
         "targetName": "items_cache_behaviors_items_trusted_signers_enabled",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TrustedSigners_Items",
         "targetName": "items_cache_behaviors_items_trusted_signers_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_TrustedSigners_Quantity",
         "targetName": "items_cache_behaviors_items_trusted_signers_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Items_ViewerProtocolPolicy",
         "targetName": "items_cache_behaviors_items_viewer_protocol_policy",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CacheBehaviors_Quantity",
@@ -352,13 +352,13 @@
         "sourceName": "DistributionList_Items_Comment",
         "targetName": "items_comment",
         "targetType": "TEXT",
-        "enabled": false
+        "enabled": true
       },
       {
         "sourceName": "DistributionList_Items_CustomErrorResponses",
         "targetName": "items_custom_error_responses",
         "targetType": "TEXT",
-        "enabled": false
+        "enabled": true
       },
       {
         "sourceName": "DistributionList_Items_CustomErrorResponses_Items",
@@ -388,13 +388,13 @@
         "sourceName": "DistributionList_Items_CustomErrorResponses_Items_ResponsePagePath",
         "targetName": "items_custom_error_responses_items_response_page_path",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_CustomErrorResponses_Quantity",
         "targetName": "items_custom_error_responses_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior",
@@ -406,265 +406,265 @@
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_AllowedMethods",
         "targetName": "items_default_cache_behavior_allowed_methods",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_AllowedMethods_CachedMethods",
         "targetName": "items_default_cache_behavior_allowed_methods_cached_methods",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items",
         "targetName": "items_default_cache_behavior_allowed_methods_cached_methods_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity",
         "targetName": "items_default_cache_behavior_allowed_methods_cached_methods_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_AllowedMethods_Items",
         "targetName": "items_default_cache_behavior_allowed_methods_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_AllowedMethods_Quantity",
         "targetName": "items_default_cache_behavior_allowed_methods_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_CachePolicyId",
         "targetName": "items_default_cache_behavior_cache_policy_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_Compress",
         "targetName": "items_default_cache_behavior_compress",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_DefaultTTL",
         "targetName": "items_default_cache_behavior_default_ttl",
         "targetType": "BIGINT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_FieldLevelEncryptionId",
         "targetName": "items_default_cache_behavior_field_level_encryption_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues",
         "targetName": "items_default_cache_behavior_forwarded_values",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_Cookies",
         "targetName": "items_default_cache_behavior_forwarded_values_cookies",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_Cookies_Forward",
         "targetName": "items_default_cache_behavior_forwarded_values_cookies_forward",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames",
         "targetName": "items_default_cache_behavior_forwarded_values_cookies_whitelisted_names",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items",
         "targetName": "items_default_cache_behavior_forwarded_values_cookies_whitelisted_names_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity",
         "targetName": "items_default_cache_behavior_forwarded_values_cookies_whitelisted_names_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_Headers",
         "targetName": "items_default_cache_behavior_forwarded_values_headers",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_Headers_Items",
         "targetName": "items_default_cache_behavior_forwarded_values_headers_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_Headers_Quantity",
         "targetName": "items_default_cache_behavior_forwarded_values_headers_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_QueryString",
         "targetName": "items_default_cache_behavior_forwarded_values_query_string",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys",
         "targetName": "items_default_cache_behavior_forwarded_values_query_string_cache_keys",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items",
         "targetName": "items_default_cache_behavior_forwarded_values_query_string_cache_keys_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity",
         "targetName": "items_default_cache_behavior_forwarded_values_query_string_cache_keys_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_LambdaFunctionAssociations",
         "targetName": "items_default_cache_behavior_lambda_function_associations",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_LambdaFunctionAssociations_Items",
         "targetName": "items_default_cache_behavior_lambda_function_associations_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_LambdaFunctionAssociations_Items_EventType",
         "targetName": "items_default_cache_behavior_lambda_function_associations_items_event_type",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_LambdaFunctionAssociations_Items_IncludeBody",
         "targetName": "items_default_cache_behavior_lambda_function_associations_items_include_body",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_LambdaFunctionAssociations_Items_LambdaFunctionARN",
         "targetName": "items_default_cache_behavior_lambda_function_associations_items_lambda_function_arn",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity",
         "targetName": "items_default_cache_behavior_lambda_function_associations_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_MaxTTL",
         "targetName": "items_default_cache_behavior_max_ttl",
         "targetType": "BIGINT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_MinTTL",
         "targetName": "items_default_cache_behavior_min_ttl",
         "targetType": "BIGINT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_OriginRequestPolicyId",
         "targetName": "items_default_cache_behavior_origin_request_policy_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_RealtimeLogConfigArn",
         "targetName": "items_default_cache_behavior_realtime_log_config_arn",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_SmoothStreaming",
         "targetName": "items_default_cache_behavior_smooth_streaming",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TargetOriginId",
         "targetName": "items_default_cache_behavior_target_origin_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TrustedKeyGroups",
         "targetName": "items_default_cache_behavior_trusted_key_groups",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TrustedKeyGroups_Enabled",
         "targetName": "items_default_cache_behavior_trusted_key_groups_enabled",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TrustedKeyGroups_Items",
         "targetName": "items_default_cache_behavior_trusted_key_groups_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TrustedKeyGroups_Quantity",
         "targetName": "items_default_cache_behavior_trusted_key_groups_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TrustedSigners",
         "targetName": "items_default_cache_behavior_trusted_signers",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TrustedSigners_Enabled",
         "targetName": "items_default_cache_behavior_trusted_signers_enabled",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TrustedSigners_Items",
         "targetName": "items_default_cache_behavior_trusted_signers_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_TrustedSigners_Quantity",
         "targetName": "items_default_cache_behavior_trusted_signers_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DefaultCacheBehavior_ViewerProtocolPolicy",
         "targetName": "items_default_cache_behavior_viewer_protocol_policy",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_DomainName",
@@ -832,67 +832,67 @@
         "sourceName": "DistributionList_Items_OriginGroups_Items",
         "targetName": "items_origin_groups_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_FailoverCriteria",
         "targetName": "items_origin_groups_items_failover_criteria",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_FailoverCriteria_StatusCodes",
         "targetName": "items_origin_groups_items_failover_criteria_status_codes",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_FailoverCriteria_StatusCodes_Items",
         "targetName": "items_origin_groups_items_failover_criteria_status_codes_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_FailoverCriteria_StatusCodes_Quantity",
         "targetName": "items_origin_groups_items_failover_criteria_status_codes_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_Id",
         "targetName": "items_origin_groups_items_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_Members",
         "targetName": "items_origin_groups_items_members",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_Members_Items",
         "targetName": "items_origin_groups_items_members_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_Members_Items_OriginId",
         "targetName": "items_origin_groups_items_members_items_origin_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Items_Members_Quantity",
         "targetName": "items_origin_groups_items_members_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_OriginGroups_Quantity",
         "targetName": "items_origin_groups_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins",
@@ -904,157 +904,157 @@
         "sourceName": "DistributionList_Items_Origins_Items",
         "targetName": "items_origins_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_ConnectionAttempts",
         "targetName": "items_origins_items_connection_attempts",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_ConnectionTimeout",
         "targetName": "items_origins_items_connection_timeout",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomHeaders",
         "targetName": "items_origins_items_custom_headers",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomHeaders_Items",
         "targetName": "items_origins_items_custom_headers_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomHeaders_Items_HeaderName",
         "targetName": "items_origins_items_custom_headers_items_header_name",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomHeaders_Items_HeaderValue",
         "targetName": "items_origins_items_custom_headers_items_header_value",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomHeaders_Quantity",
         "targetName": "items_origins_items_custom_headers_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig",
         "targetName": "items_origins_items_custom_origin_config",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig_HTTPPort",
         "targetName": "items_origins_items_custom_origin_config_http_port",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig_HTTPSPort",
         "targetName": "items_origins_items_custom_origin_config_https_port",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig_OriginKeepaliveTimeout",
         "targetName": "items_origins_items_custom_origin_config_origin_keepalive_timeout",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig_OriginProtocolPolicy",
         "targetName": "items_origins_items_custom_origin_config_origin_protocol_policy",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig_OriginReadTimeout",
         "targetName": "items_origins_items_custom_origin_config_origin_read_timeout",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig_OriginSslProtocols",
         "targetName": "items_origins_items_custom_origin_config_origin_ssl_protocols",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig_OriginSslProtocols_Items",
         "targetName": "items_origins_items_custom_origin_config_origin_ssl_protocols_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_CustomOriginConfig_OriginSslProtocols_Quantity",
         "targetName": "items_origins_items_custom_origin_config_origin_ssl_protocols_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_DomainName",
         "targetName": "items_origins_items_domain_name",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_Id",
         "targetName": "items_origins_items_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_OriginPath",
         "targetName": "items_origins_items_origin_path",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_OriginShield",
         "targetName": "items_origins_items_origin_shield",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_OriginShield_Enabled",
         "targetName": "items_origins_items_origin_shield_enabled",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_OriginShield_OriginShieldRegion",
         "targetName": "items_origins_items_origin_shield_origin_shield_region",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_S3OriginConfig",
         "targetName": "items_origins_items_s3_origin_config",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Items_S3OriginConfig_OriginAccessIdentity",
         "targetName": "items_origins_items_s3_origin_config_origin_access_identity",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Origins_Quantity",
         "targetName": "items_origins_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_PriceClass",
@@ -1072,25 +1072,25 @@
         "sourceName": "DistributionList_Items_Restrictions_GeoRestriction",
         "targetName": "items_restrictions_geo_restriction",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Restrictions_GeoRestriction_Items",
         "targetName": "items_restrictions_geo_restriction_items",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Restrictions_GeoRestriction_Quantity",
         "targetName": "items_restrictions_geo_restriction_quantity",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Restrictions_GeoRestriction_RestrictionType",
         "targetName": "items_restrictions_geo_restriction_restriction_type",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_Status",
@@ -1108,43 +1108,43 @@
         "sourceName": "DistributionList_Items_ViewerCertificate_ACMCertificateArn",
         "targetName": "items_viewer_certificate_acm_certificate_arn",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_ViewerCertificate_Certificate",
         "targetName": "items_viewer_certificate_certificate",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_ViewerCertificate_CertificateSource",
         "targetName": "items_viewer_certificate_certificate_source",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_ViewerCertificate_CloudFrontDefaultCertificate",
         "targetName": "items_viewer_certificate_cloud_front_default_certificate",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_ViewerCertificate_IAMCertificateId",
         "targetName": "items_viewer_certificate_iam_certificate_id",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_ViewerCertificate_MinimumProtocolVersion",
         "targetName": "items_viewer_certificate_minimum_protocol_version",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_ViewerCertificate_SSLSupportMethod",
         "targetName": "items_viewer_certificate_ssl_support_method",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Items_WebACLId",
@@ -1156,19 +1156,19 @@
         "sourceName": "DistributionList_Marker",
         "targetName": "marker",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_MaxItems",
         "targetName": "max_items",
         "targetType": "INTEGER",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_NextMarker",
         "targetName": "next_marker",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "DistributionList_Quantity",
