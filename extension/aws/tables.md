@@ -38,3 +38,4 @@
   - aws_kms_key
   - aws_efs_file_system
   - aws_s3_glacier
+  - aws_ecr_repository

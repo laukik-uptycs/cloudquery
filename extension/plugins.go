@@ -22,6 +22,7 @@ import (
 	"github.com/Uptycs/cloudquery/extension/aws/config"
 	"github.com/Uptycs/cloudquery/extension/aws/directoryservice"
 	"github.com/Uptycs/cloudquery/extension/aws/ec2"
+	"github.com/Uptycs/cloudquery/extension/aws/ecr"
 	"github.com/Uptycs/cloudquery/extension/aws/efs"
 	"github.com/Uptycs/cloudquery/extension/aws/guardduty"
 	"github.com/Uptycs/cloudquery/extension/aws/iam"
@@ -68,6 +69,7 @@ func ReadTableConfigurations(homeDir string) {
 		"aws/workspaces/table_config.json",
 		"aws/efs/table_config.json",
     "aws/s3_glacier/table_config.json",
+    "aws/ecr/table_config.json",
 	}
 
 	var gcpConfigFileList = []string{
@@ -178,6 +180,7 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_workspaces_workspace", workspaces.DescribeWorkspacesColumns(), workspaces.DescribeWorkspacesGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_efs_file_system", efs.DescribeFileSystemsColumns(), efs.DescribeFileSystemsGenerate))
   server.RegisterPlugin(table.NewPlugin("aws_s3_glacier_vault", glacier.ListVaultsColumns(), glacier.ListVaultsGenerate))
+  server.RegisterPlugin(table.NewPlugin("aws_ecr_repository", ecr.DescribeRepositoriesColumns(), ecr.DescribeRepositoriesGenerate))
 	// GCP Compute
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_instance", gcpComputeHandler.GcpComputeInstancesColumns(), gcpComputeHandler.GcpComputeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_network", gcpComputeHandler.GcpComputeNetworksColumns(), gcpComputeHandler.GcpComputeNetworksGenerate))
