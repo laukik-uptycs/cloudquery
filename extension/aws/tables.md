@@ -41,3 +41,5 @@
   - aws_ecr_repository
   - aws_eks_cluster
   - aws_ecs_cluster
+  - aws_sns_topic
+

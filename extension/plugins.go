@@ -31,6 +31,7 @@ import (
 	"github.com/Uptycs/cloudquery/extension/aws/kms"
 	"github.com/Uptycs/cloudquery/extension/aws/s3"
 	glacier "github.com/Uptycs/cloudquery/extension/aws/s3_glacier"
+	"github.com/Uptycs/cloudquery/extension/aws/sns"
 	"github.com/Uptycs/cloudquery/extension/aws/workspaces"
 	"github.com/Uptycs/cloudquery/extension/gcp/compute"
 	"github.com/Uptycs/cloudquery/extension/gcp/storage"
@@ -74,6 +75,7 @@ func ReadTableConfigurations(homeDir string) {
 		"aws/ecr/table_config.json",
 		"aws/eks/table_config.json",
 		"aws/ecs/table_config.json",
+		"aws/sns/table_config.json",
 	}
 
 	var gcpConfigFileList = []string{
@@ -187,6 +189,7 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_ecr_repository", ecr.DescribeRepositoriesColumns(), ecr.DescribeRepositoriesGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_eks_cluster", eks.ListClustersColumns(), eks.ListClustersGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ecs_cluster", ecs.ListClustersColumns(), ecs.ListClustersGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_sns_topic", sns.ListTopicsColumns(), sns.ListTopicsGenerate))
 	// GCP Compute
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_instance", gcpComputeHandler.GcpComputeInstancesColumns(), gcpComputeHandler.GcpComputeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_network", gcpComputeHandler.GcpComputeNetworksColumns(), gcpComputeHandler.GcpComputeNetworksGenerate))
