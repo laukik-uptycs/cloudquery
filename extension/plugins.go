@@ -15,6 +15,7 @@ import (
 	"github.com/Uptycs/cloudquery/extension/aws/acm"
 	"github.com/Uptycs/cloudquery/extension/aws/apigateway"
 	"github.com/Uptycs/cloudquery/extension/aws/cloudformation"
+	"github.com/Uptycs/cloudquery/extension/aws/cloudtrail"
 	"github.com/Uptycs/cloudquery/extension/aws/cloudwatch"
 	"github.com/Uptycs/cloudquery/extension/aws/codecommit"
 	"github.com/Uptycs/cloudquery/extension/aws/codedeploy"
@@ -82,6 +83,7 @@ func ReadTableConfigurations(homeDir string) {
 		"aws/sqs/table_config.json",
 		"aws/elb/table_config.json",
 		"aws/elbv2/table_config.json",
+		"aws/cloudtrail/table_config.json",
 	}
 
 	var gcpConfigFileList = []string{
@@ -199,6 +201,7 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_ecs_cluster", ecs.ListClustersColumns(), ecs.ListClustersGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_sns_topic", sns.ListTopicsColumns(), sns.ListTopicsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_sqs_queue", sqs.ListQueuesColumns(), sqs.ListQueuesGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_cloudtrail_trail", cloudtrail.DescribeTrailsColumns(), cloudtrail.DescribeTrailsGenerate))
 	// GCP Compute
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_instance", gcpComputeHandler.GcpComputeInstancesColumns(), gcpComputeHandler.GcpComputeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_network", gcpComputeHandler.GcpComputeNetworksColumns(), gcpComputeHandler.GcpComputeNetworksGenerate))

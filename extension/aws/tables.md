@@ -34,6 +34,7 @@
   - aws_cloudwatch_event_rule
   - aws_config_recorder
   - aws_config_delivery_channel
+  - aws_cloudtrail_trail
   - aws_workspaces_workspace
   - aws_kms_key
   - aws_efs_file_system
