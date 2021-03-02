@@ -26,6 +26,8 @@ import (
 	"github.com/Uptycs/cloudquery/extension/aws/ecs"
 	"github.com/Uptycs/cloudquery/extension/aws/efs"
 	"github.com/Uptycs/cloudquery/extension/aws/eks"
+	"github.com/Uptycs/cloudquery/extension/aws/elb"
+	"github.com/Uptycs/cloudquery/extension/aws/elbv2"
 	"github.com/Uptycs/cloudquery/extension/aws/guardduty"
 	"github.com/Uptycs/cloudquery/extension/aws/iam"
 	"github.com/Uptycs/cloudquery/extension/aws/kms"
@@ -78,6 +80,8 @@ func ReadTableConfigurations(homeDir string) {
 		"aws/ecs/table_config.json",
 		"aws/sns/table_config.json",
 		"aws/sqs/table_config.json",
+		"aws/elb/table_config.json",
+		"aws/elbv2/table_config.json",
 	}
 
 	var gcpConfigFileList = []string{
@@ -186,6 +190,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_kms_key", kms.ListKeysColumns(), kms.ListKeysGenerate))
 	//aws workspace
 	server.RegisterPlugin(table.NewPlugin("aws_workspaces_workspace", workspaces.DescribeWorkspacesColumns(), workspaces.DescribeWorkspacesGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_elb_loadbalancer", elb.DescribeLoadBalancersColumns(), elb.DescribeLoadBalancersGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_elbv2_loadbalancer", elbv2.DescribeLoadBalancersColumns(), elbv2.DescribeLoadBalancersGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_efs_file_system", efs.DescribeFileSystemsColumns(), efs.DescribeFileSystemsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_s3_glacier_vault", glacier.ListVaultsColumns(), glacier.ListVaultsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ecr_repository", ecr.DescribeRepositoriesColumns(), ecr.DescribeRepositoriesGenerate))

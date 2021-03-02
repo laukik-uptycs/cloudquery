@@ -43,3 +43,5 @@
   - aws_ecs_cluster
   - aws_sns_topic
   - aws_sqs_queue
+  - aws_elb_loadbalancer
+  - aws_elbv2_loadbalancer
