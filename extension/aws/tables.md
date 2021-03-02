@@ -40,3 +40,4 @@
   - aws_s3_glacier
   - aws_ecr_repository
   - aws_eks_cluster
+  - aws_ecs_cluster
