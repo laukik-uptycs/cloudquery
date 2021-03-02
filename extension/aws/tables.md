@@ -42,4 +42,4 @@
   - aws_eks_cluster
   - aws_ecs_cluster
   - aws_sns_topic
-
+  - aws_sqs_queue
