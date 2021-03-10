@@ -57,13 +57,6 @@ func DescribeCertificateColumns() []table.ColumnDefinition {
 	}
 }
 
-func ListTagsForCertificateColumns() []table.ColumnDefinition {
-	return []table.ColumnDefinition{
-		table.TextColumn("key"),
-		table.TextColumn("value"),
-	}
-}
-
 // DescribeCertificatesGenerate returns the rows in the table for all configured accounts
 func DescribeCertificateGenerate(osqCtx context.Context, queryContext table.QueryContext) ([]map[string]string, error) {
 	resultMap := make([]map[string]string, 0)
@@ -107,14 +100,7 @@ func processAccountListCertificates(osqCtx context.Context, queryContext table.Q
 	if err != nil {
 		return resultMap, err
 	}
-	tableConfigCertificate, ok := utilities.TableConfigurationMap["aws_acm_certificate"]
-	if !ok {
-		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": "aws_acm_certificate",
-		}).Error("failed to get table configuration")
-		return resultMap, fmt.Errorf("table configuration not found")
-	}
-	tableConfigTag, ok := utilities.TableConfigurationMap["aws_acm_tag"]
+	tableConfig, ok := utilities.TableConfigurationMap["aws_acm_certificate"]
 	if !ok {
 		utilities.GetLogger().WithFields(log.Fields{
 			"tableName": "aws_acm_certificate",
@@ -129,7 +115,7 @@ func processAccountListCertificates(osqCtx context.Context, queryContext table.Q
 		if !extaws.ShouldProcessRegion("aws_acm_certificate", accountId, *region.RegionName) {
 			continue
 		}
-		result, err := processRegionListCertificates(osqCtx, queryContext, tableConfigCertificate, tableConfigTag, account, region)
+		result, err := processRegionListCertificates(osqCtx, queryContext, tableConfig, account, region)
 		if err != nil {
 			continue
 		}
@@ -138,7 +124,7 @@ func processAccountListCertificates(osqCtx context.Context, queryContext table.Q
 	return resultMap, nil
 }
 
-func processRegionListCertificates(osqCtx context.Context, queryContext table.QueryContext, tableConfigCertificate *utilities.TableConfig, tableConfigTag *utilities.TableConfig, account *utilities.ExtensionConfigurationAwsAccount, region types.Region) ([]map[string]string, error) {
+func processRegionListCertificates(osqCtx context.Context, queryContext table.QueryContext, tableConfig *utilities.TableConfig, account *utilities.ExtensionConfigurationAwsAccount, region types.Region) ([]map[string]string, error) {
 	resultMap := make([]map[string]string, 0)
 	sess, err := extaws.GetAwsConfig(account, *region.RegionName)
 	if err != nil {
@@ -175,16 +161,11 @@ func processRegionListCertificates(osqCtx context.Context, queryContext table.Qu
 		}
 
 		for _, certificateSummary := range page.CertificateSummaryList {
-			resultCertificate, err := processDescribeCertificate(osqCtx, queryContext, tableConfigCertificate, account, region, *certificateSummary.CertificateArn)
+			result, err := processDescribeCertificate(osqCtx, queryContext, tableConfig, account, region, *certificateSummary.CertificateArn)
 			if err != nil {
 				continue
 			}
-			resultMap = append(resultMap, resultCertificate...)
-			resultTag, err := processListTagsForCertificate(osqCtx, queryContext, tableConfigTag, account, region, *certificateSummary.CertificateArn)
-			if err != nil {
-				continue
-			}
-			resultMap = append(resultMap, resultTag...)
+			resultMap = append(resultMap, result...)
 		}
 		if !paginator.HasMorePages() {
 			break
@@ -215,60 +196,6 @@ func processDescribeCertificate(osqCtx context.Context, queryContext table.Query
 		CertificateArn: &CertificateArn,
 	}
 	page, err := svc.DescribeCertificate(osqCtx, params)
-	if err != nil {
-		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": "aws_acm_certificate",
-			"account":   accountId,
-			"region":    *region.RegionName,
-			"task":      "DescribeCertificate",
-			"errString": err.Error(),
-		}).Error("failed to process region")
-		return resultMap, err
-	}
-
-	byteArr, err := json.Marshal(page)
-	if err != nil {
-		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": "aws_acm_certificate",
-			"account":   accountId,
-			"region":    *region.RegionName,
-			"errString": err.Error(),
-		}).Error("failed to marshal response")
-		return resultMap, err
-	}
-	table := utilities.NewTable(byteArr, tableConfig)
-	for _, row := range table.Rows {
-		if !extaws.ShouldProcessRow(osqCtx, queryContext, "aws_acm_certificate", accountId, *region.RegionName, row) {
-			continue
-		}
-		result := extaws.RowToMap(row, accountId, *region.RegionName, tableConfig)
-		resultMap = append(resultMap, result)
-	}
-	return resultMap, nil
-}
-
-func processListTagsForCertificate(osqCtx context.Context, queryContext table.QueryContext, tableConfig *utilities.TableConfig, account *utilities.ExtensionConfigurationAwsAccount, region types.Region, CertificateArn string) ([]map[string]string, error) {
-	resultMap := make([]map[string]string, 0)
-	sess, err := extaws.GetAwsConfig(account, *region.RegionName)
-	if err != nil {
-		return resultMap, err
-	}
-	accountId := utilities.AwsAccountID
-	if account != nil {
-		accountId = account.ID
-	}
-
-	utilities.GetLogger().WithFields(log.Fields{
-		"tableName": "aws_acm_certificate",
-		"account":   accountId,
-		//"region":    *region.RegionName,
-	}).Debug("processing region")
-
-	svc := acm.NewFromConfig(*sess)
-	params := &acm.ListTagsForCertificateInput{
-		CertificateArn: &CertificateArn,
-	}
-	page, err := svc.ListTagsForCertificate(osqCtx, params)
 	if err != nil {
 		utilities.GetLogger().WithFields(log.Fields{
 			"tableName": "aws_acm_certificate",
