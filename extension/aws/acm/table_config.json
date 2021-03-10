@@ -1185,13 +1185,13 @@
         "sourceName": "Tags_Key",
         "targetName": "key",
         "targetType": "TEXT",
-        "enabled": false
+        "enabled": true
       },
       {
         "sourceName": "Tags_Value",
         "targetName": "value",
         "targetType": "TEXT",
-        "enabled": false
+        "enabled": true
       }
     ]
   }
