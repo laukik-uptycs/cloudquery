@@ -142,7 +142,7 @@ func registerEventTables(server *osquery.ExtensionManagerServer) {
 func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	// AWS ACM
 	server.RegisterPlugin(table.NewPlugin("aws_acm_certificate", acm.DescribeCertificateColumns(), acm.DescribeCertificateGenerate))
-	server.RegisterPlugin(table.NewPlugin("aws_acm_tag", acm.ListTagsForCertificateColumns(), acm.DescribeCertificateGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_acm_tag", acm.ListTagsForCertificateColumns(), acm.ListTagsForCertificateGenerate))
 	// AWS CLOUDFORMATION
 	server.RegisterPlugin(table.NewPlugin("aws_cloudformation_stack", cloudformation.DescribeStacksColumns(), cloudformation.DescribeStacksGenerate))
 	// AWS CODEPIPELINE
