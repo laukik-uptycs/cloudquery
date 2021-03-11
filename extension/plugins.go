@@ -16,6 +16,7 @@ import (
 	"github.com/Uptycs/cloudquery/extension/aws/apigateway"
 	"github.com/Uptycs/cloudquery/extension/aws/cloudformation"
 	"github.com/Uptycs/cloudquery/extension/aws/cloudfront"
+	"github.com/Uptycs/cloudquery/extension/aws/cloudtrail"
 	"github.com/Uptycs/cloudquery/extension/aws/cloudwatch"
 	"github.com/Uptycs/cloudquery/extension/aws/codecommit"
 	"github.com/Uptycs/cloudquery/extension/aws/codedeploy"
@@ -23,13 +24,26 @@ import (
 	"github.com/Uptycs/cloudquery/extension/aws/config"
 	"github.com/Uptycs/cloudquery/extension/aws/directoryservice"
 	"github.com/Uptycs/cloudquery/extension/aws/ec2"
+	"github.com/Uptycs/cloudquery/extension/aws/ecr"
+	"github.com/Uptycs/cloudquery/extension/aws/ecs"
+	"github.com/Uptycs/cloudquery/extension/aws/efs"
+	"github.com/Uptycs/cloudquery/extension/aws/eks"
+	"github.com/Uptycs/cloudquery/extension/aws/elb"
+	"github.com/Uptycs/cloudquery/extension/aws/elbv2"
 	"github.com/Uptycs/cloudquery/extension/aws/guardduty"
 	"github.com/Uptycs/cloudquery/extension/aws/iam"
 	"github.com/Uptycs/cloudquery/extension/aws/kms"
+	"github.com/Uptycs/cloudquery/extension/aws/organizations"
 	"github.com/Uptycs/cloudquery/extension/aws/s3"
+	glacier "github.com/Uptycs/cloudquery/extension/aws/s3_glacier"
+	"github.com/Uptycs/cloudquery/extension/aws/sns"
+	"github.com/Uptycs/cloudquery/extension/aws/sqs"
 	"github.com/Uptycs/cloudquery/extension/aws/workspaces"
 	"github.com/Uptycs/cloudquery/extension/gcp/compute"
 	"github.com/Uptycs/cloudquery/extension/gcp/storage"
+
+	"io/ioutil"
+	"os"
 
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
 	gcpcontainer "github.com/Uptycs/cloudquery/extension/gcp/container"
@@ -41,8 +55,6 @@ import (
 	gcpsql "github.com/Uptycs/cloudquery/extension/gcp/sql"
 	"github.com/Uptycs/cloudquery/utilities"
 	log "github.com/sirupsen/logrus"
-	"io/ioutil"
-	"os"
 )
 
 // ReadTableConfigurations TODO
@@ -59,12 +71,23 @@ func ReadTableConfigurations(homeDir string) {
 		"aws/cloudfront/table_config.json",
 		"aws/guardduty/table_config.json",
 		"aws/iam/table_config.json",
+		"aws/organizations/table_config.json",
 		"aws/cloudtrail/table_config.json",
 		"aws/acm/table_config.json",
 		"aws/cloudwatch/table_config.json",
 		"aws/config/table_config.json",
 		"aws/kms/table_config.json",
 		"aws/workspaces/table_config.json",
+		"aws/efs/table_config.json",
+		"aws/s3_glacier/table_config.json",
+		"aws/ecr/table_config.json",
+		"aws/eks/table_config.json",
+		"aws/ecs/table_config.json",
+		"aws/sns/table_config.json",
+		"aws/sqs/table_config.json",
+		"aws/elb/table_config.json",
+		"aws/elbv2/table_config.json",
+		"aws/cloudtrail/table_config.json",
 	}
 
 	var gcpConfigFileList = []string{
@@ -154,6 +177,11 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_keypair", ec2.DescribeKeyPairsColumns(), ec2.DescribeKeyPairsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_snapshot", ec2.DescribeSnapshotsColumns(), ec2.DescribeSnapshotsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_volume", ec2.DescribeVolumesColumns(), ec2.DescribeVolumesGenerate))
+	// AWS organizations
+	server.RegisterPlugin(table.NewPlugin("aws_organizations_organization", organizations.DescribeOrganizationColumns(), organizations.DescribeOrganizationGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_organizations_account", organizations.ListAccountsColumns(), organizations.ListAccountsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_organizations_root", organizations.ListRootsColumns(), organizations.ListRootsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_organizations_delegated_administrator", organizations.ListDelegatedAdministratorsColumns(), organizations.ListDelegatedAdministratorsGenerate))
 	// AWS S3
 	server.RegisterPlugin(table.NewPlugin("aws_s3_bucket", s3.ListBucketsColumns(), s3.ListBucketsGenerate))
 	// AWS IAM
@@ -175,6 +203,16 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_kms_key", kms.ListKeysColumns(), kms.ListKeysGenerate))
 	//aws workspace
 	server.RegisterPlugin(table.NewPlugin("aws_workspaces_workspace", workspaces.DescribeWorkspacesColumns(), workspaces.DescribeWorkspacesGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_elb_loadbalancer", elb.DescribeLoadBalancersColumns(), elb.DescribeLoadBalancersGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_elbv2_loadbalancer", elbv2.DescribeLoadBalancersColumns(), elbv2.DescribeLoadBalancersGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_efs_file_system", efs.DescribeFileSystemsColumns(), efs.DescribeFileSystemsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_s3_glacier_vault", glacier.ListVaultsColumns(), glacier.ListVaultsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ecr_repository", ecr.DescribeRepositoriesColumns(), ecr.DescribeRepositoriesGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_eks_cluster", eks.ListClustersColumns(), eks.ListClustersGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_ecs_cluster", ecs.ListClustersColumns(), ecs.ListClustersGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_sns_topic", sns.ListTopicsColumns(), sns.ListTopicsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_sqs_queue", sqs.ListQueuesColumns(), sqs.ListQueuesGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_cloudtrail_trail", cloudtrail.DescribeTrailsColumns(), cloudtrail.DescribeTrailsGenerate))
 	// GCP Compute
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_instance", gcpComputeHandler.GcpComputeInstancesColumns(), gcpComputeHandler.GcpComputeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("gcp_compute_network", gcpComputeHandler.GcpComputeNetworksColumns(), gcpComputeHandler.GcpComputeNetworksGenerate))
