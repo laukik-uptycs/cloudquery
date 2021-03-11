@@ -28,6 +28,10 @@
   - aws_iam_policy
   - aws_iam_role
   - aws_iam_user
+  - aws_organizations_account
+  - aws_organizations_delegated_administrator
+  - aws_organizations_organization
+  - aws_organizations_root
   - aws_s3_bucket
   - aws_cloudwatch_alarm
   - aws_cloudwatch_event_bus
