@@ -1,0 +1,4 @@
+- aws_organizations_account
+- aws_organizations_delegated_administrator
+- aws_organizations_organization
+- aws_organizations_root

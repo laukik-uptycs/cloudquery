@@ -32,6 +32,7 @@ import (
 	"github.com/Uptycs/cloudquery/extension/aws/guardduty"
 	"github.com/Uptycs/cloudquery/extension/aws/iam"
 	"github.com/Uptycs/cloudquery/extension/aws/kms"
+	"github.com/Uptycs/cloudquery/extension/aws/organizations"
 	"github.com/Uptycs/cloudquery/extension/aws/s3"
 	glacier "github.com/Uptycs/cloudquery/extension/aws/s3_glacier"
 	"github.com/Uptycs/cloudquery/extension/aws/sns"
@@ -68,6 +69,7 @@ func ReadTableConfigurations(homeDir string) {
 		"aws/s3/table_config.json",
 		"aws/guardduty/table_config.json",
 		"aws/iam/table_config.json",
+		"aws/organizations/table_config.json",
 		"aws/cloudtrail/table_config.json",
 		"aws/acm/table_config.json",
 		"aws/cloudwatch/table_config.json",
@@ -172,6 +174,11 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_keypair", ec2.DescribeKeyPairsColumns(), ec2.DescribeKeyPairsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_snapshot", ec2.DescribeSnapshotsColumns(), ec2.DescribeSnapshotsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_volume", ec2.DescribeVolumesColumns(), ec2.DescribeVolumesGenerate))
+	// AWS organizations
+	server.RegisterPlugin(table.NewPlugin("aws_organizations_organization", organizations.DescribeOrganizationColumns(), organizations.DescribeOrganizationGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_organizations_account", organizations.ListAccountsColumns(), organizations.ListAccountsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_organizations_root", organizations.ListRootsColumns(), organizations.ListRootsGenerate))
+	server.RegisterPlugin(table.NewPlugin("aws_organizations_delegated_administrator", organizations.ListDelegatedAdministratorsColumns(), organizations.ListDelegatedAdministratorsGenerate))
 	// AWS S3
 	server.RegisterPlugin(table.NewPlugin("aws_s3_bucket", s3.ListBucketsColumns(), s3.ListBucketsGenerate))
 	// AWS IAM
