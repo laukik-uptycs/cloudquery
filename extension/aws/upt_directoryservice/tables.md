@@ -1,0 +1,1 @@
+- upt_cloud_directory_inventory
