@@ -1,0 +1,42 @@
+{
+    "aws_rds_cluster": {
+      "aws": {
+        "regionCodeAttribute": "region_code",
+        "accountIdAttribute": "account_id"
+      },
+      "gcp": {},
+      "azure": {},
+      "parsedAttributes": [
+        {
+          "sourceName": "DBClusters_DBClusterIdentifier",
+          "targetName": "cluster_identifier",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "DBClusters_Engine",
+          "targetName": "engine",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "DBClusters_DBSubnetGroup",
+          "targetName": "subnet_group",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "DBClusters_MultiAZ",
+          "targetName": "multi_AZ",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "DBClusters_Status",
+          "targetName": "status",
+          "targetType": "TEXT",
+          "enabled": true
+        }
+      ]
+    }
+  }
