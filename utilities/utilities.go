@@ -49,7 +49,6 @@ func ReadTableConfig(jsonEncoded []byte) error {
 		config.initParsedAttributeConfigMap()
 		TableConfigurationMap[tableName] = config
 	}
-	
 	return nil
 }
 
