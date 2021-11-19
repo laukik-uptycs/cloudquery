@@ -10,6 +10,9 @@
 package extension
 
 import (
+	"io/ioutil"
+	"os"
+
 	osquery "github.com/Uptycs/basequery-go"
 	"github.com/Uptycs/basequery-go/plugin/table"
 	"github.com/Uptycs/cloudquery/extension/aws/acm"
@@ -41,9 +44,6 @@ import (
 	"github.com/Uptycs/cloudquery/extension/aws/workspaces"
 	"github.com/Uptycs/cloudquery/extension/gcp/compute"
 	"github.com/Uptycs/cloudquery/extension/gcp/storage"
-
-	"io/ioutil"
-	"os"
 
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
 	gcpcontainer "github.com/Uptycs/cloudquery/extension/gcp/container"
@@ -158,11 +158,11 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("aws_codedeploy_application", codedeploy.ListApplicationsColumns(), codedeploy.ListApplicationsGenerate))
 	// AWS CODECOMMIT
 	server.RegisterPlugin(table.NewPlugin("aws_codecommit_repository", codecommit.ListRepositoriesColumns(), codecommit.ListRepositoriesGenerate))
-	//AWS RDS
+	// AWS RDS
+	server.RegisterPlugin(table.NewPlugin("aws_rds_snapshot", rds.ListSnapshotsColumns(), rds.DescribeSnapshotsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_rds_instance", rds.ListInstanceColumns(), rds.DescribeDBInstances))
 	server.RegisterPlugin(table.NewPlugin("aws_rds_cluster", rds.ListClustersColumns(), rds.DescribeClustersGenerate))
 	// AWS EC2
-
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_instance", ec2.DescribeInstancesColumns(), ec2.DescribeInstancesGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_vpc", ec2.DescribeVpcsColumns(), ec2.DescribeVpcsGenerate))
 	server.RegisterPlugin(table.NewPlugin("aws_ec2_subnet", ec2.DescribeSubnetsColumns(), ec2.DescribeSubnetsGenerate))
