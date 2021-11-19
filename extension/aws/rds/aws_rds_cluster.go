@@ -247,7 +247,7 @@ func processRegionDescribeClusters(osqCtx context.Context, queryContext table.Qu
 				"tableName": "aws_rds_cluster",
 				"account":   accountId,
 				"region":    *region.RegionName,
-				"task":      "ListCertificates",
+				"task":      "DescribeDBClusters",
 				"errString": err.Error(),
 			}).Error("failed to process region")
 			return resultMap, err
@@ -258,7 +258,7 @@ func processRegionDescribeClusters(osqCtx context.Context, queryContext table.Qu
 				"tableName": "aws_rds_cluster",
 				"account":   accountId,
 				"region":    *region.RegionName,
-				"task":      "ListCertificates",
+				"task":      "DescribeDBClusters",
 				"errString": err.Error(),
 			}).Error("failed to marshal response")
 			return nil, err
