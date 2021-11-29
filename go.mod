@@ -5,6 +5,7 @@ go 1.15
 require (
 	cloud.google.com/go/storage v1.12.0
 	github.com/Azure/azure-sdk-for-go v59.4.0+incompatible
+	github.com/Azure/azure-storage-blob-go v0.14.0
 	github.com/Azure/go-autorest/autorest v0.11.17
 	github.com/Azure/go-autorest/autorest/azure/auth v0.5.6
 	github.com/Azure/go-autorest/autorest/to v0.4.0 // indirect

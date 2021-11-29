@@ -103,7 +103,7 @@ func ReadTableConfigurations(homeDir string) {
 		"gcp/run/table_config.json",
 		"gcp/cloudlog/table_config.json",
 	}
-	
+
 	var azureConfigFileList = []string{
 		"azure/compute/table_config.json",
 		"azure/storage/table_config.json",
@@ -257,8 +257,9 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_compute_vm", azurecompute.VirtualMachinesColumns(), azurecompute.VirtualMachinesGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_compute_networkinterface", azurecompute.InterfacesColumns(), azurecompute.InterfacesGenerate))
 	// Azure Storage
-	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_container", azurestorage.StorageBlobContainerColumns(), azurestorage.StorageBlobContainerGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_account", azurestorage.StorageAccountColumns(), azurestorage.StorageAccountsGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_container", azurestorage.StorageBlobContainerColumns(), azurestorage.StorageBlobContainerGenerate))
+	
 	// Event tables
 	registerEventTables(server)
 }
