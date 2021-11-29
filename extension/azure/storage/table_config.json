@@ -1,0 +1,10 @@
+{
+    "azure_compute_networkinterface": {
+      "aws": {},
+      "gcp": {},
+      "azure": {
+        "subscriptionIdAttribute": "subscription_id"
+      },
+      "parsedAttributes": []
+    }
+  }

@@ -46,6 +46,7 @@ import (
 	"github.com/Uptycs/cloudquery/extension/gcp/storage"
 
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
+	azurestorage "github.com/Uptycs/cloudquery/extension/azure/storage"
 	gcpcontainer "github.com/Uptycs/cloudquery/extension/gcp/container"
 	gcpdns "github.com/Uptycs/cloudquery/extension/gcp/dns"
 	gcpfile "github.com/Uptycs/cloudquery/extension/gcp/file"
@@ -102,7 +103,12 @@ func ReadTableConfigurations(homeDir string) {
 		"gcp/run/table_config.json",
 		"gcp/cloudlog/table_config.json",
 	}
-	var azureConfigFileList = []string{"azure/compute/table_config.json"}
+	
+	var azureConfigFileList = []string{
+		"azure/compute/table_config.json",
+		"azure/storage/table_config.json",
+	}
+	
 	var configFileList = append(awsConfigFileList, gcpConfigFileList...)
 	configFileList = append(configFileList, azureConfigFileList...)
 
@@ -250,6 +256,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	// Azure Compute
 	server.RegisterPlugin(table.NewPlugin("azure_compute_vm", azurecompute.VirtualMachinesColumns(), azurecompute.VirtualMachinesGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_compute_networkinterface", azurecompute.InterfacesColumns(), azurecompute.InterfacesGenerate))
+	// Azure Storage
+	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_container", azurestorage.StorageBlobContainerColumns(), azurestorage.StorageBlobContainerGenerate))
 	// Event tables
 	registerEventTables(server)
 }
