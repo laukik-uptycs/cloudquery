@@ -14,6 +14,7 @@ import (
 	"github.com/Uptycs/cloudquery/utilities"
 
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2021-04-01/storage"
+	"github.com/fatih/structs"
 )
 
 // StorageAccountsColumns returns the list of columns in the table
@@ -255,7 +256,9 @@ func getStorageAccounts(session *azure.AzureSession, rg string, wg *sync.WaitGro
 		}
 
 		resource := resourceItr.Value()
-		byteArr, err := json.Marshal(resource)
+		structs.DefaultTagName = "json"
+		resMap := structs.Map(resource)
+		byteArr, err := json.Marshal(resMap)
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     "azure_storage_account",
@@ -264,7 +267,9 @@ func getStorageAccounts(session *azure.AzureSession, rg string, wg *sync.WaitGro
 			}).Error("failed to marshal response")
 			continue
 		}
+
 		table := utilities.NewTable(byteArr, tableConfig)
+
 		for _, row := range table.Rows {
 			result := azure.RowToMap(row, session.SubscriptionId, "", rg, tableConfig)
 			*resultMap = append(*resultMap, result)
