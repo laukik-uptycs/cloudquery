@@ -1,1 +1,2 @@
 - azure_storage_blob_container
+- azure_storage_account

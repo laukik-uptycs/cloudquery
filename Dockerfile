@@ -83,6 +83,7 @@ COPY extension/gcp/cloudlog/table_config.json   /opt/cloudquery/etc/gcp/cloudlog
 COPY extension/azure/compute/table_config.json  /opt/cloudquery/etc/azure/compute/
 COPY extension/azure/storage/table_config.json  /opt/cloudquery/etc/azure/storage/
 
+
 CMD ["/usr/bin/osqueryd", \
     "--flagfile=/opt/cloudquery/etc/osquery.flags", \
     "--config_path=/opt/cloudquery/etc/osquery.conf", \

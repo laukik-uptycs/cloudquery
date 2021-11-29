@@ -36,13 +36,14 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/guardduty v1.1.1
 	github.com/aws/aws-sdk-go-v2/service/iam v1.1.0
 	github.com/aws/aws-sdk-go-v2/service/kms v1.1.1
-	github.com/aws/aws-sdk-go-v2/service/organizations v1.7.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/organizations v1.7.0
 	github.com/aws/aws-sdk-go-v2/service/rds v1.11.0
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.1.0
 	github.com/aws/aws-sdk-go-v2/service/sns v1.1.1
 	github.com/aws/aws-sdk-go-v2/service/sqs v1.1.1
 	github.com/aws/aws-sdk-go-v2/service/sts v1.1.0
 	github.com/aws/aws-sdk-go-v2/service/workspaces v1.1.1
+	github.com/fatih/structs v1.1.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.7.0
