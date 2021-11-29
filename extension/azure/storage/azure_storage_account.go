@@ -17,6 +17,8 @@ import (
 	"github.com/fatih/structs"
 )
 
+const tableName string = "azure_storage_account"
+
 // StorageAccountsColumns returns the list of columns in the table
 func StorageAccountColumns() []table.ColumnDefinition {
 	return []table.ColumnDefinition{
@@ -184,7 +186,7 @@ func StorageAccountsGenerate(osqCtx context.Context, queryContext table.QueryCon
 	resultMap := make([]map[string]string, 0)
 	if len(utilities.ExtConfiguration.ExtConfAzure.Accounts) == 0 {
 		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": "azure_storage_account",
+			"tableName": tableName,
 			"account":   "default",
 		}).Info("processing account")
 		results, err := processAccountStorageAccounts(nil)
@@ -195,7 +197,7 @@ func StorageAccountsGenerate(osqCtx context.Context, queryContext table.QueryCon
 	} else {
 		for _, account := range utilities.ExtConfiguration.ExtConfAzure.Accounts {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName": "azure_storage_account",
+				"tableName": tableName,
 				"account":   account.SubscriptionID,
 			}).Info("processing account")
 			results, err := processAccountStorageAccounts(&account)
@@ -224,10 +226,10 @@ func processAccountStorageAccounts(account *utilities.ExtensionConfigurationAzur
 
 	wg.Add(len(groups))
 
-	tableConfig, ok := utilities.TableConfigurationMap["azure_storage_account"]
+	tableConfig, ok := utilities.TableConfigurationMap[tableName]
 	if !ok {
 		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": "azure_storage_account",
+			"tableName": tableName,
 		}).Error("failed to get table configuration")
 		return resultMap, fmt.Errorf("table configuration not found")
 	}
@@ -248,7 +250,7 @@ func getStorageAccounts(session *azure.AzureSession, rg string, wg *sync.WaitGro
 	for resourceItr, err := svcClient.ListComplete(context.Background()); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName":     "azure_storage_account",
+				"tableName":     tableName,
 				"resourceGroup": rg,
 				"errString":     err.Error(),
 			}).Error("failed to get resource list")
@@ -261,7 +263,7 @@ func getStorageAccounts(session *azure.AzureSession, rg string, wg *sync.WaitGro
 		byteArr, err := json.Marshal(resMap)
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName":     "azure_storage_account",
+				"tableName":     tableName,
 				"resourceGroup": rg,
 				"errString":     err.Error(),
 			}).Error("failed to marshal response")
