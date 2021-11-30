@@ -247,7 +247,7 @@ func getStorageAccounts(session *azure.AzureSession, rg string, wg *sync.WaitGro
 	svcClient := storage.NewAccountsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
 
-	for resourceItr, err := svcClient.ListComplete(context.Background()); resourceItr.NotDone(); err = resourceItr.Next() {
+	for resourceItr, err := svcClient.ListByResourceGroupComplete(context.Background(), rg); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     storageAccount,

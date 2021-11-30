@@ -22,7 +22,6 @@ import (
 
 	"github.com/Uptycs/basequery-go/plugin/table"
 	"github.com/Uptycs/cloudquery/utilities"
-
 	"github.com/fatih/structs"
 )
 
@@ -140,7 +139,26 @@ func getStorageAccountsForBlobContainer(session *azure.AzureSession, rg string, 
 	svcClient := storage.NewAccountsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
 
-	for resourceItr, err := svcClient.ListComplete(context.Background()); resourceItr.NotDone(); err = resourceItr.Next() {
+	for resourceItr, err := svcClient.ListByResourceGroupComplete(context.Background(), rg); resourceItr.NotDone(); err = resourceItr.Next() {
+		if err != nil {
+			utilities.GetLogger().WithFields(log.Fields{
+				"tableName":     storageBlobContainer,
+				"resourceGroup": rg,
+				"errString":     err.Error(),
+			}).Error("failed to get resource list")
+			continue
+		}
+
+		resource := resourceItr.Value()
+		getStorageBlobContainer(session, rg, wg, resultMap, tableConfig, *resource.Name)
+	}
+}
+
+func getStorageBlobContainer(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, accountName string) {
+	svcClient := storage.NewBlobContainersClient(session.SubscriptionId)
+	svcClient.Authorizer = session.Authorizer
+
+	for resourceItr, err := svcClient.ListComplete(context.Background(), rg, accountName, "", "", storage.ListContainersIncludeDeleted); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     storageBlobContainer,
@@ -154,6 +172,7 @@ func getStorageAccountsForBlobContainer(session *azure.AzureSession, rg string, 
 		structs.DefaultTagName = "json"
 		resMap := structs.Map(resource)
 		byteArr, err := json.Marshal(resMap)
+
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     storageBlobContainer,
@@ -164,43 +183,9 @@ func getStorageAccountsForBlobContainer(session *azure.AzureSession, rg string, 
 		}
 
 		table := utilities.NewTable(byteArr, tableConfig)
-
 		for _, row := range table.Rows {
 			result := azure.RowToMap(row, session.SubscriptionId, "", rg, tableConfig)
 			*resultMap = append(*resultMap, result)
 		}
 	}
 }
-
-// func getStorageBlobContainer(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, accountName string) {
-
-// 	svcClient := storage.NewBlobContainersClient(session.SubscriptionId)
-// 	svcClient.Authorizer = session.Authorizer
-
-// 	for resourceItr, err := svcClient.ListComplete(context.Background(), rg, accountName); resourceItr.NotDone(); err = resourceItr.Next() {
-// 		if err != nil {
-// 			utilities.GetLogger().WithFields(log.Fields{
-// 				"tableName":     storageBlobContainer,
-// 				"resourceGroup": rg,
-// 				"errString":     err.Error(),
-// 			}).Error("failed to get resource list")
-// 			continue
-// 		}
-
-// 		resource := resourceItr.Value()
-// 		byteArr, err := json.Marshal(resource)
-// 		if err != nil {
-// 			utilities.GetLogger().WithFields(log.Fields{
-// 				"tableName":     storageBlobContainer,
-// 				"resourceGroup": rg,
-// 				"errString":     err.Error(),
-// 			}).Error("failed to marshal response")
-// 			continue
-// 		}
-// 		table := utilities.NewTable(byteArr, tableConfig)
-// 		for _, row := range table.Rows {
-// 			result := extazure.RowToMap(row, session.SubscriptionId, "", rg, tableConfig)
-// 			*resultMap = append(*resultMap, result)
-// 		}
-// 	}
-// }
