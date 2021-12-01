@@ -4,8 +4,10 @@ go 1.17
 
 require (
 	cloud.google.com/go/storage v1.12.0
-	github.com/Azure/azure-sdk-for-go v50.2.0+incompatible
+	github.com/Azure/azure-sdk-for-go v59.4.0+incompatible
+	github.com/Azure/azure-storage-blob-go v0.14.0
 	github.com/Azure/go-autorest/autorest v0.11.17
+	github.com/Azure/go-autorest/autorest/adal v0.9.13 // indirect
 	github.com/Azure/go-autorest/autorest/azure/auth v0.5.6
 	github.com/Uptycs/basequery-go v0.2.0
 	github.com/aws/aws-sdk-go-v2 v1.11.0
@@ -40,11 +42,13 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sqs v1.1.1
 	github.com/aws/aws-sdk-go-v2/service/sts v1.1.0
 	github.com/aws/aws-sdk-go-v2/service/workspaces v1.1.1
+	github.com/fatih/structs v1.1.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.7.0
 	github.com/stretchr/testify v1.7.0
 	google.golang.org/api v0.37.0
+	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 )
 
