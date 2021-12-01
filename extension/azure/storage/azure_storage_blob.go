@@ -289,7 +289,6 @@ func getStorageBlobContainerForBlob(session *azure.AzureSession, rg string, wg *
 }
 
 func getStorageBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, accountName string, accountKey string, containerName string) {
-
 	// fmt.Printf("Account: %s | Key: %s\n", accountName, accountKey)
 
 	credential, err := azureazblob.NewSharedKeyCredential(accountName, accountKey)
