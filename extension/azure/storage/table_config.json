@@ -2065,5 +2065,164 @@
                 "enabled":false
             }
         ]
+    },
+    "azure_storage_diagnostic_setting" : {
+        "aws": {},
+        "gcp": {},
+        "azure": {
+          "subscriptionIdAttribute": "subscription_id"
+        },
+        "parsedAttributes": [
+            {
+              "sourceName": "id",
+              "targetName": "id",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "name",
+              "targetName": "name",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "storageAccountId",
+              "targetName": "storageAccountId",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "type",
+              "targetName": "type",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "propertise_log",
+              "targetName": "propertise_log",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "propertise_metrics",
+              "targetName": "propertise_metrics",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "eventHubAuthorizationRuleId",
+              "targetName": "event_hub_authorization_rule_id",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "eventHubName",
+              "targetName": "event_hub_name",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "logAnalyticsDestinationType",
+              "targetName": "log_analytics_destination_type",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "logs",
+              "targetName": "logs",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "logs_category",
+              "targetName": "logs_category",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "logs_enabled",
+              "targetName": "logs_enabled",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "logs_retentionPolicy",
+              "targetName": "logs_retention_policy",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "logs_retentionPolicy_days",
+              "targetName": "logs_retention_policy_days",
+              "targetType": "INTEGER",
+              "enabled": false
+            },
+            {
+              "sourceName": "logs_retentionPolicy_enabled",
+              "targetName": "logs_retention_policy_enabled",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "metrics",
+              "targetName": "metrics",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "metrics_category",
+              "targetName": "metrics_category",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "metrics_enabled",
+              "targetName": "metrics_enabled",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "metrics_retentionPolicy",
+              "targetName": "metrics_retention_policy",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "metrics_retentionPolicy_days",
+              "targetName": "metrics_retention_policy_days",
+              "targetType": "INTEGER",
+              "enabled": false
+            },
+            {
+              "sourceName": "metrics_retentionPolicy_enabled",
+              "targetName": "metrics_retention_policy_enabled",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "metrics_timeGrain",
+              "targetName": "metrics_time_grain",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "serviceBusRuleId",
+              "targetName": "service_bus_rule_id",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "storageAccountId",
+              "targetName": "storage_account_id",
+              "targetType": "TEXT",
+              "enabled": false
+            },
+            {
+              "sourceName": "workspaceId",
+              "targetName": "workspace_id",
+              "targetType": "TEXT",
+              "enabled": false
+            }
+        ]
     }
 }

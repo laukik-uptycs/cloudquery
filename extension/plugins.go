@@ -263,6 +263,7 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	// Azure Storage
 	server.RegisterPlugin(table.NewPlugin("azure_storage_account", azurestorage.StorageAccountColumns(), azurestorage.StorageAccountsGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_container", azurestorage.StorageBlobContainerColumns(), azurestorage.StorageBlobContainerGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_storage_diagnostic_setting", azurestorage.StorageDiagnosticSettingColumns(), azurestorage.StorageDiagnosticSettingsGenerate))
 
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
 	
