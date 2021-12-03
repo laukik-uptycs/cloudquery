@@ -2,6 +2,7 @@ package storage
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"sync"
 
@@ -113,8 +114,31 @@ func getStorageDiagnosticSetting(session *azure.AzureSession, rg string, wg *syn
 		utilities.GetLogger().WithFields(log.Fields{
 			"tableName":     storageDiagnosticSetting,
 			"resourceGroup": rg,
-		}).Error("failed to get return object")
+			"error":         err.Error(),
+		}).Error("failed to get resturned object")
 	}
 
-	fmt.Println(returnObj)
+	resource, err := json.MarshalIndent(returnObj, "", "	")
+	if err != nil {
+		utilities.GetLogger().WithFields(log.Fields{
+			"tableName":     storageDiagnosticSetting,
+			"resourceGroup": rg,
+			"error":         err.Error(),
+		}).Error("failed to marshal the resturned object")
+	}
+
+	fmt.Println(string(resource))
 }
+
+/*
+time="2021-12-03T19:06:59+05:30"
+
+level=error msg="failed to get resturned object"
+
+error="insights.DiagnosticSettingsClient#List: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. Status=404" Code=\"MissingSubscription\" Message=\"The request did not have a subscription or a valid tenant level resource provider.\""
+
+resourceGroup=DemoResourceGroup
+
+tableName=azure_storage_diagnostic_setting
+
+*/
