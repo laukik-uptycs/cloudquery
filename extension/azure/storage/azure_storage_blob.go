@@ -225,19 +225,15 @@ func processAccountStorageBlob(account *utilities.ExtensionConfigurationAzureAcc
 	}
 
 	for _, group := range groups {
-		go getStorageAccountsForBlob(session, group, &wg, &resultMap, tableConfig)
+		go addStorageAccountsForBlob(session, group, &wg, &resultMap, tableConfig)
 	}
 	wg.Wait()
 	return resultMap, nil
 }
 
-func getStorageAccountsForBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
+func addStorageAccountsForBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
-
-	svcClient := storage.NewAccountsClient(session.SubscriptionId)
-	svcClient.Authorizer = session.Authorizer
-
-	for resourceItr, err := svcClient.ListByResourceGroupComplete(context.Background(), rg); resourceItr.NotDone(); err = resourceItr.Next() {
+	for resourceItr, err := getStorageAccountData(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     storageBlobContainer,
@@ -248,11 +244,11 @@ func getStorageAccountsForBlob(session *azure.AzureSession, rg string, wg *sync.
 		}
 
 		resource := resourceItr.Value()
-		getStorageAccountKeysForBlob(session, rg, wg, resultMap, tableConfig, *resource.Name)
+		addStorageAccountKeysForBlob(session, rg, wg, resultMap, tableConfig, *resource.Name)
 	}
 }
 
-func getStorageAccountKeysForBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, accountName string) {
+func addStorageAccountKeysForBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, accountName string) {
 
 	svcClient := storage.NewAccountsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
@@ -266,14 +262,12 @@ func getStorageAccountKeysForBlob(session *azure.AzureSession, rg string, wg *sy
 		}).Error("failed to get resource list")
 	}
 
-	getStorageBlobContainerForBlob(session, rg, wg, resultMap, tableConfig, accountName, *((*accountClient.Keys)[0].Value))
+	addStorageBlobContainerForBlob(session, rg, wg, resultMap, tableConfig, accountName, *((*accountClient.Keys)[0].Value))
 }
 
-func getStorageBlobContainerForBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, accountName string, accountKey string) {
-	svcClient := storage.NewBlobContainersClient(session.SubscriptionId)
-	svcClient.Authorizer = session.Authorizer
+func addStorageBlobContainerForBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, accountName string, accountKey string) {
 
-	for resourceItr, err := svcClient.ListComplete(context.Background(), rg, accountName, "", "", storage.ListContainersIncludeDeleted); resourceItr.NotDone(); err = resourceItr.Next() {
+	for resourceItr, err := getStorageBlobContainerData(session, rg, accountName); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     storageBlobContainer,
@@ -289,11 +283,15 @@ func getStorageBlobContainerForBlob(session *azure.AzureSession, rg string, wg *
 }
 
 func getStorageBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, accountName string, accountKey string, containerName string) {
-	// fmt.Printf("Account: %s | Key: %s\n", accountName, accountKey)
-
 	credential, err := azureazblob.NewSharedKeyCredential(accountName, accountKey)
 	if err != nil {
-		log.Fatal(err)
+		utilities.GetLogger().WithFields(log.Fields{
+			"tableName":     storageBlobContainer,
+			"resourceGroup": rg,
+			"errString":     err.Error(),
+			"accountName": accountName,
+		}).Error("failed to get credentials")
+		return
 	}
 
 	p := azureazblob.NewPipeline(credential, azureazblob.PipelineOptions{})
@@ -306,7 +304,13 @@ func getStorageBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, 
 
 		listBlob, err := containerURL.ListBlobsFlatSegment(context.Background(), marker, azureazblob.ListBlobsSegmentOptions{})
 		if err != nil {
-			log.Fatal(err)
+			utilities.GetLogger().WithFields(log.Fields{
+				"tableName":     storageBlobContainer,
+				"resourceGroup": rg,
+				"errString":     err.Error(),
+				"accountName": accountName,
+			}).Error("failed to get blob")
+			return
 		}
 
 		marker = listBlob.NextMarker
@@ -333,3 +337,4 @@ func getStorageBlob(session *azure.AzureSession, rg string, wg *sync.WaitGroup, 
 		}
 	}
 }
+
