@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"sync"
 
+	"github.com/fatih/structs"
 	log "github.com/sirupsen/logrus"
 
 	"github.com/Uptycs/cloudquery/extension/azure"
@@ -13,7 +14,7 @@ import (
 	"github.com/Uptycs/basequery-go/plugin/table"
 	"github.com/Uptycs/cloudquery/utilities"
 
-	diagnostic "github.com/Azure/azure-sdk-for-go/services/preview/monitor/mgmt/2021-04-01-preview/insights"
+	diagnostic "github.com/Azure/azure-sdk-for-go/services/preview/monitor/mgmt/2021-07-01-preview/insights"
 )
 
 const storageDiagnosticSetting string = "azure_storage_diagnostic_setting"
@@ -21,25 +22,31 @@ const storageDiagnosticSetting string = "azure_storage_diagnostic_setting"
 // StorageDiagnosticSettingsColumns returns the list of columns in the table
 func StorageDiagnosticSettingColumns() []table.ColumnDefinition {
 	return []table.ColumnDefinition{
-		table.TextColumn("event_hub_authorization_rule_id"),
-		table.TextColumn("event_hub_name"),
-		table.TextColumn("log_analytics_destination_type"),
-		table.TextColumn("logs"),
-		table.TextColumn("logs_category"),
-		table.TextColumn("logs_enabled"),
-		table.TextColumn("logs_retention_policy"),
-		table.IntegerColumn("logs_retention_policy_days"),
-		table.TextColumn("logs_retention_policy_enabled"),
-		table.TextColumn("metrics"),
-		table.TextColumn("metrics_category"),
-		table.TextColumn("metrics_enabled"),
-		table.TextColumn("metrics_retention_policy"),
-		table.IntegerColumn("metrics_retention_policy_days"),
-		table.TextColumn("metrics_retention_policy_enabled"),
-		table.TextColumn("metrics_time_grain"),
-		table.TextColumn("service_bus_rule_id"),
-		table.TextColumn("storage_account_id"),
-		table.TextColumn("workspace_id"),
+		table.TextColumn("id"),
+		table.TextColumn("name"),
+		table.TextColumn("storageAccountId"),
+		table.TextColumn("type"),
+		table.TextColumn("propertise_log"),
+		table.TextColumn("propertise_metrics"),
+		// table.TextColumn("event_hub_authorization_rule_id"),
+		// table.TextColumn("event_hub_name"),
+		// table.TextColumn("log_analytics_destination_type"),
+		// table.TextColumn("logs"),
+		// table.TextColumn("logs_category"),
+		// table.TextColumn("logs_enabled"),
+		// table.TextColumn("logs_retention_policy"),
+		// table.IntegerColumn("logs_retention_policy_days"),
+		// table.TextColumn("logs_retention_policy_enabled"),
+		// table.TextColumn("metrics"),
+		// table.TextColumn("metrics_category"),
+		// table.TextColumn("metrics_enabled"),
+		// table.TextColumn("metrics_retention_policy"),
+		// table.IntegerColumn("metrics_retention_policy_days"),
+		// table.TextColumn("metrics_retention_policy_enabled"),
+		// table.TextColumn("metrics_time_grain"),
+		// table.TextColumn("service_bus_rule_id"),
+		// table.TextColumn("storage_account_id"),
+		// table.TextColumn("workspace_id"),
 	}
 }
 
@@ -92,53 +99,86 @@ func processStorageDiagnosticSetting(account *utilities.ExtensionConfigurationAz
 	if !ok {
 		utilities.GetLogger().WithFields(log.Fields{
 			"tableName": storageDiagnosticSetting,
+			"error":     err.Error(),
 		}).Error("failed to get table configuration")
 		return resultMap, fmt.Errorf("table configuration not found")
 	}
 
 	for _, group := range groups {
-		go getStorageDiagnosticSetting(session, group, &wg, &resultMap, tableConfig)
+		go getStorageAccountId(session, group, &wg, &resultMap, tableConfig)
 	}
 	wg.Wait()
 	return resultMap, nil
 }
 
-func getStorageDiagnosticSetting(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
+func getStorageAccountId(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
 
+	var diagnosticSettings []diagnostic.DiagnosticSettingsResource
+	for resourceItr, err := getStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
+		if err != nil {
+			utilities.GetLogger().WithFields(log.Fields{
+				"tableName":     storageAccount,
+				"resourceGroup": rg,
+				"errString":     err.Error(),
+			}).Error("failed to get resource list")
+			continue
+		}
+
+		resource := resourceItr.Value()
+		diagnosticSetting, err := getStorageDiagnosticSetting(session, rg, wg, resultMap, tableConfig, *resource.ID)
+
+		if err != nil {
+			utilities.GetLogger().WithFields(log.Fields{
+				"tableName":     storageDiagnosticSetting,
+				"resourceGroup": rg,
+				"error":         err.Error(),
+			}).Error("failed to get storage diagnostic settings")
+			continue
+		}
+
+		diagnosticSettings = append(diagnosticSettings, *diagnosticSetting...)
+	}
+
+	addStorageDiagnosticSetting(session, rg, resultMap, tableConfig, diagnosticSettings)
+}
+
+func addStorageDiagnosticSetting(session *azure.AzureSession, rg string, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, diagnosticSettings []diagnostic.DiagnosticSettingsResource) {
+	for _, diagnosticSetting := range diagnosticSettings {
+		structs.DefaultTagName = "json"
+		resMap := structs.Map(diagnosticSetting)
+		byteArr, err := json.Marshal(resMap)
+		if err != nil {
+			utilities.GetLogger().WithFields(log.Fields{
+				"tableName":     storageDiagnosticSetting,
+				"resourceGroup": rg,
+				"errString":     err.Error(),
+			}).Error("failed to marshal response")
+			continue
+		}
+
+		table := utilities.NewTable(byteArr, tableConfig)
+		for _, row := range table.Rows {
+			result := azure.RowToMap(row, session.SubscriptionId, "", rg, tableConfig)
+			*resultMap = append(*resultMap, result)
+		}
+	}
+}
+
+func getStorageDiagnosticSetting(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, resourceURI string) (*[]diagnostic.DiagnosticSettingsResource, error) {
 	svcClient := diagnostic.NewDiagnosticSettingsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
 
-	returnObj, err := svcClient.List(context.Background(), rg)
+	returnObj, err := svcClient.List(context.Background(), resourceURI)
 	if err != nil {
 		utilities.GetLogger().WithFields(log.Fields{
 			"tableName":     storageDiagnosticSetting,
 			"resourceGroup": rg,
 			"error":         err.Error(),
-		}).Error("failed to get resturned object")
+		}).Error("failed to get List")
+		return nil, err
 	}
+	resource := returnObj.Value
 
-	resource, err := json.MarshalIndent(returnObj, "", "	")
-	if err != nil {
-		utilities.GetLogger().WithFields(log.Fields{
-			"tableName":     storageDiagnosticSetting,
-			"resourceGroup": rg,
-			"error":         err.Error(),
-		}).Error("failed to marshal the resturned object")
-	}
-
-	fmt.Println(string(resource))
+	return resource, nil
 }
-
-/*
-time="2021-12-03T19:06:59+05:30"
-
-level=error msg="failed to get resturned object"
-
-error="insights.DiagnosticSettingsClient#List: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. Status=404" Code=\"MissingSubscription\" Message=\"The request did not have a subscription or a valid tenant level resource provider.\""
-
-resourceGroup=DemoResourceGroup
-
-tableName=azure_storage_diagnostic_setting
-
-*/
