@@ -54,6 +54,7 @@ require (
 
 require (
 	cloud.google.com/go v0.74.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/armcore v0.8.1
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.2 // indirect
 	github.com/Azure/go-autorest/autorest/date v0.3.0 // indirect
@@ -97,4 +98,9 @@ require (
 	google.golang.org/grpc v1.34.0 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+)
+
+require (
+	github.com/Azure/azure-sdk-for-go/sdk/azcore v0.17.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/internal v0.5.1 // indirect
 )
