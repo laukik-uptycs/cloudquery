@@ -2,9 +2,11 @@ package storage
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"sync"
 
+	"github.com/fatih/structs"
 	log "github.com/sirupsen/logrus"
 
 	"github.com/Uptycs/basequery-go/plugin/table"
@@ -97,16 +99,41 @@ func processSqlServer(account *utilities.ExtensionConfigurationAzureAccount) ([]
 	}
 
 	for _, group := range groups {
-		go getSqlDatabase(session, group, &wg, &resultMap, tableConfig)
+		go addSqlServer(session, group, &wg, &resultMap, tableConfig)
 	}
 
 	wg.Wait()
 	return resultMap, nil
 }
 
-func getSqlDatabase(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
+func addSqlServer(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
 
+	sqlServers := make([]sql.Server, 0)
+
+	getSqlServer(session, rg, wg, resultMap, tableConfig, &sqlServers)
+
+	for _, sqlServer := range sqlServers {
+		structs.DefaultTagName = "json"
+		resMap := structs.Map(sqlServer)
+		byteArr, err := json.Marshal(resMap)
+		if err != nil {
+			utilities.GetLogger().WithFields(log.Fields{
+				"tableName": sqlServer,
+				"resourceGroup": rg,
+				"errString": err.Error(),
+			}).Error("failed to marshal response")
+			continue
+		}
+		table := utilities.NewTable(byteArr, tableConfig)
+		for _, row := range table.Rows {
+			result := azure.RowToMap(row, session.SubscriptionId, "", rg, tableConfig)
+			*resultMap = append(*resultMap, result)
+		}
+	}
+}
+
+func getSqlServer(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, sqlServes *[]sql.Server) {
 	svcClient := sql.NewServersClient(session.SubscriptionId)
 
 	svcClient.Authorizer = session.Authorizer
@@ -119,6 +146,7 @@ func getSqlDatabase(session *azure.AzureSession, rg string, wg *sync.WaitGroup, 
 			"errString":      err.Error(),
 		}).Error("failed to get server list from api")
 	}
+	resource := returnedObj.Value
 
-	fmt.Println(returnedObj)
+	*sqlServes = append(*sqlServes, *resource...)
 }
