@@ -2113,25 +2113,25 @@
               "sourceName": "eventHubAuthorizationRuleId",
               "targetName": "event_hub_authorization_rule_id",
               "targetType": "TEXT",
-              "enabled": false
+              "enabled": true
             },
             {
               "sourceName": "eventHubName",
               "targetName": "event_hub_name",
               "targetType": "TEXT",
-              "enabled": false
+              "enabled": true
             },
             {
               "sourceName": "logAnalyticsDestinationType",
               "targetName": "log_analytics_destination_type",
               "targetType": "TEXT",
-              "enabled": false
+              "enabled": true
             },
             {
               "sourceName": "logs",
               "targetName": "logs",
               "targetType": "TEXT",
-              "enabled": false
+              "enabled": true
             },
             {
               "sourceName": "logs_category",
@@ -2167,7 +2167,7 @@
               "sourceName": "metrics",
               "targetName": "metrics",
               "targetType": "TEXT",
-              "enabled": false
+              "enabled": true
             },
             {
               "sourceName": "metrics_category",
@@ -2209,19 +2209,19 @@
               "sourceName": "serviceBusRuleId",
               "targetName": "service_bus_rule_id",
               "targetType": "TEXT",
-              "enabled": false
+              "enabled": true
             },
             {
               "sourceName": "storageAccountId",
               "targetName": "storage_account_id",
               "targetType": "TEXT",
-              "enabled": false
+              "enabled": true
             },
             {
               "sourceName": "workspaceId",
               "targetName": "workspace_id",
               "targetType": "TEXT",
-              "enabled": false
+              "enabled": true
             }
         ]
     }
