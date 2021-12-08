@@ -19,6 +19,16 @@ import (
 
 const storageDiagnosticSetting string = "azure_storage_diagnostic_setting"
 
+type serviceName string
+
+const (
+	storageService serviceName = "storageservices"
+	fileService    serviceName = "fileservices"
+	blobService    serviceName = "blobservices"
+	queueService   serviceName = "queueservices"
+	tableService   serviceName = "tableservices"
+)
+
 // StorageDiagnosticSettingsColumns returns the list of columns in the table
 func StorageDiagnosticSettingColumns() []table.ColumnDefinition {
 	return []table.ColumnDefinition{
@@ -26,8 +36,8 @@ func StorageDiagnosticSettingColumns() []table.ColumnDefinition {
 		table.TextColumn("name"),
 		table.TextColumn("storageAccountId"),
 		table.TextColumn("type"),
-		table.TextColumn("propertise_log"),
-		table.TextColumn("propertise_metrics"),
+		table.TextColumn("properties_log"),
+		table.TextColumn("properties_metrics"),
 		table.TextColumn("event_hub_authorization_rule_id"),
 		table.TextColumn("event_hub_name"),
 		table.TextColumn("log_analytics_destination_type"),
@@ -114,7 +124,7 @@ func processStorageDiagnosticSetting(account *utilities.ExtensionConfigurationAz
 func getStorageAccountId(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
 
-	var diagnosticSettings []diagnostic.DiagnosticSettingsResource
+	diagnosticSettings := make([]diagnostic.DiagnosticSettingsResource, 0)
 	for resourceItr, err := getStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
@@ -126,18 +136,11 @@ func getStorageAccountId(session *azure.AzureSession, rg string, wg *sync.WaitGr
 		}
 
 		resource := resourceItr.Value()
-		diagnosticSetting, err := getStorageDiagnosticSetting(session, rg, wg, resultMap, tableConfig, *resource.ID)
-
-		if err != nil {
-			utilities.GetLogger().WithFields(log.Fields{
-				"tableName":     storageDiagnosticSetting,
-				"resourceGroup": rg,
-				"error":         err.Error(),
-			}).Error("failed to get storage diagnostic settings")
-			continue
-		}
-
-		diagnosticSettings = append(diagnosticSettings, *diagnosticSetting...)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, storageService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, fileService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, blobService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, queueService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, tableService)
 	}
 
 	addStorageDiagnosticSetting(session, rg, resultMap, tableConfig, diagnosticSettings)
@@ -165,9 +168,19 @@ func addStorageDiagnosticSetting(session *azure.AzureSession, rg string, resultM
 	}
 }
 
-func getStorageDiagnosticSetting(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, resourceURI string) (*[]diagnostic.DiagnosticSettingsResource, error) {
+func getStorageDiagnosticSetting(session *azure.AzureSession, rg string, resourceURI string, diagnosticSettings *[]diagnostic.DiagnosticSettingsResource, serviceNameString serviceName) {
 	svcClient := diagnostic.NewDiagnosticSettingsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
+
+	if serviceNameString != storageService {
+		resourceURI += "/" + string(serviceNameString) + "/deafult"
+	}
+
+	utilities.GetLogger().WithFields(log.Fields{
+		"tableName":     storageDiagnosticSetting,
+		"resourceGroup": rg,
+		"resourceURI":   resourceURI,
+	}).Info("Getting data from")
 
 	returnObj, err := svcClient.List(context.Background(), resourceURI)
 	if err != nil {
@@ -176,9 +189,13 @@ func getStorageDiagnosticSetting(session *azure.AzureSession, rg string, wg *syn
 			"resourceGroup": rg,
 			"error":         err.Error(),
 		}).Error("failed to get List")
-		return nil, err
+		return
 	}
 	resource := returnObj.Value
 
-	return resource, nil
+	for _, r := range *resource {
+		*r.Type = string(serviceNameString)
+	}
+
+	*diagnosticSettings = append(*diagnosticSettings, *resource...)
 }

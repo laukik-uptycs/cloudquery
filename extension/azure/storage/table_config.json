@@ -2098,14 +2098,14 @@
               "enabled": true
             },
             {
-              "sourceName": "propertise_log",
-              "targetName": "propertise_log",
+              "sourceName": "properties_log",
+              "targetName": "properties_log",
               "targetType": "TEXT",
               "enabled": true
             },
             {
-              "sourceName": "propertise_metrics",
-              "targetName": "propertise_metrics",
+              "sourceName": "properties_metrics",
+              "targetName": "properties_metrics",
               "targetType": "TEXT",
               "enabled": true
             },
