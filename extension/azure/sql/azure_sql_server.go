@@ -1,4 +1,4 @@
-package storage
+package sql
 
 import (
 	"context"
@@ -109,19 +109,24 @@ func processSqlServer(account *utilities.ExtensionConfigurationAzureAccount) ([]
 func addSqlServer(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
 
-	sqlServers := make([]sql.Server, 0)
+	resources, err := getSqlServer(session, rg)
+	if err != nil {
+		utilities.GetLogger().WithFields(log.Fields{
+			"tableName":      sqlServer,
+			"rescourceGroup": rg,
+			"errString":      err.Error(),
+		}).Error("failed to get server list from api")
+	}
 
-	getSqlServer(session, rg, wg, resultMap, tableConfig, &sqlServers)
-
-	for _, sqlServer := range sqlServers {
+	for _, sqlServer := range *resources.Value {
 		structs.DefaultTagName = "json"
 		resMap := structs.Map(sqlServer)
 		byteArr, err := json.Marshal(resMap)
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName": sqlServer,
+				"tableName":     sqlServer,
 				"resourceGroup": rg,
-				"errString": err.Error(),
+				"errString":     err.Error(),
 			}).Error("failed to marshal response")
 			continue
 		}
@@ -133,20 +138,8 @@ func addSqlServer(session *azure.AzureSession, rg string, wg *sync.WaitGroup, re
 	}
 }
 
-func getSqlServer(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, sqlServes *[]sql.Server) {
+func getSqlServer(session *azure.AzureSession, rg string) (result sql.ServerListResult, err error) {
 	svcClient := sql.NewServersClient(session.SubscriptionId)
-
 	svcClient.Authorizer = session.Authorizer
-
-	returnedObj, err := svcClient.ListByResourceGroup(context.Background(), rg)
-	if err != nil {
-		utilities.GetLogger().WithFields(log.Fields{
-			"tableName":      sqlServer,
-			"rescourceGroup": rg,
-			"errString":      err.Error(),
-		}).Error("failed to get server list from api")
-	}
-	resource := returnedObj.Value
-
-	*sqlServes = append(*sqlServes, *resource...)
+	return svcClient.ListByResourceGroup(context.Background(), rg)
 }
