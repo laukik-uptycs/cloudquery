@@ -273,14 +273,14 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_service", azurestorage.StorageBlobServiceColumns(), azurestorage.StorageBlobServicesGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_queue_service", azurestorage.StorageQueueServicesColumns(), azurestorage.StorageQueueServicesGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_table_service", azurestorage.StorageTableServicesColumns(), azurestorage.StorageTableServicesGenerate))
-  server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
-  //Azure MySQl
+	server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
+	//Azure MySQl
 	server.RegisterPlugin(table.NewPlugin("azure_mysql_server", azuremysql.MysqlServerColumns(), azuremysql.MysqlServerGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
 	// Azure SQL
 	server.RegisterPlugin(table.NewPlugin("azure_sql_database", azuresql.SqlDatabaseColumns(), azuresql.SqlDatabaseGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_sql_server", azuresql.SqlServerCloumns(), azuresql.SqlServerGenerate))
-	
+
 	// Event tables
 	registerEventTables(server)
 }

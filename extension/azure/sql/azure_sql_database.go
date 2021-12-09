@@ -133,7 +133,7 @@ func processAccountSqlDatabase(account *utilities.ExtensionConfigurationAzureAcc
 func getSqlServerNameForTable(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
 
-	resourceItr, err := getSqlServerData(session, rg)
+	resourceItr, err := getSqlServer(session, rg)
 	if err != nil {
 		utilities.GetLogger().WithFields(log.Fields{
 			"tableName":     sqlDatabase,
@@ -145,12 +145,6 @@ func getSqlServerNameForTable(session *azure.AzureSession, rg string, wg *sync.W
 	for _, server := range *resourceItr.Value {
 		setSqlDatabaseDataToTable(session, rg, wg, resultMap, tableConfig, *server.Name)
 	}
-}
-
-func getSqlServerData(session *azure.AzureSession, rg string) (result sql.ServerListResult, err error) {
-	svcClient := sql.NewServersClient(session.SubscriptionId)
-	svcClient.Authorizer = session.Authorizer
-	return svcClient.ListByResourceGroup(context.Background(), rg)
 }
 
 func setSqlDatabaseDataToTable(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, serverName string) {
