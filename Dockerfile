@@ -71,6 +71,7 @@ COPY extension/aws/sqs/table_config.json                /opt/cloudquery/etc/aws/
 COPY extension/aws/workspaces/table_config.json         /opt/cloudquery/etc/aws/workspaces/
 
 # Keep these alphabetically ordered
+COPY extension/azure/appservice/table_config.json  /opt/cloudquery/etc/azure/appservice/
 COPY extension/azure/compute/table_config.json  /opt/cloudquery/etc/azure/compute/
 COPY extension/azure/storage/table_config.json  /opt/cloudquery/etc/azure/storage/
 COPY extension/azure/mysql/table_config.json  /opt/cloudquery/etc/azure/mysql/
