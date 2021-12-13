@@ -363,6 +363,6 @@ func setAppserviceSiteDataToTable(session *azure.AzureSession, rg string, wg *sy
 func getAppserviceSiteData(session *azure.AzureSession, rg string) (web.AppCollectionIterator, error) {
 	svcClient := web.NewAppsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
-	var flag bool = true
+	var flag bool = false
 	return svcClient.ListByResourceGroupComplete(context.Background(), rg, &flag)
 }
