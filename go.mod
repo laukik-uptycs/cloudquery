@@ -44,7 +44,7 @@ require (
 	github.com/fatih/structs v1.1.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pkg/errors v0.9.1
-	github.com/sirupsen/logrus v1.7.0
+	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.7.0
 	google.golang.org/api v0.58.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
@@ -108,4 +108,9 @@ require (
 	google.golang.org/grpc v1.40.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+)
+
+require (
+	github.com/Azure/azure-sdk-for-go/sdk/azcore v0.17.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/internal v0.5.1 // indirect
 )
