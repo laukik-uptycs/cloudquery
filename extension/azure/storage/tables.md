@@ -1,3 +1,7 @@
 - azure_storage_blob_container
 - azure_storage_account
+- azure_storage_file_service
+- azure_storage_blob_service
+- azure_storage_queue_service
+- azure_storage_table_service
 - azure_storage_blob

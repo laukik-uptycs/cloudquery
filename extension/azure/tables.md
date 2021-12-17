@@ -7,4 +7,9 @@
   - azure_storage_account
   - azure_compute_disk
   - azure_compute_security_group
+  - azure_storage_file_service
+  - azure_storage_blob_service
+  - azure_storage_queue_service
+  - azure_storage_table_service
   - azure_storage_blob
+  - azure_mysql_server
