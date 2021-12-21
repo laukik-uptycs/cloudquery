@@ -12,7 +12,6 @@
   - azure_storage_table_service
   - azure_storage_blob
   - azure_storage_diagnostic_setting
-  - azure_mysql_server
   - azure_storage_blob_container
   - azure_storage_account
   - azure_sql_server
