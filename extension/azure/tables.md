@@ -7,7 +7,7 @@
   - azure_storage_account
   - azure_compute_disk
   - azure_compute_security_group
-  - azure_mysql_server
+  - azure_postgresql_server
   - azure_storage_file_service
   - azure_storage_blob_service
   - azure_storage_queue_service
@@ -16,3 +16,5 @@
   - azure_storage_diagnostic_setting
   - azure_mysql_server
   - azure_appservice_site
+  - azure_cosmosdb_account
+  - azure_cosmosdb_sqldb
