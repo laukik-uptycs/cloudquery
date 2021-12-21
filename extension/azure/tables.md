@@ -19,4 +19,5 @@
   - azure_appservice_site
   - azure_cosmosdb_account
   - azure_cosmosdb_sqldb
+  - azure_cosmosdb_mongodb
   - azure_keyvault_vault
