@@ -48,6 +48,7 @@ import (
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
 	azurecosmosdb "github.com/Uptycs/cloudquery/extension/azure/cosmosdb"
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
+	azurepostgresql "github.com/Uptycs/cloudquery/extension/azure/postgresql"
 	azurestorage "github.com/Uptycs/cloudquery/extension/azure/storage"
 	gcpcontainer "github.com/Uptycs/cloudquery/extension/gcp/container"
 	gcpdns "github.com/Uptycs/cloudquery/extension/gcp/dns"
@@ -109,6 +110,7 @@ func ReadTableConfigurations(homeDir string) {
 	var azureConfigFileList = []string{
 		"azure/compute/table_config.json",
 		"azure/cosmosdb/table_config.json",
+		"azure/postgresql/table_config.json",
 		"azure/storage/table_config.json",
 		"azure/mysql/table_config.json",
 	}
@@ -266,6 +268,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_compute_security_group", azurecompute.SecurityGroupsColumns(), azurecompute.SecurityGroupsGenerate))
 	// Azure Cosmosdb
 	server.RegisterPlugin(table.NewPlugin("azure_cosmosdb_account", azurecosmosdb.CosmosdbAccountColumns(), azurecosmosdb.CosmosdbAccountsGenerate))
+	// Azure Postgresql
+	server.RegisterPlugin(table.NewPlugin("azure_postgresql_server", azurepostgresql.PostgresqlServerColumns(), azurepostgresql.PostgresqlServersGenerate))
 	// Azure Storage
 	server.RegisterPlugin(table.NewPlugin("azure_storage_account", azurestorage.StorageAccountColumns(), azurestorage.StorageAccountsGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_container", azurestorage.StorageBlobContainerColumns(), azurestorage.StorageBlobContainerGenerate))
