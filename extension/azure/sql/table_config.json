@@ -127,7 +127,7 @@
         "sourceName": "properties",
         "targetName": "properties",
         "targetType": "TEXT",
-        "enabled": true
+        "enabled": false
       },
       {
         "sourceName": "properties_collation",
@@ -354,6 +354,12 @@
       {
         "sourceName": "type",
         "targetName": "type",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "server_name",
+        "targetName": "server_name",
         "targetType": "TEXT",
         "enabled": true
       }

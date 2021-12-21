@@ -26,7 +26,7 @@ func SqlDatabaseColumns() []table.ColumnDefinition {
 		table.TextColumn("kind"),
 		table.TextColumn("location"),
 		table.TextColumn("name"),
-		table.TextColumn("properties"),
+		// table.TextColumn("properties"),
 		table.TextColumn("collation"),
 		table.BigIntColumn("containment_state"),
 		table.TextColumn("create_mode"),
