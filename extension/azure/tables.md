@@ -15,3 +15,4 @@
   - azure_storage_blob
   - azure_storage_diagnostic_setting
   - azure_mysql_server
+  - azure_appservice_site
