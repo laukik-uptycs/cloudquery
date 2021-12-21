@@ -1,0 +1,1 @@
+- azure_cosmosdb_account

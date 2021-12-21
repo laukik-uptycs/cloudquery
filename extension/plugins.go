@@ -46,6 +46,7 @@ import (
 	"github.com/Uptycs/cloudquery/extension/gcp/storage"
 
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
+	azurecosmosdb "github.com/Uptycs/cloudquery/extension/azure/cosmosdb"
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
 	azurestorage "github.com/Uptycs/cloudquery/extension/azure/storage"
 	gcpcontainer "github.com/Uptycs/cloudquery/extension/gcp/container"
@@ -107,6 +108,7 @@ func ReadTableConfigurations(homeDir string) {
 
 	var azureConfigFileList = []string{
 		"azure/compute/table_config.json",
+		"azure/cosmosdb/table_config.json",
 		"azure/storage/table_config.json",
 		"azure/mysql/table_config.json",
 	}
@@ -262,6 +264,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_compute_subnet", azurecompute.VirtualSubnetColumns(), azurecompute.VirtualSubnetsGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_compute_disk", azurecompute.DiskColumns(), azurecompute.DiskGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_compute_security_group", azurecompute.SecurityGroupsColumns(), azurecompute.SecurityGroupsGenerate))
+	// Azure Cosmosdb
+	server.RegisterPlugin(table.NewPlugin("azure_cosmosdb_account", azurecosmosdb.CosmosdbAccountColumns(), azurecosmosdb.CosmosdbAccountsGenerate))
 	// Azure Storage
 	server.RegisterPlugin(table.NewPlugin("azure_storage_account", azurestorage.StorageAccountColumns(), azurestorage.StorageAccountsGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_container", azurestorage.StorageBlobContainerColumns(), azurestorage.StorageBlobContainerGenerate))
@@ -270,8 +274,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_service", azurestorage.StorageBlobServiceColumns(), azurestorage.StorageBlobServicesGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_queue_service", azurestorage.StorageQueueServicesColumns(), azurestorage.StorageQueueServicesGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_table_service", azurestorage.StorageTableServicesColumns(), azurestorage.StorageTableServicesGenerate))
-  server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
-  //Azure MySQl
+	server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
+	//Azure MySQl
 	server.RegisterPlugin(table.NewPlugin("azure_mysql_server", azuremysql.MysqlServerColumns(), azuremysql.MysqlServerGenerate))
 	// Event tables
 	registerEventTables(server)
