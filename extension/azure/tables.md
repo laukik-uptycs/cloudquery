@@ -3,8 +3,6 @@
   - azure_compute_vm
   - azure_compute_virtual_network
   - azure_compute_subnet
-  - azure_storage_blob_container
-  - azure_storage_account
   - azure_compute_disk
   - azure_compute_security_group
   - azure_postgresql_server
@@ -14,6 +12,9 @@
   - azure_storage_table_service
   - azure_storage_blob
   - azure_storage_diagnostic_setting
+  - azure_storage_blob_container
+  - azure_storage_account
+  - azure_sql_server
   - azure_mysql_server
   - azure_cosmosdb_account
   - azure_cosmosdb_sqldb
