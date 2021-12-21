@@ -295,6 +295,7 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_appservice_site", azureappservice.AppserviceSiteColumns(), azureappservice.AppserviceSitesGenerate))
 	// Azure SQL
 	server.RegisterPlugin(table.NewPlugin("azure_sql_server", azuresql.SqlServerCloumns(), azuresql.SqlServerGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_sql_database", azuresql.SqlDatabaseColumns(), azuresql.SqlDatabaseGenerate))
 	// Azure Keyvault
 	server.RegisterPlugin(table.NewPlugin("azure_keyvault_vault", azurekeyvault.KeyvaultVaultColumns(), azurekeyvault.KeyvaultVaultsGenerate))
 
