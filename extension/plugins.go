@@ -49,6 +49,7 @@ import (
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
 	azuresql "github.com/Uptycs/cloudquery/extension/azure/sql"
 	azurestorage "github.com/Uptycs/cloudquery/extension/azure/storage"
+
 	gcpcontainer "github.com/Uptycs/cloudquery/extension/gcp/container"
 	gcpdns "github.com/Uptycs/cloudquery/extension/gcp/dns"
 	gcpfile "github.com/Uptycs/cloudquery/extension/gcp/file"
@@ -275,7 +276,9 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
   server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
   //Azure MySQl
 	server.RegisterPlugin(table.NewPlugin("azure_mysql_server", azuremysql.MysqlServerColumns(), azuremysql.MysqlServerGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
 	// Azure SQL
+	server.RegisterPlugin(table.NewPlugin("azure_sql_database", azuresql.SqlDatabaseColumns(), azuresql.SqlDatabaseGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_sql_server", azuresql.SqlServerCloumns(), azuresql.SqlServerGenerate))
 	
 	// Event tables

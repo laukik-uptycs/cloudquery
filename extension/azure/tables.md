@@ -15,3 +15,4 @@
   - azure_storage_blob_container
   - azure_storage_account
   - azure_sql_server
+  - azure_sql_database
