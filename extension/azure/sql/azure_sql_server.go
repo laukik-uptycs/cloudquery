@@ -25,7 +25,7 @@ func SqlServerCloumns() []table.ColumnDefinition {
 		table.TextColumn("kind"),
 		table.TextColumn("location"),
 		table.TextColumn("name"),
-		table.TextColumn("properties"),
+		// table.TextColumn("properties"),
 		table.TextColumn("administrator_login"),
 		table.TextColumn("administrator_login_password"),
 		table.TextColumn("external_administrator_login"),

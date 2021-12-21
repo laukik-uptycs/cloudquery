@@ -1,362 +1,362 @@
 {
-    "azure_sql_server": {
-        "aws": {},
-        "gcp": {},
-        "azure": {
-          "subscriptionIdAttribute": "subscription_id"
-        },
-        "parsedAttributes": [
-            {
-              "sourceName": "id",
-              "targetName": "id",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "kind",
-              "targetName": "kind",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "location",
-              "targetName": "location",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "name",
-              "targetName": "name",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "properties",
-              "targetName": "properties",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "properties_administratorLogin",
-              "targetName": "administrator_login",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "properties_administratorLoginPassword",
-              "targetName": "administrator_login_password",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "properties_externalAdministratorLogin",
-              "targetName": "external_administrator_login",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "properties_externalAdministratorSid",
-              "targetName": "external_administrator_sid",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "properties_fullyQualifiedDomainName",
-              "targetName": "fully_qualified_domain_name",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "properties_state",
-              "targetName": "state",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "properties_version",
-              "targetName": "version",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "tags",
-              "targetName": "tags",
-              "targetType": "TEXT",
-              "enabled": true
-            },
-            {
-              "sourceName": "type",
-              "targetName": "type",
-              "targetType": "TEXT",
-              "enabled": true
-            }
-        ]
-    }, 
-    "azure_sql_database": {
-      "aws": {},
-      "gcp": {},
-      "azure": {
-        "subscriptionIdAttribute": "subscription_id"
+  "azure_sql_server": {
+    "aws": {},
+    "gcp": {},
+    "azure": {
+      "subscriptionIdAttribute": "subscription_id"
+    },
+    "parsedAttributes": [
+      {
+        "sourceName": "id",
+        "targetName": "id",
+        "targetType": "TEXT",
+        "enabled": true
       },
-      "parsedAttributes": [
-            {
-                "sourceName":"id",
-                "targetName":"id",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"kind",
-                "targetName":"kind",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"location",
-                "targetName":"location",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"name",
-                "targetName":"name",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties",
-                "targetName":"properties",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_collation",
-                "targetName":"collation",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_containmentState",
-                "targetName":"containment_state",
-                "targetType":"BIGINT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_createMode",
-                "targetName":"create_mode",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_creationDate",
-                "targetName":"creation_date",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_currentServiceObjectiveId",
-                "targetName":"current_service_objective_id",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_databaseId",
-                "targetName":"database_id",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_defaultSecondaryLocation",
-                "targetName":"default_secondary_location",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_earliestRestoreDate",
-                "targetName":"earliest_restore_date",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_edition",
-                "targetName":"edition",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_elasticPoolName",
-                "targetName":"elastic_pool_name",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_failoverGroupId",
-                "targetName":"failover_group_id",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_maxSizeBytes",
-                "targetName":"max_size_bytes",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_readScale",
-                "targetName":"read_scale",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_recommendedIndex",
-                "targetName":"recommended_index",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_recommendedIndex_id",
-                "targetName":"recommended_index_id",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_recommendedIndex_name",
-                "targetName":"recommended_index_name",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_recommendedIndex_type",
-                "targetName":"recommended_index_type",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_recoveryServicesRecoveryPointResourceId",
-                "targetName":"recovery_services_recovery_point_resource_id",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_requestedServiceObjectiveId",
-                "targetName":"requested_service_objective_id",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_requestedServiceObjectiveName",
-                "targetName":"requested_service_objective_name",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_restorePointInTime",
-                "targetName":"restore_point_in_time",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_sampleName",
-                "targetName":"sample_name",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_serviceLevelObjective",
-                "targetName":"service_level_objective",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_serviceTierAdvisors",
-                "targetName":"service_tier_advisors",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_serviceTierAdvisors_id",
-                "targetName":"service_tier_advisors_id",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_serviceTierAdvisors_name",
-                "targetName":"service_tier_advisors_name",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_serviceTierAdvisors_type",
-                "targetName":"service_tier_advisors_type",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_sourceDatabaseDeletionDate",
-                "targetName":"source_database_deletion_date",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_sourceDatabaseId",
-                "targetName":"source_database_id",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_status",
-                "targetName":"status",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_transparentDataEncryption",
-                "targetName":"transparent_data_encryption",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"properties_transparentDataEncryption_id",
-                "targetName":"transparent_data_encryption_id",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_transparentDataEncryption_location",
-                "targetName":"transparent_data_encryption_location",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_transparentDataEncryption_name",
-                "targetName":"transparent_data_encryption_name",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_transparentDataEncryption_type",
-                "targetName":"transparent_data_encryption_type",
-                "targetType":"TEXT",
-                "enabled":false
-            },
-            {
-                "sourceName":"properties_zoneRedundant",
-                "targetName":"zone_redundant",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"tags",
-                "targetName":"tags",
-                "targetType":"TEXT",
-                "enabled":true
-            },
-            {
-                "sourceName":"type",
-                "targetName":"type",
-                "targetType":"TEXT",
-                "enabled":true
-            }
-        ]
-    }
+      {
+        "sourceName": "kind",
+        "targetName": "kind",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "location",
+        "targetName": "location",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "name",
+        "targetName": "name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties",
+        "targetName": "properties",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_administratorLogin",
+        "targetName": "administrator_login",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_administratorLoginPassword",
+        "targetName": "administrator_login_password",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_externalAdministratorLogin",
+        "targetName": "external_administrator_login",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_externalAdministratorSid",
+        "targetName": "external_administrator_sid",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_fullyQualifiedDomainName",
+        "targetName": "fully_qualified_domain_name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_state",
+        "targetName": "state",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_version",
+        "targetName": "version",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "type",
+        "targetName": "type",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  },
+  "azure_sql_database": {
+    "aws": {},
+    "gcp": {},
+    "azure": {
+      "subscriptionIdAttribute": "subscription_id"
+    },
+    "parsedAttributes": [
+      {
+        "sourceName": "id",
+        "targetName": "id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "kind",
+        "targetName": "kind",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "location",
+        "targetName": "location",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "name",
+        "targetName": "name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties",
+        "targetName": "properties",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_collation",
+        "targetName": "collation",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_containmentState",
+        "targetName": "containment_state",
+        "targetType": "BIGINT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_createMode",
+        "targetName": "create_mode",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_creationDate",
+        "targetName": "creation_date",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_currentServiceObjectiveId",
+        "targetName": "current_service_objective_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_databaseId",
+        "targetName": "database_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_defaultSecondaryLocation",
+        "targetName": "default_secondary_location",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_earliestRestoreDate",
+        "targetName": "earliest_restore_date",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_edition",
+        "targetName": "edition",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_elasticPoolName",
+        "targetName": "elastic_pool_name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_failoverGroupId",
+        "targetName": "failover_group_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_maxSizeBytes",
+        "targetName": "max_size_bytes",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_readScale",
+        "targetName": "read_scale",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_recommendedIndex",
+        "targetName": "recommended_index",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_recommendedIndex_id",
+        "targetName": "recommended_index_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_recommendedIndex_name",
+        "targetName": "recommended_index_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_recommendedIndex_type",
+        "targetName": "recommended_index_type",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_recoveryServicesRecoveryPointResourceId",
+        "targetName": "recovery_services_recovery_point_resource_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_requestedServiceObjectiveId",
+        "targetName": "requested_service_objective_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_requestedServiceObjectiveName",
+        "targetName": "requested_service_objective_name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_restorePointInTime",
+        "targetName": "restore_point_in_time",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_sampleName",
+        "targetName": "sample_name",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_serviceLevelObjective",
+        "targetName": "service_level_objective",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_serviceTierAdvisors",
+        "targetName": "service_tier_advisors",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_serviceTierAdvisors_id",
+        "targetName": "service_tier_advisors_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_serviceTierAdvisors_name",
+        "targetName": "service_tier_advisors_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_serviceTierAdvisors_type",
+        "targetName": "service_tier_advisors_type",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_sourceDatabaseDeletionDate",
+        "targetName": "source_database_deletion_date",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_sourceDatabaseId",
+        "targetName": "source_database_id",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_status",
+        "targetName": "status",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_transparentDataEncryption",
+        "targetName": "transparent_data_encryption",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "properties_transparentDataEncryption_id",
+        "targetName": "transparent_data_encryption_id",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_transparentDataEncryption_location",
+        "targetName": "transparent_data_encryption_location",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_transparentDataEncryption_name",
+        "targetName": "transparent_data_encryption_name",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_transparentDataEncryption_type",
+        "targetName": "transparent_data_encryption_type",
+        "targetType": "TEXT",
+        "enabled": false
+      },
+      {
+        "sourceName": "properties_zoneRedundant",
+        "targetName": "zone_redundant",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "tags",
+        "targetName": "tags",
+        "targetType": "TEXT",
+        "enabled": true
+      },
+      {
+        "sourceName": "type",
+        "targetName": "type",
+        "targetType": "TEXT",
+        "enabled": true
+      }
+    ]
+  }
 }

@@ -45,8 +45,12 @@ import (
 	"github.com/Uptycs/cloudquery/extension/gcp/compute"
 	"github.com/Uptycs/cloudquery/extension/gcp/storage"
 
+	azureappservice "github.com/Uptycs/cloudquery/extension/azure/appservice"
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
+	azurecosmosdb "github.com/Uptycs/cloudquery/extension/azure/cosmosdb"
+	azurekeyvault "github.com/Uptycs/cloudquery/extension/azure/keyvault"
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
+	azurepostgresql "github.com/Uptycs/cloudquery/extension/azure/postgresql"
 	azuresql "github.com/Uptycs/cloudquery/extension/azure/sql"
 	azurestorage "github.com/Uptycs/cloudquery/extension/azure/storage"
 
@@ -108,9 +112,13 @@ func ReadTableConfigurations(homeDir string) {
 	}
 
 	var azureConfigFileList = []string{
+		"azure/appservice/table_config.json",
 		"azure/compute/table_config.json",
-		"azure/storage/table_config.json",
+		"azure/cosmosdb/table_config.json",
+		"azure/keyvault/table_config.json",
 		"azure/mysql/table_config.json",
+		"azure/postgresql/table_config.json",
+		"azure/storage/table_config.json",
 		"azure/sql/table_config.json",
 	}
 	var configFileList = append(awsConfigFileList, gcpConfigFileList...)
@@ -265,6 +273,12 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_compute_subnet", azurecompute.VirtualSubnetColumns(), azurecompute.VirtualSubnetsGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_compute_disk", azurecompute.DiskColumns(), azurecompute.DiskGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_compute_security_group", azurecompute.SecurityGroupsColumns(), azurecompute.SecurityGroupsGenerate))
+	// Azure Cosmosdb
+	server.RegisterPlugin(table.NewPlugin("azure_cosmosdb_account", azurecosmosdb.CosmosdbAccountColumns(), azurecosmosdb.CosmosdbAccountsGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_cosmosdb_mongodb", azurecosmosdb.CosmosdbMongodbColumns(), azurecosmosdb.CosmosdbMongodbGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_cosmosdb_sqldb", azurecosmosdb.CosmosdbSqldbsColumns(), azurecosmosdb.CosmosdbSqldbsGenerate))
+	// Azure Postgresql
+	server.RegisterPlugin(table.NewPlugin("azure_postgresql_server", azurepostgresql.PostgresqlServerColumns(), azurepostgresql.PostgresqlServersGenerate))
 	// Azure Storage
 	server.RegisterPlugin(table.NewPlugin("azure_storage_account", azurestorage.StorageAccountColumns(), azurestorage.StorageAccountsGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob_container", azurestorage.StorageBlobContainerColumns(), azurestorage.StorageBlobContainerGenerate))
@@ -276,10 +290,14 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
 	//Azure MySQl
 	server.RegisterPlugin(table.NewPlugin("azure_mysql_server", azuremysql.MysqlServerColumns(), azuremysql.MysqlServerGenerate))
-	server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
+
+	// Azure Appservice
+	server.RegisterPlugin(table.NewPlugin("azure_appservice_site", azureappservice.AppserviceSiteColumns(), azureappservice.AppserviceSitesGenerate))
 	// Azure SQL
-	server.RegisterPlugin(table.NewPlugin("azure_sql_database", azuresql.SqlDatabaseColumns(), azuresql.SqlDatabaseGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_sql_server", azuresql.SqlServerCloumns(), azuresql.SqlServerGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_sql_database", azuresql.SqlDatabaseColumns(), azuresql.SqlDatabaseGenerate))
+	// Azure Keyvault
+	server.RegisterPlugin(table.NewPlugin("azure_keyvault_vault", azurekeyvault.KeyvaultVaultColumns(), azurekeyvault.KeyvaultVaultsGenerate))
 
 	// Event tables
 	registerEventTables(server)

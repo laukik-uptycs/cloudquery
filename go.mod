@@ -3,8 +3,8 @@ module github.com/Uptycs/cloudquery
 go 1.17
 
 require (
-	cloud.google.com/go/storage v1.12.0
-	github.com/Azure/azure-sdk-for-go v60.0.0+incompatible
+	cloud.google.com/go/storage v1.18.2
+	github.com/Azure/azure-sdk-for-go v60.1.0+incompatible
 	github.com/Azure/azure-storage-blob-go v0.14.0
 	github.com/Azure/go-autorest/autorest v0.11.17
 	github.com/Azure/go-autorest/autorest/adal v0.9.13 // indirect
@@ -54,7 +54,6 @@ require (
 require (
 	cloud.google.com/go v0.97.0 // indirect
 	github.com/Azure/azure-pipeline-go v0.2.3 // indirect
-	github.com/Azure/azure-storage-blob-go v0.14.0 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.2 // indirect
 	github.com/Azure/go-autorest/autorest/date v0.3.0 // indirect
