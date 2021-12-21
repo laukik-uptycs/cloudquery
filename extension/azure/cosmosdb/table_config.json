@@ -595,5 +595,116 @@
           "enabled": true
         }
       ]
-      }
+      },
+    "azure_cosmosdb_sqldb": {
+        "aws": {},
+        "gcp": {},
+        "azure": {
+          "subscriptionIdAttribute": "subscription_id"
+        },
+        "parsedAttributes":[
+          {
+            "sourceName": "id",
+            "targetName": "id",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "location",
+            "targetName": "location",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "name",
+            "targetName": "name",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "properties",
+            "targetName": "properties",
+            "targetType": "TEXT",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_options",
+            "targetName": "options",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "properties_options_autoscaleSettings",
+            "targetName": "options_autoscale_settings",
+            "targetType": "TEXT",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_options_autoscaleSettings_maxThroughput",
+            "targetName": "options_autoscale_settings_max_throughput",
+            "targetType": "INTEGER",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_options_throughput",
+            "targetName": "options_throughput",
+            "targetType": "INTEGER",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_resource",
+            "targetName": "resource",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "properties_resource__colls",
+            "targetName": "resource__colls",
+            "targetType": "TEXT",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_resource__etag",
+            "targetName": "resource__etag",
+            "targetType": "TEXT",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_resource__rid",
+            "targetName": "resource__rid",
+            "targetType": "TEXT",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_resource__ts",
+            "targetName": "resource__ts",
+            "targetType": "DOUBLE",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_resource__users",
+            "targetName": "resource__users",
+            "targetType": "TEXT",
+            "enabled": false
+          },
+          {
+            "sourceName": "properties_resource_id",
+            "targetName": "resource_id",
+            "targetType": "TEXT",
+            "enabled": false
+          },
+          {
+            "sourceName": "tags",
+            "targetName": "tags",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "type",
+            "targetName": "type",
+            "targetType": "TEXT",
+            "enabled": true
+          }
+        ]
+        }
     } 
