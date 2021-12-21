@@ -1,0 +1,95 @@
+{
+    "azure_sql_server": {
+        "aws": {},
+        "gcp": {},
+        "azure": {
+          "subscriptionIdAttribute": "subscription_id"
+        },
+        "parsedAttributes": [
+            {
+              "sourceName": "id",
+              "targetName": "id",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "kind",
+              "targetName": "kind",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "location",
+              "targetName": "location",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "name",
+              "targetName": "name",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "properties",
+              "targetName": "properties",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "properties_administratorLogin",
+              "targetName": "administrator_login",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "properties_administratorLoginPassword",
+              "targetName": "administrator_login_password",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "properties_externalAdministratorLogin",
+              "targetName": "external_administrator_login",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "properties_externalAdministratorSid",
+              "targetName": "external_administrator_sid",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "properties_fullyQualifiedDomainName",
+              "targetName": "fully_qualified_domain_name",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "properties_state",
+              "targetName": "state",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "properties_version",
+              "targetName": "version",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "tags",
+              "targetName": "tags",
+              "targetType": "TEXT",
+              "enabled": true
+            },
+            {
+              "sourceName": "type",
+              "targetName": "type",
+              "targetType": "TEXT",
+              "enabled": true
+            }
+        ]
+    }
+}

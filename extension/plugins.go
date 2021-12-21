@@ -47,6 +47,7 @@ import (
 
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
+	azuresql "github.com/Uptycs/cloudquery/extension/azure/sql"
 	azurestorage "github.com/Uptycs/cloudquery/extension/azure/storage"
 	gcpcontainer "github.com/Uptycs/cloudquery/extension/gcp/container"
 	gcpdns "github.com/Uptycs/cloudquery/extension/gcp/dns"
@@ -109,6 +110,7 @@ func ReadTableConfigurations(homeDir string) {
 		"azure/compute/table_config.json",
 		"azure/storage/table_config.json",
 		"azure/mysql/table_config.json",
+		"azure/sql/table_config.json",
 	}
 	var configFileList = append(awsConfigFileList, gcpConfigFileList...)
 	configFileList = append(configFileList, azureConfigFileList...)
@@ -273,6 +275,9 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
   server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
   //Azure MySQl
 	server.RegisterPlugin(table.NewPlugin("azure_mysql_server", azuremysql.MysqlServerColumns(), azuremysql.MysqlServerGenerate))
+	// Azure SQL
+	server.RegisterPlugin(table.NewPlugin("azure_sql_server", azuresql.SqlServerCloumns(), azuresql.SqlServerGenerate))
+	
 	// Event tables
 	registerEventTables(server)
 }
