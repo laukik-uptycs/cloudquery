@@ -47,6 +47,7 @@ import (
 
 	azureappservice "github.com/Uptycs/cloudquery/extension/azure/appservice"
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
+	azuremonitor "github.com/Uptycs/cloudquery/extension/azure/monitor"
 	azurecosmosdb "github.com/Uptycs/cloudquery/extension/azure/cosmosdb"
 	azurekeyvault "github.com/Uptycs/cloudquery/extension/azure/keyvault"
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
@@ -117,6 +118,7 @@ func ReadTableConfigurations(homeDir string) {
 		"azure/cosmosdb/table_config.json",
 		"azure/keyvault/table_config.json",
 		"azure/mysql/table_config.json",
+		"azure/monitor/table_config.json",
 		"azure/postgresql/table_config.json",
 		"azure/storage/table_config.json",
 		"azure/sql/table_config.json",
@@ -290,7 +292,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_storage_blob", azurestorage.StorageBlobColumns(), azurestorage.StorageBlobGenerate))
 	//Azure MySQl
 	server.RegisterPlugin(table.NewPlugin("azure_mysql_server", azuremysql.MysqlServerColumns(), azuremysql.MysqlServerGenerate))
-
+	//Azure Monitor
+	server.RegisterPlugin(table.NewPlugin("azure_monitor_diagnostic_settings_resource", azuremonitor.DiagnosticSettingsResourceColumns(), azuremonitor.DiagnosticSettingsResourceGenerate)) 
 	// Azure Appservice
 	server.RegisterPlugin(table.NewPlugin("azure_appservice_site", azureappservice.AppserviceSiteColumns(), azureappservice.AppserviceSitesGenerate))
 	// Azure SQL

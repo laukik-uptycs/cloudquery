@@ -17,6 +17,7 @@
   - azure_sql_server
   - azure_sql_database
   - azure_mysql_server
+  - azure_monitor_diagnostic_settings_resource
   - azure_appservice_site
   - azure_cosmosdb_account
   - azure_cosmosdb_sqldb
