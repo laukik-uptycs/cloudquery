@@ -98,7 +98,7 @@ func processAccountStorageQueueServices(account *utilities.ExtensionConfiguratio
 func getStorageAccountsForStorageQueueServices(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
 
-	for resourceItr, err := getStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
+	for resourceItr, err := GetStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     storageQueueService,

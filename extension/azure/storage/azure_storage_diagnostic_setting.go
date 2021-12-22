@@ -19,14 +19,14 @@ import (
 
 const storageDiagnosticSetting string = "azure_storage_diagnostic_setting"
 
-type serviceName string
+type ServiceName string
 
 const (
-	storageService serviceName = "storageservices"
-	fileService    serviceName = "fileservices"
-	blobService    serviceName = "blobservices"
-	queueService   serviceName = "queueservices"
-	tableService   serviceName = "tableservices"
+	StorageService ServiceName = "storageservices"
+	FileService    ServiceName = "fileservices"
+	BlobService    ServiceName = "blobservices"
+	QueueService   ServiceName = "queueservices"
+	TableService   ServiceName = "tableservices"
 )
 
 // StorageDiagnosticSettingsColumns returns the list of columns in the table
@@ -125,7 +125,7 @@ func getStorageAccountId(session *azure.AzureSession, rg string, wg *sync.WaitGr
 	defer wg.Done()
 
 	diagnosticSettings := make([]diagnostic.DiagnosticSettingsResource, 0)
-	for resourceItr, err := getStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
+	for resourceItr, err := GetStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     storageAccount,
@@ -136,11 +136,11 @@ func getStorageAccountId(session *azure.AzureSession, rg string, wg *sync.WaitGr
 		}
 
 		resource := resourceItr.Value()
-		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, storageService)
-		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, fileService)
-		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, blobService)
-		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, queueService)
-		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, tableService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, StorageService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, FileService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, BlobService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, QueueService)
+		getStorageDiagnosticSetting(session, rg, *resource.ID, &diagnosticSettings, TableService)
 	}
 
 	addStorageDiagnosticSetting(session, rg, resultMap, tableConfig, diagnosticSettings)
@@ -168,11 +168,11 @@ func addStorageDiagnosticSetting(session *azure.AzureSession, rg string, resultM
 	}
 }
 
-func getStorageDiagnosticSetting(session *azure.AzureSession, rg string, resourceURI string, diagnosticSettings *[]diagnostic.DiagnosticSettingsResource, serviceNameString serviceName) {
+func getStorageDiagnosticSetting(session *azure.AzureSession, rg string, resourceURI string, diagnosticSettings *[]diagnostic.DiagnosticSettingsResource, serviceNameString ServiceName) {
 	svcClient := diagnostic.NewDiagnosticSettingsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
 
-	if serviceNameString != storageService {
+	if serviceNameString != StorageService {
 		resourceURI += "/" + string(serviceNameString) + "/deafult"
 	}
 

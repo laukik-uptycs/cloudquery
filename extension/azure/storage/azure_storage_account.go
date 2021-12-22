@@ -244,7 +244,7 @@ func processAccountStorageAccounts(account *utilities.ExtensionConfigurationAzur
 func addStorageAccounts(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
 
-	for resourceItr, err := getStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
+	for resourceItr, err := GetStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
 				"tableName":     storageAccount,
@@ -278,7 +278,7 @@ func addStorageAccounts(session *azure.AzureSession, rg string, wg *sync.WaitGro
 	}
 }
 
-func getStorageAccounts(session *azure.AzureSession, rg string) (result storage.AccountListResultIterator, err error) {
+func GetStorageAccounts(session *azure.AzureSession, rg string) (result storage.AccountListResultIterator, err error) {
 	svcClient := storage.NewAccountsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
 
