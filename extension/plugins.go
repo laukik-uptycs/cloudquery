@@ -49,6 +49,7 @@ import (
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
 	azurecosmosdb "github.com/Uptycs/cloudquery/extension/azure/cosmosdb"
 	azurekeyvault "github.com/Uptycs/cloudquery/extension/azure/keyvault"
+	azuremonitor "github.com/Uptycs/cloudquery/extension/azure/monitor"
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
 	azurepostgresql "github.com/Uptycs/cloudquery/extension/azure/postgresql"
 	azuresql "github.com/Uptycs/cloudquery/extension/azure/sql"
@@ -120,6 +121,7 @@ func ReadTableConfigurations(homeDir string) {
 		"azure/postgresql/table_config.json",
 		"azure/storage/table_config.json",
 		"azure/sql/table_config.json",
+		"azure/monitor/table_config.json",
 	}
 	var configFileList = append(awsConfigFileList, gcpConfigFileList...)
 	configFileList = append(configFileList, azureConfigFileList...)
@@ -298,6 +300,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_sql_database", azuresql.SqlDatabaseColumns(), azuresql.SqlDatabaseGenerate))
 	// Azure Keyvault
 	server.RegisterPlugin(table.NewPlugin("azure_keyvault_vault", azurekeyvault.KeyvaultVaultColumns(), azurekeyvault.KeyvaultVaultsGenerate))
+	//Azure Monitor
+	server.RegisterPlugin(table.NewPlugin("azure_monitor_diagnostic_settings_resource", azuremonitor.DiagnosticSettingsResourceColumns(), azuremonitor.DiagnosticSettingsResourceGenerate))
 
 	// Event tables
 	registerEventTables(server)
