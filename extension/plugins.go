@@ -47,9 +47,9 @@ import (
 
 	azureappservice "github.com/Uptycs/cloudquery/extension/azure/appservice"
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
-	azuremonitor "github.com/Uptycs/cloudquery/extension/azure/monitor"
 	azurecosmosdb "github.com/Uptycs/cloudquery/extension/azure/cosmosdb"
 	azurekeyvault "github.com/Uptycs/cloudquery/extension/azure/keyvault"
+	azuremonitor "github.com/Uptycs/cloudquery/extension/azure/monitor"
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
 	azurepostgresql "github.com/Uptycs/cloudquery/extension/azure/postgresql"
 	azuresql "github.com/Uptycs/cloudquery/extension/azure/sql"
@@ -293,7 +293,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	//Azure MySQl
 	server.RegisterPlugin(table.NewPlugin("azure_mysql_server", azuremysql.MysqlServerColumns(), azuremysql.MysqlServerGenerate))
 	//Azure Monitor
-	server.RegisterPlugin(table.NewPlugin("azure_monitor_diagnostic_settings_resource", azuremonitor.DiagnosticSettingsResourceColumns(), azuremonitor.DiagnosticSettingsResourceGenerate)) 
+	server.RegisterPlugin(table.NewPlugin("azure_monitor_diagnostic_settings_resource", azuremonitor.DiagnosticSettingsResourceColumns(), azuremonitor.DiagnosticSettingsResourceGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_monitor_diagnostic_settings_subscription", azuremonitor.DiagnosticSettingsSubscriptionColumns(), azuremonitor.DiagnosticSettingsSubscriptionGenerate))
 	// Azure Appservice
 	server.RegisterPlugin(table.NewPlugin("azure_appservice_site", azureappservice.AppserviceSiteColumns(), azureappservice.AppserviceSitesGenerate))
 	// Azure SQL
