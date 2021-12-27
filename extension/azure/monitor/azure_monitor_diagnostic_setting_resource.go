@@ -11,7 +11,6 @@ import (
 	log "github.com/sirupsen/logrus"
 
 	"github.com/Uptycs/basequery-go/plugin/table"
-	azurestorage "github.com/Uptycs/cloudquery/extension/azure/storage"
 	"github.com/Uptycs/cloudquery/utilities"
 
 	azuremonitor "github.com/Azure/azure-sdk-for-go/services/preview/monitor/mgmt/2021-07-01-preview/insights"
@@ -102,49 +101,21 @@ func processDignosticSettingsResource(account *utilities.ExtensionConfigurationA
 	}
 
 	for _, group := range groups {
-		go getStorageAccountId(session, group, &wg, &resultMap, tableConfig)
+		go getDignosticSettingsResource(session, group, &wg, &resultMap, tableConfig)
 	}
 	wg.Wait()
 	return resultMap, nil
 }
 
-func getStorageAccountId(session *extazure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
+func getDignosticSettingsResource(session *extazure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
-
-	diagnosticSettings := make([]azuremonitor.DiagnosticSettingsResource, 0)
-
-	for resourceItr, err := azurestorage.GetStorageAccounts(session, rg); resourceItr.NotDone(); err = resourceItr.Next() {
-		if err != nil {
-			utilities.GetLogger().WithFields(log.Fields{
-				"tableName":     azureMonitorDiagnosticSettingsResource,
-				"resourceGroup": rg,
-				"errString":     err.Error(),
-			}).Error("failed to get resource list")
-			continue
-		}
-		resource := resourceItr.Value()
-
-		getDignosticSettingsResource(session, rg, *resource.ID, &diagnosticSettings, azurestorage.StorageService)
-		getDignosticSettingsResource(session, rg, *resource.ID, &diagnosticSettings, azurestorage.FileService)
-		getDignosticSettingsResource(session, rg, *resource.ID, &diagnosticSettings, azurestorage.BlobService)
-		getDignosticSettingsResource(session, rg, *resource.ID, &diagnosticSettings, azurestorage.QueueService)
-		getDignosticSettingsResource(session, rg, *resource.ID, &diagnosticSettings, azurestorage.TableService)
-	}
-
-	addDignosticSettingsResource(session, rg, resultMap, tableConfig, diagnosticSettings)
-}
-
-func getDignosticSettingsResource(session *extazure.AzureSession, rg string, resourceURI string, diagnosticSettings *[]azuremonitor.DiagnosticSettingsResource, serviceNameString azurestorage.ServiceName) {
 
 	svcClient := azuremonitor.NewDiagnosticSettingsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
 
-	if serviceNameString != azurestorage.StorageService {
-		resourceURI += "/" + string(serviceNameString) + "/default"
-	}
-
+	resourceURI := "/subscriptions/" + session.SubscriptionId
 	resourceItr, err := svcClient.List(context.Background(), resourceURI)
-	
+
 	if err != nil {
 		utilities.GetLogger().WithFields(log.Fields{
 			"tableName":     azureMonitorDiagnosticSettingsResource,
@@ -155,15 +126,7 @@ func getDignosticSettingsResource(session *extazure.AzureSession, rg string, res
 
 	resource := resourceItr.Value
 
-	for _, r := range *resource {
-		*r.Type = string(serviceNameString)
-	}
-
-	*diagnosticSettings = append(*diagnosticSettings, *resource...)
-}
-
-func addDignosticSettingsResource(session *extazure.AzureSession, rg string, resultMap *[]map[string]string, tableConfig *utilities.TableConfig, diagnosticSettings []azuremonitor.DiagnosticSettingsResource) {
-	for _, diagnosticSetting := range diagnosticSettings {
+	for _, diagnosticSetting := range *resource {
 		structs.DefaultTagName = "json"
 		resMap := structs.Map(diagnosticSetting)
 		byteArr, err := json.Marshal(resMap)
