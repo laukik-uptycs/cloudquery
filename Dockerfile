@@ -75,6 +75,7 @@ COPY extension/azure/appservice/table_config.json  /opt/cloudquery/etc/azure/app
 COPY extension/azure/compute/table_config.json  /opt/cloudquery/etc/azure/compute/
 COPY extension/azure/containerservice/table_config.json  /opt/cloudquery/etc/azure/containerservice/
 COPY extension/azure/dns/table_config.json  /opt/cloudquery/etc/azure/dns/
+COPY extension/azure/graphrbac/table_config.json  /opt/cloudquery/etc/azure/graphrbac/
 COPY extension/azure/monitor/table_config.json  /opt/cloudquery/etc/azure/monitor/
 COPY extension/azure/cosmosdb/table_config.json  /opt/cloudquery/etc/azure/cosmosdb/
 COPY extension/azure/keyvault/table_config.json  /opt/cloudquery/etc/azure/keyvault/
@@ -85,7 +86,6 @@ COPY extension/azure/redis/table_config.json  /opt/cloudquery/etc/azure/redis/
 COPY extension/azure/securitycenter/table_config.json  /opt/cloudquery/etc/azure/securitycenter/
 COPY extension/azure/sql/table_config.json  /opt/cloudquery/etc/azure/sql/
 COPY extension/azure/storage/table_config.json  /opt/cloudquery/etc/azure/storage/
-
 
 
 # Keep these alphabetically ordered
