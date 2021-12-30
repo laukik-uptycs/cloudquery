@@ -55,6 +55,7 @@ import (
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
 	azurenetwork "github.com/Uptycs/cloudquery/extension/azure/network"
 	azurepostgresql "github.com/Uptycs/cloudquery/extension/azure/postgresql"
+	azureredis "github.com/Uptycs/cloudquery/extension/azure/redis"
 	azuresecurity "github.com/Uptycs/cloudquery/extension/azure/securitycenter"
 	azuresql "github.com/Uptycs/cloudquery/extension/azure/sql"
 	azurestorage "github.com/Uptycs/cloudquery/extension/azure/storage"
@@ -130,6 +131,7 @@ func ReadTableConfigurations(homeDir string) {
 		"azure/sql/table_config.json",
 		"azure/network/table_config.json",
 		"azure/dns/table_config.json",
+		"azure/redis/table_config.json",
 	}
 	var configFileList = append(awsConfigFileList, gcpConfigFileList...)
 	configFileList = append(configFileList, azureConfigFileList...)
@@ -323,6 +325,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	// Azure DNS
 	server.RegisterPlugin(table.NewPlugin("azure_dns_zone", azuredns.DnsZoneColunmns(), azuredns.DnsZoneGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_dns_record_set", azuredns.DnsRecordSetColunmns(), azuredns.DnsRecordSetGenerate))
+	// Azure Redis
+	server.RegisterPlugin(table.NewPlugin("azure_redis_cache", azureredis.RedisCacheColunmns(), azureredis.RedisCacheGenerate))
 	// Event tables
 	registerEventTables(server)
 }
