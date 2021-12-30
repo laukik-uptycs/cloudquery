@@ -31,5 +31,4 @@
   - azure_securitycenter_setting
   - azure_dns_record_set
   - azure_securitycenter_subscription_pricing
-  - azure_securitycenter_subscription_pricing
   - azure_securitycenter_auto_provisioning
