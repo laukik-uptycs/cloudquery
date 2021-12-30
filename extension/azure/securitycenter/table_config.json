@@ -1,0 +1,59 @@
+{
+    "azure_securitycenter_security_contact": {
+      "aws": {},
+      "gcp": {},
+      "azure": {
+        "subscriptionIdAttribute": "subscription_id"
+      },
+      "parsedAttributes":[
+        {
+          "sourceName": "id",
+          "targetName": "id",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "name",
+          "targetName": "name",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "properties",
+          "targetName": "properties",
+          "targetType": "TEXT",
+          "enabled": false
+        },
+        {
+          "sourceName": "properties_alertNotifications",
+          "targetName": "alert_notifications",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "properties_alertsToAdmins",
+          "targetName": "alerts_to_admins",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "properties_email",
+          "targetName": "email",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "properties_phone",
+          "targetName": "phone",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "type",
+          "targetName": "type",
+          "targetType": "TEXT",
+          "enabled": true
+        }
+      ]
+      }
+    }
