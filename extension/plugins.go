@@ -53,6 +53,7 @@ import (
 	azurekeyvault "github.com/Uptycs/cloudquery/extension/azure/keyvault"
 	azuremonitor "github.com/Uptycs/cloudquery/extension/azure/monitor"
 	azuremysql "github.com/Uptycs/cloudquery/extension/azure/mysql"
+	azurenetwork "github.com/Uptycs/cloudquery/extension/azure/network"
 	azurepostgresql "github.com/Uptycs/cloudquery/extension/azure/postgresql"
 	azuresecurity "github.com/Uptycs/cloudquery/extension/azure/securitycenter"
 	azuresql "github.com/Uptycs/cloudquery/extension/azure/sql"
@@ -127,6 +128,7 @@ func ReadTableConfigurations(homeDir string) {
 		"azure/securitycenter/table_config.json",
 		"azure/storage/table_config.json",
 		"azure/sql/table_config.json",
+		"azure/network/table_config.json",
 		"azure/dns/table_config.json",
 	}
 	var configFileList = append(awsConfigFileList, gcpConfigFileList...)
@@ -309,6 +311,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	// Azure Keyvault
 	server.RegisterPlugin(table.NewPlugin("azure_keyvault_vault", azurekeyvault.KeyvaultVaultColumns(), azurekeyvault.KeyvaultVaultsGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_keyvault_key", azurekeyvault.KeyvaultKeyColumns(), azurekeyvault.KeyvaultKeysGenerate))
+	// Azure Network
+	server.RegisterPlugin(table.NewPlugin("azure_network_watcher_flow_log", azurenetwork.AzureNetworkWatcherFlowLogColumns(), azurenetwork.AzureNetworkWatcherFlowLogsGenerate))
 	//Azure Securitycenter
 	server.RegisterPlugin(table.NewPlugin("azure_securitycenter_security_contact", azuresecurity.SecuritycenterSecurityContactColumns(), azuresecurity.SecuritycenterSecurityContactsGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_securitycenter_setting", azuresecurity.SecuritycenterSettingColumns(), azuresecurity.SecuritycenterSettingGenerate))
