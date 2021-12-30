@@ -133,6 +133,7 @@ func setDnsZonetoTable(session *azure.AzureSession, rg string, wg *sync.WaitGrou
 		}
 	}
 }
+
 func getDnsZoneData(session *azure.AzureSession, rg string) (result dns.ZoneListResultIterator, err error) {
 	svcClient := dns.NewZonesClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
