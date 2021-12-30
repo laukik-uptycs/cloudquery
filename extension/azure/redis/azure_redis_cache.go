@@ -19,8 +19,8 @@ import (
 
 const azureRedisCache string = "azure_redis_cache"
 
-// RedisCacheColunmns returns the list of columns in the table
-func RedisCacheColunmns() []table.ColumnDefinition {
+// RedisCacheColumns returns the list of columns in the table
+func RedisCacheColumns() []table.ColumnDefinition {
 	return []table.ColumnDefinition{
 		table.TextColumn("etag"),
 		table.TextColumn("id"),
