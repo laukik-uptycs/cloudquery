@@ -26,7 +26,7 @@ func DnsZoneColunmns() []table.ColumnDefinition {
 		table.TextColumn("id"),
 		table.TextColumn("location"),
 		table.TextColumn("name"),
-		table.TextColumn("properties"),
+		// table.TextColumn("properties"),
 		table.BigIntColumn("max_number_of_record_sets"),
 		table.BigIntColumn("max_number_of_records_per_record_set"),
 		table.TextColumn("name_servers"),
