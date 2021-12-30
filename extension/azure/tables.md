@@ -25,4 +25,5 @@
   - azure_keyvault_vault
   - azure_keyvault_key
   - azure_securitycenter_security_contact
+  - azure_containerservice_managed_cluster
   - azure_dns_zone

@@ -47,6 +47,7 @@ import (
 
 	azureappservice "github.com/Uptycs/cloudquery/extension/azure/appservice"
 	azurecompute "github.com/Uptycs/cloudquery/extension/azure/compute"
+	azurecontainerservice "github.com/Uptycs/cloudquery/extension/azure/containerservice"
 	azurecosmosdb "github.com/Uptycs/cloudquery/extension/azure/cosmosdb"
 	azuredns "github.com/Uptycs/cloudquery/extension/azure/dns"
 	azurekeyvault "github.com/Uptycs/cloudquery/extension/azure/keyvault"
@@ -117,6 +118,7 @@ func ReadTableConfigurations(homeDir string) {
 	var azureConfigFileList = []string{
 		"azure/appservice/table_config.json",
 		"azure/compute/table_config.json",
+		"azure/containerservice/table_config.json",
 		"azure/cosmosdb/table_config.json",
 		"azure/keyvault/table_config.json",
 		"azure/mysql/table_config.json",
@@ -309,6 +311,8 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_keyvault_key", azurekeyvault.KeyvaultKeyColumns(), azurekeyvault.KeyvaultKeysGenerate))
 	//Azure Securitycenter
 	server.RegisterPlugin(table.NewPlugin("azure_securitycenter_security_contact", azuresecurity.SecuritycenterSecurityContactColumns(), azuresecurity.SecuritycenterSecurityContactsGenerate))
+	//Azure Containerservice
+	server.RegisterPlugin(table.NewPlugin("azure_containerservice_managed_cluster", azurecontainerservice.ContainerserviceManagedClustersColumns(), azurecontainerservice.ContainerserviceManagedClustersGenerate))
 	// Azure DNS
 	server.RegisterPlugin(table.NewPlugin("azure_dns_zone", azuredns.DnsZoneColunmns(), azuredns.DnsZoneGenerate))
 	// Event tables
