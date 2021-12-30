@@ -311,6 +311,7 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_keyvault_key", azurekeyvault.KeyvaultKeyColumns(), azurekeyvault.KeyvaultKeysGenerate))
 	//Azure Securitycenter
 	server.RegisterPlugin(table.NewPlugin("azure_securitycenter_security_contact", azuresecurity.SecuritycenterSecurityContactColumns(), azuresecurity.SecuritycenterSecurityContactsGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_securitycenter_setting", azuresecurity.SecuritycenterSettingColumns(), azuresecurity.SecuritycenterSettingGenerate))
 	//Azure Containerservice
 	server.RegisterPlugin(table.NewPlugin("azure_containerservice_managed_cluster", azurecontainerservice.ContainerserviceManagedClustersColumns(), azurecontainerservice.ContainerserviceManagedClustersGenerate))
 	// Azure DNS

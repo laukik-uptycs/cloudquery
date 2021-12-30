@@ -27,3 +27,4 @@
   - azure_securitycenter_security_contact
   - azure_containerservice_managed_cluster
   - azure_dns_zone
+  - azure_securitycenter_setting

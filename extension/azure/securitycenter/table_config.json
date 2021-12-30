@@ -55,5 +55,38 @@
           "enabled": true
         }
       ]
+      },
+      "azure_securitycenter_setting": {
+        "aws": {},
+        "gcp": {},
+        "azure": {
+          "subscriptionIdAttribute": "subscription_id"
+        },
+        "parsedAttributes":[
+          {
+            "sourceName": "id",
+            "targetName": "id",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "kind",
+            "targetName": "kind",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "name",
+            "targetName": "name",
+            "targetType": "TEXT",
+            "enabled": true
+          },
+          {
+            "sourceName": "type",
+            "targetName": "type",
+            "targetType": "TEXT",
+            "enabled": true
+          }
+        ]
       }
     }
