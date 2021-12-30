@@ -133,5 +133,44 @@
             "enabled": true
           }
         ]
+      },
+      "azure_securitycenter_auto_provisioning": {
+        "aws": {},
+        "gcp": {},
+        "azure": {
+        "subscriptionIdAttribute": "subscription_id"
+        },
+        "parsedAttributes":[
+        {
+          "sourceName": "id",
+          "targetName": "id",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "name",
+          "targetName": "name",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "properties",
+          "targetName": "properties",
+          "targetType": "TEXT",
+          "enabled": false
+        },
+        {
+          "sourceName": "properties_autoProvision",
+          "targetName": "auto_provision",
+          "targetType": "TEXT",
+          "enabled": true
+        },
+        {
+          "sourceName": "type",
+          "targetName": "type",
+          "targetType": "TEXT",
+          "enabled": true
+        }
+        ]
       }
     }
