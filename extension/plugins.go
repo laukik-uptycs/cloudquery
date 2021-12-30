@@ -316,6 +316,7 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	server.RegisterPlugin(table.NewPlugin("azure_containerservice_managed_cluster", azurecontainerservice.ContainerserviceManagedClustersColumns(), azurecontainerservice.ContainerserviceManagedClustersGenerate))
 	// Azure DNS
 	server.RegisterPlugin(table.NewPlugin("azure_dns_zone", azuredns.DnsZoneColunmns(), azuredns.DnsZoneGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_dns_record_set", azuredns.DnsRecordSetColunmns(), azuredns.DnsRecordSetGenerate))
 	// Event tables
 	registerEventTables(server)
 }

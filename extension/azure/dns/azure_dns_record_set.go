@@ -17,10 +17,10 @@ import (
 	"github.com/fatih/structs"
 )
 
-const azureDnsZone string = "azure_dns_zone"
+const azureDnsRecordSet string = "azure_dns_record_set"
 
-// DnsZoneColunmns returns the list of columns in the table
-func DnsZoneColunmns() []table.ColumnDefinition {
+// DnsRecordSetColunmns returns the list of columns in the table
+func DnsRecordSetColunmns() []table.ColumnDefinition {
 	return []table.ColumnDefinition{
 		table.TextColumn("etag"),
 		table.TextColumn("id"),
@@ -41,15 +41,15 @@ func DnsZoneColunmns() []table.ColumnDefinition {
 	}
 }
 
-// DnsZoneGenerate returns the rows in the table for all configured accounts
-func DnsZoneGenerate(osqCtx context.Context, queryContext table.QueryContext) ([]map[string]string, error) {
+// DnsRecordSetGenerate returns the rows in the table for all configured accounts
+func DnsRecordSetGenerate(osqCtx context.Context, queryContext table.QueryContext) ([]map[string]string, error) {
 	resultMap := make([]map[string]string, 0)
 	if len(utilities.ExtConfiguration.ExtConfAzure.Accounts) == 0 {
 		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": azureDnsZone,
+			"tableName": azureDnsRecordSet,
 			"account":   "default",
 		}).Info("processing account")
-		results, err := processDnsZone(nil)
+		results, err := processDnsRecordSet(nil)
 		if err != nil {
 			return resultMap, err
 		}
@@ -57,10 +57,10 @@ func DnsZoneGenerate(osqCtx context.Context, queryContext table.QueryContext) ([
 	} else {
 		for _, account := range utilities.ExtConfiguration.ExtConfAzure.Accounts {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName": azureDnsZone,
+				"tableName": azureDnsRecordSet,
 				"account":   account.SubscriptionID,
 			}).Info("processing account")
-			results, err := processDnsZone(&account)
+			results, err := processDnsRecordSet(&account)
 			if err != nil {
 				continue
 			}
@@ -71,7 +71,7 @@ func DnsZoneGenerate(osqCtx context.Context, queryContext table.QueryContext) ([
 	return resultMap, nil
 }
 
-func processDnsZone(account *utilities.ExtensionConfigurationAzureAccount) ([]map[string]string, error) {
+func processDnsRecordSet(account *utilities.ExtensionConfigurationAzureAccount) ([]map[string]string, error) {
 	resultMap := make([]map[string]string, 0)
 	var wg sync.WaitGroup
 	session, err := azure.GetAuthSession(account)
@@ -86,28 +86,45 @@ func processDnsZone(account *utilities.ExtensionConfigurationAzureAccount) ([]ma
 
 	wg.Add(len(groups))
 
-	tableConfig, ok := utilities.TableConfigurationMap[azureDnsZone]
+	tableConfig, ok := utilities.TableConfigurationMap[azureDnsRecordSet]
 	if !ok {
 		utilities.GetLogger().WithFields(log.Fields{
-			"tableName": azureDnsZone,
+			"tableName": azureDnsRecordSet,
 		}).Error("failed to get table configuration")
 		return resultMap, fmt.Errorf("table configuration not found")
 	}
 
 	for _, group := range groups {
-		go setDnsZonetoTable(session, group, &wg, &resultMap, tableConfig)
+		go collectDnsZonetoTable(session, group, &wg, &resultMap, tableConfig)
 	}
 	wg.Wait()
 	return resultMap, nil
 }
 
-func setDnsZonetoTable(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
+func collectDnsZonetoTable(session *azure.AzureSession, rg string, wg *sync.WaitGroup, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
 	defer wg.Done()
 
 	for resourcesItr, err := getDnsZoneData(session, rg); resourcesItr.NotDone(); resourcesItr.Next() {
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName":      azureDnsZone,
+				"tableName":      azureDnsRecordSet,
+				"rescourceGroup": rg,
+				"errString":      err.Error(),
+			}).Error("failed to get DNS zones")
+		}
+
+		resource := resourcesItr.Value()
+
+		setDnsRecordSettoTable(session, rg, *resource.Name, resultMap, tableConfig)
+	}
+}
+
+func setDnsRecordSettoTable(session *azure.AzureSession, rg string, zone string, resultMap *[]map[string]string, tableConfig *utilities.TableConfig) {
+
+	for resourcesItr, err := getDnsRecordSetData(session, rg, zone); resourcesItr.NotDone(); resourcesItr.Next() {
+		if err != nil {
+			utilities.GetLogger().WithFields(log.Fields{
+				"tableName":      azureDnsRecordSet,
 				"rescourceGroup": rg,
 				"errString":      err.Error(),
 			}).Error("failed to get DNS zones")
@@ -120,7 +137,7 @@ func setDnsZonetoTable(session *azure.AzureSession, rg string, wg *sync.WaitGrou
 		byteArr, err := json.Marshal(resMap)
 		if err != nil {
 			utilities.GetLogger().WithFields(log.Fields{
-				"tableName":     azureDnsZone,
+				"tableName":     azureDnsRecordSet,
 				"resourceGroup": rg,
 				"errString":     err.Error(),
 			}).Error("failed to marshal response")
@@ -133,9 +150,8 @@ func setDnsZonetoTable(session *azure.AzureSession, rg string, wg *sync.WaitGrou
 		}
 	}
 }
-
-func getDnsZoneData(session *azure.AzureSession, rg string) (result dns.ZoneListResultIterator, err error) {
-	svcClient := dns.NewZonesClient(session.SubscriptionId)
+func getDnsRecordSetData(session *azure.AzureSession, rg string, zone string) (result dns.RecordSetListResultIterator, err error) {
+	svcClient := dns.NewRecordSetsClient(session.SubscriptionId)
 	svcClient.Authorizer = session.Authorizer
-	return svcClient.ListByResourceGroupComplete(context.Background(), rg, nil)
+	return svcClient.ListAllByDNSZoneComplete(context.Background(), rg, zone, nil, "")
 }
