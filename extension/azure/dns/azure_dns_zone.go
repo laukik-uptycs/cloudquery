@@ -19,8 +19,8 @@ import (
 
 const azureDnsZone string = "azure_dns_zone"
 
-// DnsZoneColunmns returns the list of columns in the table
-func DnsZoneColunmns() []table.ColumnDefinition {
+// DnsZoneColumns returns the list of columns in the table
+func DnsZoneColumns() []table.ColumnDefinition {
 	return []table.ColumnDefinition{
 		table.TextColumn("etag"),
 		table.TextColumn("id"),
