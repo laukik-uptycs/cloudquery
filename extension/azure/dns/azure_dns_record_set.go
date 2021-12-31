@@ -19,8 +19,8 @@ import (
 
 const azureDnsRecordSet string = "azure_dns_record_set"
 
-// DnsRecordSetColunmns returns the list of columns in the table
-func DnsRecordSetColunmns() []table.ColumnDefinition {
+// DnsRecordSetColumns returns the list of columns in the table
+func DnsRecordSetColumns() []table.ColumnDefinition {
 	return []table.ColumnDefinition{
 		table.TextColumn("etag"),
 		table.TextColumn("id"),

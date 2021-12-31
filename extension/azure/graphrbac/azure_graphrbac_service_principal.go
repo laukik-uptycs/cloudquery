@@ -18,8 +18,8 @@ import (
 
 const azureGraphrbacServicePrincipal string = "azure_graphrbac_service_principal"
 
-// GraphrbacServicePrincipalColunmns returns the list of columns in the table
-func GraphrbacServicePrincipalColunmns() []table.ColumnDefinition {
+// GraphrbacServicePrincipalColumns returns the list of columns in the table
+func GraphrbacServicePrincipalColumns() []table.ColumnDefinition {
 	return []table.ColumnDefinition{
 		table.TextColumn("account_enabled"),
 		table.TextColumn("alternative_names"),

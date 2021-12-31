@@ -325,11 +325,11 @@ func RegisterPlugins(server *osquery.ExtensionManagerServer) {
 	//Azure Containerservice
 	server.RegisterPlugin(table.NewPlugin("azure_containerservice_managed_cluster", azurecontainerservice.ContainerserviceManagedClustersColumns(), azurecontainerservice.ContainerserviceManagedClustersGenerate))
 	// Azure DNS
-	server.RegisterPlugin(table.NewPlugin("azure_dns_record_set", azuredns.DnsRecordSetColunmns(), azuredns.DnsRecordSetGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_dns_record_set", azuredns.DnsRecordSetColumns(), azuredns.DnsRecordSetGenerate))
 	server.RegisterPlugin(table.NewPlugin("azure_dns_zone", azuredns.DnsZoneColumns(), azuredns.DnsZoneGenerate)) // Azure Redis
 	server.RegisterPlugin(table.NewPlugin("azure_redis_cache", azureredis.RedisCacheColumns(), azureredis.RedisCacheGenerate))
 	// Azure Graphrbac
-	server.RegisterPlugin(table.NewPlugin("azure_graphrbac_service_principal", azuregraphrbac.GraphrbacServicePrincipalColunmns(), azuregraphrbac.GraphrbacServicePrincipalGenerate))
+	server.RegisterPlugin(table.NewPlugin("azure_graphrbac_service_principal", azuregraphrbac.GraphrbacServicePrincipalColumns(), azuregraphrbac.GraphrbacServicePrincipalGenerate))
 	// Event tables
 	registerEventTables(server)
 }
